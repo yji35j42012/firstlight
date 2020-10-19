@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .wrap {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* share use start */
+        .info_box {
+            width: 100%;
+            padding-top: 10px;
+        }
+
+        .orange_gradient_bg {
+            background: linear-gradient(90deg, #EF7E00 14.58%, #FFC07A 100%);
+        }
+
+        .brown_gradient_bg {
+            background: linear-gradient(90deg, #7D4A17 14.58%, #C68236 100%);
+        }
+
+        .green_gradient_bg {
+            background: linear-gradient(90deg, #1E8E57 40.1%, #A7D395 100%);
+        }
+
+        /* share use end*/
+        .header {
+            display: flex;
+            width: 100%;
+            height: 90px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            width: 185px;
+            height: 70px;
+            background: #000;
+        }
+
+        .menu ul {
+            display: flex;
+        }
+
+        .banner {
+            width: 100%;
+            height: 500px;
+            background: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        .title {
+            width: 100%;
+            height: 110px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .flyer_txt {
+            width: 100%;
+            height: 25px;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .flyer_box {
+            max-width: 510px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .flyer_group {
+            width: 100%;
+            display: flex;
+            margin-bottom: 10px;
+            transition-duration: .3s;
+        }
+
+        .flyer_group img {
+            vertical-align: middle;
+        }
+
+        .flyer_menu {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            height: 138px;
+            background: #FFB057;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 65px;
+        }
+
+        .flyer_menu_box {
+            width: 100%;
+            overflow: hidden;
+        }
+        .flyer_menu_box li{
+            position: relative;
+        }
+        .flyer_menu_box li span{
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,.7);
+            pointer-events: none;
+        }
+      
+        .flyer_menu_box li:first-child span{
+            background: rgba(0,0,0,0);
+        }
+        .flyer_menu ul {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            transition-duration: .3s;
+        }
+
+        .flyer_menu li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flyer_menu li {
+            position: relative;
+            flex: none;
+            width: 90px;
+            height: 90px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .flyer_menu li:first-child {
+            margin: 10px;
+        }
+
+        .flyer_menu button {
+            position: absolute;
+        }
+
+        .flyer_prev {
+            left: 20px;
+        }
+
+        .flyer_next {
+            right: 20px;
+        }
+        .flyer_pic{
+            position: relative;
+        }
+        .footer {
+            width: 100%;
+            background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
+            padding: 40px 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="app">
+        <!-- <div class="header">
+            <div class="logo"></div>
+            <div class="menu">
+                <ul>
+                    <li>最新課程</li>
+                    <li>曙光金榜</li>
+                    <li>分校介紹</li>
+                    <li>影音專區</li>
+                    <li>最新消息</li>
+                    <li>關於曙光</li>
+                    <li>教育單位連結</li>
+                    <li>聯絡我們</li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner">
+            暫時區塊
+        </div> -->
+
+        <div class="new_class">
+            <div class="title orange_gradient_bg">
+                最新課程
+            </div>
+            <div class="info_box">
+                <div class="flyer_box">
+                    <div class="flyer_group">
+                        <div class="flyer_item" v-for="item in flyer_data.flyer_menu">
+                            <div class="flyer_txt">{{item.flyer_name}}</div>
+                            <div class="flyer_pic">
+                                <img :src="item.flyer_src" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flyer_menu">
+                    <button class="flyer_prev">左</button>
+                    <div class="flyer_menu_box">
+                        <ul :style="flyer_data.flyer_menu_move">
+                            <li v-for="(item , index) in flyer_data.flyer_menu">
+                                <img :src="item.flyer_src" alt="" @click="changeHandler(index)">
+                                <span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="flyer_next" @click="flyer_next">右</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="Leaderboard">
+            <div class="title brown_gradient_bg">
+                曙光金榜
+            </div>
+        </div>
+        <div class="school">
+            <div class="title orange_gradient_bg">
+                分校介紹
+            </div>
+        </div>
+        <div class="video">
+            <div class="title green_gradient_bg">
+                影音專區
+            </div>
+        </div>
+        <div class="about">
+            <div class="title orange_gradient_bg">
+                關於曙光
+            </div>
+        </div>
+        <div class="edt_link">
+            <div class="title green_gradient_bg">
+                教育單位連結
+            </div>
+        </div>
+        <div class="footer">
+            Footer
+        </div> -->
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+    <script>
+        let data = {
+            flyer_data: {
+                flyer_menu: [
+                    {
+                        flyer_id: 1,
+                        flyer_name: "居仁國小",
+                        flyer_src: "https://picsum.photos/510/700?random=1",
+                        
+                    },
+                    {
+                        flyer_id: 1,
+                        flyer_name: "",
+                        flyer_src: "https://picsum.photos/510/700?random=2",
+                        
+                    },
+                    {
+                        flyer_id: 1,
+                        flyer_name: "",
+                        flyer_src: "https://picsum.photos/510/700?random=3",
+                        
+                    },
+                    {
+                        flyer_id: 1,
+                        flyer_name: "",
+                        flyer_src: "https://picsum.photos/510/700?random=4",
+                        
+                    },
+                    {
+                        flyer_id: 1,
+                        flyer_name: "",
+                        flyer_src: "https://picsum.photos/510/700?random=5",
+                        
+                    },
+                    
+                ],
+                flyer_now_pic: 0,
+                flyer_menu_move: "",
+                flex_moveX: 0 ,
+            }
+        }
+        let vm = new Vue({
+            el: "#app",
+            data: data,
+            mounted() {
+                moveX = (this.flyer_data.flyer_menu.length - 1) * 55
+                this.flyer_data.flex_moveX = moveX
+                this.flyer_data.flyer_menu_move = "transform: translateX("+ moveX +"px);"
+            },
+            methods: {
+            flyer_next() {
+                // let new_move ;
+                // new_move = this.flyer_data.flyer_now_pic * 110 * -1 + 60 ;
+                
+            },
+            changeHandler(index) {
+                this.flyer_data.flyer_now_pic = index
+                let new_move ;
+                new_move = this.flyer_data.flyer_now_pic * 110 * -1 + this.flyer_data.flex_moveX ;
+                this.flyer_data.flyer_menu_move = "transform: translateX(" + new_move + "px)";
+                
+            }
+        }
+        })
+    </script>
+</body>
+
+</html>
