@@ -15,7 +15,7 @@
         /* share use start */
         .info_box {
             width: 100%;
-            padding-top: 10px;
+            padding-top: 40px;
         }
 
         .orange_gradient_bg {
@@ -39,6 +39,7 @@
             align-items: center;
             padding: 0 50px;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
         }
 
         .logo {
@@ -46,11 +47,47 @@
             height: 70px;
             background: #000;
         }
-
+        .menu{
+            height: 100%;
+            line-height: 90px;
+        }
         .menu ul {
             display: flex;
+            font-size: 20px;
         }
-
+        .menu li{
+            position: relative;
+            color: #2C2C2C;
+            transition-duration: .3s;
+            font-weight: 700;
+        }
+        .menu li+li{
+            margin-left: 60px;
+        }
+        .menu li::before,
+        .menu li::after{
+            content:'';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: #EF7E00;
+            top: 80%;
+            transition-duration: .3s;
+        }
+        .menu li::before{          
+            left: 50%;
+        }
+        .menu li::after{
+            right: 50%;
+        }
+        .menu li:hover{
+            color: #EF7E00;
+            cursor: pointer;
+        }
+        .menu li:hover::before,
+        .menu li:hover::after{
+            width: 0;
+        }
         .banner {
             width: 100%;
             height: 500px;
@@ -70,6 +107,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            text-shadow: 0 0 2px #000;
         }
 
 
@@ -78,7 +116,8 @@
             height: 25px;
             font-size: 24px;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 500px;
         }
 
         .flyer_box {
@@ -90,8 +129,14 @@
         .flyer_group {
             width: 100%;
             display: flex;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             transition-duration: .3s;
+        }
+        .flyer_item{
+            display: none;
+        }
+        .flyer_item.on{
+            display: block;
         }
 
         .flyer_group img {
@@ -109,6 +154,8 @@
             justify-content: center;
             align-items: center;
             padding: 0 65px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         .flyer_menu_box {
@@ -117,6 +164,7 @@
         }
         .flyer_menu_box li{
             position: relative;
+            cursor: pointer;
         }
         .flyer_menu_box li span{
             position: absolute;
@@ -129,7 +177,14 @@
             pointer-events: none;
         }
       
-        .flyer_menu_box li:first-child span{
+        .flyer_menu li img {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .flyer_menu_box span.on{
             background: rgba(0,0,0,0);
         }
         .flyer_menu ul {
@@ -140,10 +195,6 @@
             transition-duration: .3s;
         }
 
-        .flyer_menu li img {
-            width: 100%;
-            height: 100%;
-        }
 
         .flyer_menu li {
             position: relative;
@@ -154,21 +205,24 @@
             overflow: hidden;
             border-radius: 10px;
         }
-
-        .flyer_menu li:first-child {
-            margin: 10px;
-        }
-
         .flyer_menu button {
+            width: 15px;
+            height: 40px;
             position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            cursor: pointer;
         }
 
         .flyer_prev {
             left: 20px;
+            background: url('./images/icon_prev.svg')no-repeat center/cover;
         }
 
         .flyer_next {
             right: 20px;
+            background: url('./images/icon_next.svg')no-repeat center/cover;
         }
         .flyer_pic{
             position: relative;
@@ -183,7 +237,7 @@
 
 <body>
     <div class="wrap" id="app">
-        <!-- <div class="header">
+        <div class="header">
             <div class="logo"></div>
             <div class="menu">
                 <ul>
@@ -200,7 +254,7 @@
         </div>
         <div class="banner">
             暫時區塊
-        </div> -->
+        </div>
 
         <div class="new_class">
             <div class="title orange_gradient_bg">
@@ -209,7 +263,7 @@
             <div class="info_box">
                 <div class="flyer_box">
                     <div class="flyer_group">
-                        <div class="flyer_item" v-for="item in flyer_data.flyer_menu">
+                        <div class="flyer_item" :class="{on : item.isActive}" v-for="item in flyer_data.flyer_menu">
                             <div class="flyer_txt">{{item.flyer_name}}</div>
                             <div class="flyer_pic">
                                 <img :src="item.flyer_src" alt="">
@@ -218,21 +272,21 @@
                     </div>
                 </div>
                 <div class="flyer_menu">
-                    <button class="flyer_prev">左</button>
+                    <button class="flyer_prev"  @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
                     <div class="flyer_menu_box">
                         <ul :style="flyer_data.flyer_menu_move">
                             <li v-for="(item , index) in flyer_data.flyer_menu">
-                                <img :src="item.flyer_src" alt="" @click="changeHandler(index)">
-                                <span></span>
+                                <img :src="item.flyer_src" alt="" @click="imgHandler(index)">
+                                <span :class="{on : item.isActive}"></span>
                             </li>
                         </ul>
                     </div>
-                    <button class="flyer_next" @click="flyer_next">右</button>
+                    <button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 9"></button>
                 </div>
             </div>
 
         </div>
-        <!-- <div class="Leaderboard">
+        <div class="Leaderboard">
             <div class="title brown_gradient_bg">
                 曙光金榜
             </div>
@@ -259,7 +313,7 @@
         </div>
         <div class="footer">
             Footer
-        </div> -->
+        </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
     <script>
@@ -269,35 +323,90 @@
                     {
                         flyer_id: 1,
                         flyer_name: "居仁國小",
-                        flyer_src: "https://picsum.photos/510/700?random=1",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:true,
+                        
+                    },
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
                         
                     },
                     {
                         flyer_id: 1,
-                        flyer_name: "",
-                        flyer_src: "https://picsum.photos/510/700?random=2",
+                        flyer_name: "居仁國小",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:false,
+                        
+                    },
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
                         
                     },
                     {
                         flyer_id: 1,
-                        flyer_name: "",
-                        flyer_src: "https://picsum.photos/510/700?random=3",
+                        flyer_name: "居仁國小",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:false,
+                        
+                    },
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
                         
                     },
                     {
                         flyer_id: 1,
-                        flyer_name: "",
-                        flyer_src: "https://picsum.photos/510/700?random=4",
+                        flyer_name: "居仁國小",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:false,
+                        
+                    },
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
                         
                     },
                     {
                         flyer_id: 1,
-                        flyer_name: "",
-                        flyer_src: "https://picsum.photos/510/700?random=5",
+                        flyer_name: "居仁國小",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:false,
                         
                     },
-                    
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
+                        
+                    },
+                    {
+                        flyer_id: 1,
+                        flyer_name: "居仁國小",
+                        flyer_src: "./images/flyer/01.jpg",
+                        isActive:false,
+                        
+                    },
+                    {
+                        flyer_id: 2,
+                        flyer_name: "居仁國中",
+                        flyer_src: "./images/flyer/02.jpg",
+                        isActive:false,
+                        
+                    },
                 ],
+                flyer_menu_start:0,
+                flyer_menu_end:0,
                 flyer_now_pic: 0,
                 flyer_menu_move: "",
                 flex_moveX: 0 ,
@@ -307,23 +416,33 @@
             el: "#app",
             data: data,
             mounted() {
-                moveX = (this.flyer_data.flyer_menu.length - 1) * 55
-                this.flyer_data.flex_moveX = moveX
-                this.flyer_data.flyer_menu_move = "transform: translateX("+ moveX +"px);"
+                if(this.flyer_data.flyer_menu.length > 9){
+                    this.flyer_data.flex_moveX = 55 * (this.flyer_data.flyer_menu.length - 9)
+                    this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
+                    this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
+                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+                }
             },
             methods: {
             flyer_next() {
-                // let new_move ;
-                // new_move = this.flyer_data.flyer_now_pic * 110 * -1 + 60 ;
+                if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
+                this.flyer_data.flex_moveX -= 110
+                this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
                 
             },
-            changeHandler(index) {
-                this.flyer_data.flyer_now_pic = index
-                let new_move ;
-                new_move = this.flyer_data.flyer_now_pic * 110 * -1 + this.flyer_data.flex_moveX ;
-                this.flyer_data.flyer_menu_move = "transform: translateX(" + new_move + "px)";
+            flyer_prev() {
+                if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
+                this.flyer_data.flex_moveX += 110
+                this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
                 
+            },
+            imgHandler(index){
+                if(this.flyer_data.flyer_now_pic == index) return
+                this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
+                this.flyer_data.flyer_now_pic = index
+                this.flyer_data.flyer_menu[index].isActive = true
             }
+           
         }
         })
     </script>
