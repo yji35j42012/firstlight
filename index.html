@@ -6,233 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <style>
-        .wrap {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* share use start */
-        .info_box {
-            width: 100%;
-            padding-top: 40px;
-        }
-
-        .orange_gradient_bg {
-            background: linear-gradient(90deg, #EF7E00 14.58%, #FFC07A 100%);
-        }
-
-        .brown_gradient_bg {
-            background: linear-gradient(90deg, #7D4A17 14.58%, #C68236 100%);
-        }
-
-        .green_gradient_bg {
-            background: linear-gradient(90deg, #1E8E57 40.1%, #A7D395 100%);
-        }
-
-        /* share use end*/
-        .header {
-            display: flex;
-            width: 100%;
-            height: 90px;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-        }
-
-        .logo {
-            width: 185px;
-            height: 70px;
-            background: #000;
-        }
-        .menu{
-            height: 100%;
-            line-height: 90px;
-        }
-        .menu ul {
-            display: flex;
-            font-size: 20px;
-        }
-        .menu li{
-            position: relative;
-            color: #2C2C2C;
-            transition-duration: .3s;
-            font-weight: 700;
-        }
-        .menu li+li{
-            margin-left: 60px;
-        }
-        .menu li::before,
-        .menu li::after{
-            content:'';
-            position: absolute;
-            width: 50%;
-            height: 2px;
-            background: #EF7E00;
-            top: 80%;
-            transition-duration: .3s;
-        }
-        .menu li::before{          
-            left: 50%;
-        }
-        .menu li::after{
-            right: 50%;
-        }
-        .menu li:hover{
-            color: #EF7E00;
-            cursor: pointer;
-        }
-        .menu li:hover::before,
-        .menu li:hover::after{
-            width: 0;
-        }
-        .banner {
-            width: 100%;
-            height: 500px;
-            background: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 50px;
-        }
-
-        .title {
-            width: 100%;
-            height: 110px;
-            color: #fff;
-            font-size: 48px;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 0 0 2px #000;
-        }
-
-
-        .flyer_txt {
-            width: 100%;
-            height: 25px;
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 500px;
-        }
-
-        .flyer_box {
-            max-width: 510px;
-            overflow: hidden;
-            margin: auto;
-        }
-
-        .flyer_group {
-            width: 100%;
-            display: flex;
-            margin-bottom: 40px;
-            transition-duration: .3s;
-        }
-        .flyer_item{
-            display: none;
-        }
-        .flyer_item.on{
-            display: block;
-        }
-
-        .flyer_group img {
-            vertical-align: middle;
-        }
-
-        .flyer_menu {
-            position: relative;
-            width: 100%;
-            max-width: 1100px;
-            height: 138px;
-            background: #FFB057;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 65px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .flyer_menu_box {
-            width: 100%;
-            overflow: hidden;
-        }
-        .flyer_menu_box li{
-            position: relative;
-            cursor: pointer;
-        }
-        .flyer_menu_box li span{
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(0,0,0,.7);
-            pointer-events: none;
-        }
-      
-        .flyer_menu li img {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-        }
-        .flyer_menu_box span.on{
-            background: rgba(0,0,0,0);
-        }
-        .flyer_menu ul {
-            position: relative;
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            transition-duration: .3s;
-        }
-
-
-        .flyer_menu li {
-            position: relative;
-            flex: none;
-            width: 90px;
-            height: 90px;
-            margin: 10px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .flyer_menu button {
-            width: 15px;
-            height: 40px;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            cursor: pointer;
-        }
-
-        .flyer_prev {
-            left: 20px;
-            background: url('./images/icon_prev.svg')no-repeat center/cover;
-        }
-
-        .flyer_next {
-            right: 20px;
-            background: url('./images/icon_next.svg')no-repeat center/cover;
-        }
-        .flyer_pic{
-            position: relative;
-        }
-        .footer {
-            width: 100%;
-            background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
-            padding: 40px 80px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
@@ -255,7 +29,28 @@
         <div class="banner">
             暫時區塊
         </div>
-
+        <div class="date_block">
+            <ul>
+                <li>
+                    創立<span class="date_num">00</span>年
+                </li>
+                <li>
+                    分校<span class="date_num">00</span>所
+                </li>
+                <li>
+                    第一志願<span class="date_num">0000</span>人
+                </li>
+                <li>
+                    國中教育會考<span class="date_num">0000</span>天
+                </li>
+                <li>
+                    高中學測<span class="date_num">000</span>天
+                </li>
+                <li>
+                    高中指考<span class="date_num">000</span>天
+                </li>
+            </ul>
+        </div>
         <div class="new_class">
             <div class="title orange_gradient_bg">
                 最新課程
@@ -286,10 +81,38 @@
             </div>
 
         </div>
-        <div class="Leaderboard">
+        <div class="leaderboard">
             <div class="title brown_gradient_bg">
                 曙光金榜
             </div>
+            <div class="info_box">
+                <div class="leaderboard_box">
+                    <ul>
+                        <li>
+                            <img src="./images/leaderboard/1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/2.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/3.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/4.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/5.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/5.jpg" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="leaderboard_menu">
+
+                </div>
+            </div>
+
         </div>
         <div class="school">
             <div class="title orange_gradient_bg">
@@ -300,6 +123,12 @@
             <div class="title green_gradient_bg">
                 影音專區
             </div>
+        </div>
+        <div class="news">
+            <div class="title brown_gradient_bg">
+                最新消息
+            </div>
+
         </div>
         <div class="about">
             <div class="title orange_gradient_bg">
