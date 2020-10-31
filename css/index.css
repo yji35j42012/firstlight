@@ -19,6 +19,10 @@ img{
     padding-top: 80px;
     padding-bottom: 40px;
 }
+.school .info_box{
+    padding-left: 130px;
+    padding-right: 130px;
+}
 .school .info_box,
 .about .info_box{
     padding-bottom: 70px;
@@ -278,13 +282,18 @@ img{
 .leaderboard_box .dots .on{
     background: #FFB057;
 }
-
+.school{background: #eee;}
+.school_name{
+    margin-bottom: 40px;
+}
 .school_name ul{
     display: flex;
 }
 .school_name li{
     position: relative;
     padding: 2px 80px 2px 40px ;
+    font-size: 20px;
+    font-weight: 700;
 }
 .school_name li::after{
     content:'\25BA';
@@ -301,9 +310,57 @@ img{
 .school_name li+li{
     border-left: 2px solid #C4C4C4;;
 }
-
-
-
+.school_int{
+    position: relative;
+}
+.school_pic{
+    position: relative;
+    padding-bottom: calc(75% * 0.56);
+}
+.school_pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.school_txt{
+    position: absolute;
+    max-width: 535px;
+    right: 5%;
+    bottom: -5%;
+}
+.school_txt .title{
+    color:#fff;
+    height: 148px;
+    background: rgba(239, 126, 0, .7);
+    display: block;
+    padding: 0 40px;
+}
+.school_txt h1{
+    display: block;
+    width: 100%;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 85px;
+}
+.school_txt h2{
+    display: block;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 65px;
+    text-align: right;
+}
+.school_info{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 16px 38px 38px;
+}
+.school_info li+li{
+    margin-top: 25px;
+}
+.school_info li:last-child{
+    text-align: right;
+}
 .footer {
     width: 100%;
     background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
