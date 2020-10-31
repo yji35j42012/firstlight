@@ -15,17 +15,24 @@ img{
     padding-top: 40px;
 }
 
-.orange_gradient_bg {
-    background: linear-gradient(90deg, #EF7E00 14.58%, #FFC07A 100%);
+.news .info_box{
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+.school .info_box,
+.about .info_box{
+    padding-bottom: 70px;
+}
+.edt_link .info_box{
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
-.brown_gradient_bg {
-    background: linear-gradient(90deg, #7D4A17 14.58%, #C68236 100%);
-}
+.orange_gradient_bg {background: linear-gradient(90deg, #EF7E00 14.58%, #FFC07A 100%);}
 
-.green_gradient_bg {
-    background: linear-gradient(90deg, #1E8E57 40.1%, #A7D395 100%);
-}
+.brown_gradient_bg { background: linear-gradient(90deg, #7D4A17 14.58%, #C68236 100%);}
+
+.green_gradient_bg { background: linear-gradient(90deg, #1E8E57 40.1%, #A7D395 100%);}
 
 /* share use end*/
 .header {
@@ -235,20 +242,19 @@ img{
     position: relative;
 }
 
-
-.leaderboard,
-.news{
-    padding: 80px 0 40px;
-}
-.leaderboard_box ul{
-    display: flex;
+.leaderboard_box{
     width: 100%;
     max-width: 1430px;
-    margin: auto;
     overflow: hidden;
+    margin: auto;
+}
+.leaderboard_box .pic{
+    display: flex;
+    width: 100%;
+    padding: 40px 0; 
 }
 
-.leaderboard_box li{
+.leaderboard_box .pic li{
     flex: 0 0 auto;
     width: 226px;
     margin: 0 30px;
@@ -256,15 +262,45 @@ img{
 .leaderboard_box li img{
     width: 100%;
 }
+.leaderboard_box .dots{
+    display: flex;
+    width: 100%;
+    padding-bottom: 40px;
+    justify-content: center;
+}
+.leaderboard_box .dots li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #FFB057;
+    margin: 0 5px;
+}
+.leaderboard_box .dots .on{
+    background: #FFB057;
+}
 
-
-
-
-
-
-
-
-
+.school_name ul{
+    display: flex;
+}
+.school_name li{
+    position: relative;
+    padding: 2px 80px 2px 40px ;
+}
+.school_name li::after{
+    content:'\25BA';
+    position: absolute;
+    left: 80%;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    color: #FFB057;
+}
+.school_name li+li{
+    border-left: 2px solid #C4C4C4;;
+}
 
 
 

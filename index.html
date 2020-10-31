@@ -87,7 +87,7 @@
             </div>
             <div class="info_box">
                 <div class="leaderboard_box">
-                    <ul>
+                    <ul class="pic">
                         <li>
                             <img src="./images/leaderboard/1.jpg" alt="">
                         </li>
@@ -104,44 +104,69 @@
                             <img src="./images/leaderboard/5.jpg" alt="">
                         </li>
                         <li>
-                            <img src="./images/leaderboard/5.jpg" alt="">
+                            <img src="./images/leaderboard/6.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/leaderboard/7.jpg" alt="">
                         </li>
                     </ul>
-                </div>
-                <div class="leaderboard_menu">
-
+                    <ul class="dots">
+                        <li class="on"></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
-
         </div>
         <div class="school">
             <div class="title orange_gradient_bg">
                 分校介紹
+            </div>
+            <div class="info_box">
+                <div class="school_name">
+                    <ul>
+                        <li>曙光・居仁校</li>
+                        <li>曙光・潭雅校</li>
+                        <li>曙光・潭雅校</li>
+                        <li>曙光・福科校</li>
+                        <li>曙光・明道校</li>
+                    </ul>
+                </div>
+                <div class="school_int">
+                    <div class="school_pic">
+                        
+                    </div>
+                    <div class="school_txt">
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="video">
             <div class="title green_gradient_bg">
                 影音專區
             </div>
+            <div class="info_box"></div>
         </div>
         <div class="news">
             <div class="title brown_gradient_bg">
                 最新消息
             </div>
-
+            <div class="info_box"></div>
         </div>
         <div class="about">
             <div class="title orange_gradient_bg">
                 關於曙光
             </div>
+            <div class="info_box"></div>
         </div>
         <div class="edt_link">
             <div class="title green_gradient_bg">
                 教育單位連結
             </div>
+            <div class="info_box"></div>
         </div>
         <div class="footer">
-            Footer
+            <div class="info_box">footer</div>
         </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
@@ -253,26 +278,25 @@
                 }
             },
             methods: {
-            flyer_next() {
-                if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
-                this.flyer_data.flex_moveX -= 110
-                this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
-                
-            },
-            flyer_prev() {
-                if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
-                this.flyer_data.flex_moveX += 110
-                this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
-                
-            },
-            imgHandler(index){
-                if(this.flyer_data.flyer_now_pic == index) return
-                this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
-                this.flyer_data.flyer_now_pic = index
-                this.flyer_data.flyer_menu[index].isActive = true
+                flyer_next() {
+                    if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
+                    this.flyer_data.flex_moveX -= 110
+                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+                    
+                },
+                flyer_prev() {
+                    if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
+                    this.flyer_data.flex_moveX += 110
+                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+                    
+                },
+                imgHandler(index){
+                    if(this.flyer_data.flyer_now_pic == index) return
+                    this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
+                    this.flyer_data.flyer_now_pic = index
+                    this.flyer_data.flyer_menu[index].isActive = true
+                }
             }
-           
-        }
         })
     </script>
 </body>
