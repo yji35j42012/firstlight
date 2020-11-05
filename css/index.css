@@ -97,15 +97,63 @@ img{
     width: 0;
 }
 .banner {
+    position: relative;
     width: 100%;
-    height: 500px;
-    background: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
+    padding-bottom: calc(80% * 0.56);
+    background: url('../images/banner_bg.jpg')no-repeat center/cover;
 }
+.banner_info{
+    position: absolute;
+    top: 90px;
+    left: 170px;
+}
+.banner_info img{
+    width: 40%;
+    vertical-align: middle;
+}
+.banner_info .txt{
+    margin-top: 50px;
+}
+.banner_info .txt .p1,
+.banner_info .txt .s1{
+    font-size: 56px;
+    font-weight: 700;
+}
+.banner_info .txt .s2{
+    font-size: 112px;
+    font-weight: 700;
+    color: #EF7E00;
+}
+.banner_info .txt .p2{
+    font-size: 36px;
+    color: #867976;
+    letter-spacing: 0.16em;
+    margin-top: 10px;
+}
+.banner_scoll{
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    margin: 0 auto;
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+}
+.banner_scoll::before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 35px;
+    height: 21px;
+    background: url('../images/icon_down_w.svg')no-repeat center/contain;
+    top: calc(100% + 15px);
+    left: 0;
+    right: 0;
+    margin: 0 auto ;
 
+}
 .date_block ul{
     display: flex;
     justify-content: space-between;
@@ -223,7 +271,8 @@ img{
     overflow: hidden;
     border-radius: 10px;
 }
-.flyer_menu button {
+.flyer_menu button,
+.video_menu button {
     width: 15px;
     height: 40px;
     position: absolute;
@@ -235,12 +284,12 @@ img{
 
 .flyer_prev {
     left: 20px;
-    background: url('./images/icon_prev.svg')no-repeat center/cover;
+    background: url('../images/icon_prev.svg')no-repeat center/cover;
 }
 
 .flyer_next {
     right: 20px;
-    background: url('./images/icon_next.svg')no-repeat center/cover;
+    background: url('../images/icon_next.svg')no-repeat center/cover;
 }
 .flyer_pic{
     position: relative;
@@ -361,6 +410,39 @@ img{
 .school_info li:last-child{
     text-align: right;
 }
+
+.video_box{
+    width: 100%;
+    max-width: 990px;
+    margin: 0 auto 40px;
+}
+.video_play{
+    width: 100%;
+    height: 557px;
+    background: #eee;
+}
+
+.video_title{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.video_menu{
+    position: relative;
+    width: 100%;
+    max-width: 1110px;
+    height: 138px;
+    background: #1E8E57;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 65px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
 .footer {
     width: 100%;
     background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
