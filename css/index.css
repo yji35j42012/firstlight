@@ -10,6 +10,7 @@ img{
 }
 
 /* share use start */
+.word_orange{ color: #EF7E00;}
 .info_box {
     width: 100%;
     padding-top: 40px;
@@ -224,15 +225,18 @@ img{
     border-top-right-radius: 10px;
 }
 
-.flyer_menu_box {
+.flyer_menu_box,
+.video_menu_box {
     width: 100%;
     overflow: hidden;
 }
-.flyer_menu_box li{
+.flyer_menu_box li,
+.video_menu_box li{
     position: relative;
     cursor: pointer;
 }
-.flyer_menu_box li span{
+.flyer_menu_box li span,
+.video_menu_box li span{
     position: absolute;
     display: block;
     width: 100%;
@@ -250,10 +254,12 @@ img{
     bottom: 0;
     margin: auto;
 }
-.flyer_menu_box span.on{
+.flyer_menu_box span.on,
+.video_menu_box span.on{
     background: rgba(0,0,0,0);
 }
-.flyer_menu ul {
+.flyer_menu ul,
+.video_menu_box ul {
     position: relative;
     display: flex;
     width: 100%;
@@ -300,6 +306,7 @@ img{
     max-width: 1430px;
     overflow: hidden;
     margin: auto;
+    padding-bottom: 40px;
 }
 .leaderboard_box .pic{
     display: flex;
@@ -315,13 +322,12 @@ img{
 .leaderboard_box li img{
     width: 100%;
 }
-.leaderboard_box .dots{
+.dots{
     display: flex;
     width: 100%;
-    padding-bottom: 40px;
     justify-content: center;
 }
-.leaderboard_box .dots li{
+.dots li{
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -441,7 +447,46 @@ img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+.video_menu_box li+li{
+    margin-left: 15px;
+}
 
+.news_box{
+    width: 100%;
+    max-width: 976px;
+    margin: 0 auto 40px;
+
+}
+.news_box li+li{
+    margin-top: 20px;
+}
+.news_date{
+    color: #EF7E00;
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 20px;
+}
+.news_info{
+    border-bottom:1px solid #000;
+}
+
+.about_txt{
+    width: 100%;
+    max-width: 795px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.6);
+}
+.about_txt li{
+    line-height: 40px;
+}
+.about_blod{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.text_indent{
+    text-indent: 45px;
+}
 
 .footer {
     width: 100%;
