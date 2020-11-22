@@ -2,416 +2,509 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <div class="wrap" id="app">
-        <div class="header">
-            <div class="logo"></div>
-            <div class="menu">
-                <ul>
-                    <li>最新課程</li>
-                    <li>曙光金榜</li>
-                    <li>分校介紹</li>
-                    <li>影音專區</li>
-                    <li>最新消息</li>
-                    <li>關於曙光</li>
-                    <li>教育單位連結</li>
-                    <li>聯絡我們</li>
-                </ul>
-            </div>
-        </div>
-        <div class="banner">
-            <div class="banner_info">
-                <div class="pic">
-                    <img src="./images/banner_pic.png" alt="">
-                </div>
-               
-                <div class="txt">
-                    <p class="p1">讓自己的<span class="s1">未來</span> 充滿無限<span class="s2">曙光</span></p>
-                    <p class="p2">有好的學習態度 才是面對人生致勝的關鍵</p>
-                </div>
-            </div>
-            <div class="banner_scoll">
-                SCOLL
-            </div>
-        </div>
-        <div class="date_block">
-            <ul>
-                <li>
-                    創立<span class="date_num">00</span>年
-                </li>
-                <li>
-                    分校<span class="date_num">00</span>所
-                </li>
-                <li>
-                    第一志願<span class="date_num">0000</span>人
-                </li>
-                <li>
-                    國中教育會考<span class="date_num">0000</span>天
-                </li>
-                <li>
-                    高中學測<span class="date_num">000</span>天
-                </li>
-                <li>
-                    高中指考<span class="date_num">000</span>天
-                </li>
-            </ul>
-        </div>
-        <div class="new_class">
-            <div class="title orange_gradient_bg">
-                最新課程
-            </div>
-            <div class="info_box">
-                <div class="flyer_box">
-                    <div class="flyer_group">
-                        <div class="flyer_item" :class="{on : item.isActive}" v-for="item in flyer_data.flyer_menu">
-                            <div class="flyer_txt">{{item.flyer_name}}</div>
-                            <div class="flyer_pic">
-                                <img :src="item.flyer_src" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flyer_menu">
-                    <button class="flyer_prev"  @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
-                    <div class="flyer_menu_box">
-                        <ul :style="flyer_data.flyer_menu_move">
-                            <li v-for="(item , index) in flyer_data.flyer_menu">
-                                <img :src="item.flyer_src" alt="" @click="imgHandler(index)">
-                                <span :class="{on : item.isActive}"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 9"></button>
-                </div>
-            </div>
+	<div class="wrap" id="app">
+		<div class="header">
+			<div class="logo"></div>
+			<div class="menu">
+				<ul>
+					<li>最新課程</li>
+					<li>曙光金榜</li>
+					<li>分校介紹</li>
+					<li>影音專區</li>
+					<li>最新消息</li>
+					<li>關於曙光</li>
+					<li>教育單位連結</li>
+					<li>聯絡我們</li>
+				</ul>
+			</div>
+		</div>
+		<div class="banner">
+			<div class="banner_info">
+				<div class="pic">
+					<img src="./images/banner_pic.png" alt="">
+				</div>
 
-        </div>
-        <div class="leaderboard">
-            <div class="title brown_gradient_bg">
-                曙光金榜
-            </div>
-            <div class="info_box">
-                <div class="leaderboard_box">
-                    <ul class="pic">
-                        <li>
-                            <img src="./images/leaderboard/1.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/2.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/3.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/4.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/5.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/6.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="./images/leaderboard/7.jpg" alt="">
-                        </li>
-                    </ul>
-                    <ul class="dots">
-                        <li class="on"></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="school">
-            <div class="title orange_gradient_bg">
-                分校介紹
-            </div>
-            <div class="info_box">
-                <div class="school_name">
-                    <ul>
-                        <li>曙光・居仁校</li>
-                        <li>曙光・潭雅校</li>
-                        <li>曙光・潭雅校</li>
-                        <li>曙光・福科校</li>
-                        <li>曙光・明道校</li>
-                    </ul>
-                </div>
-                <div class="school_int">
-                    <div class="school_pic">
-                        <img src="./images/school/school1.jpg" alt="">
-                    </div>
-                    <div class="school_txt">
-                        <div class="title">
-                            <h1>曙光・居仁校</h1>
-                            <h2>國小部</h2>
-                        </div>
-                        <div class="school_info">
-                            <ul>
-                                <li>電話：04 2229 7799</li>
-                                <li>地址：403台中市西區三民路一段168-172</li>
-                                <li>前往粉專</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+				<div class="txt">
+					<p class="p1">讓自己的<span class="s1">未來</span> 充滿無限<span class="s2">曙光</span></p>
+					<p class="p2">有好的學習態度 才是面對人生致勝的關鍵</p>
+				</div>
+			</div>
+			<div class="banner_scoll">
+				SCOLL
+			</div>
+		</div>
+		<div class="date_block">
+			<ul>
+				<li>
+					創立<span class="date_num">00</span>年
+				</li>
+				<li>
+					分校<span class="date_num">00</span>所
+				</li>
+				<li>
+					第一志願<span class="date_num">0000</span>人
+				</li>
+				<li>
+					國中教育會考<span class="date_num">0000</span>天
+				</li>
+				<li>
+					高中學測<span class="date_num">000</span>天
+				</li>
+				<li>
+					高中指考<span class="date_num">000</span>天
+				</li>
+			</ul>
+		</div>
+		<div class="new_class">
+			<div class="title orange_gradient_bg">
+				最新課程
+			</div>
+			<div class="info_box">
+				<div class="flyer_box">
+					<div class="flyer_group">
+						<div class="flyer_item" :class="{on : item.isActive}" v-for="item in flyer_data.flyer_menu">
+							<div class="flyer_txt">{{item.flyer_name}}</div>
+							<div class="flyer_pic">
+								<img :src="item.flyer_src" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flyer_menu">
+					<button class="flyer_prev"  @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
+					<div class="flyer_menu_box">
+						<ul :style="flyer_data.flyer_menu_move">
+							<li v-for="(item , index) in flyer_data.flyer_menu">
+								<img :src="item.flyer_src" alt="" @click="imgHandler(index)">
+								<span :class="{on : item.isActive}"></span>
+							</li>
+						</ul>
+					</div>
+					<button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 9"></button>
+				</div>
+			</div>
 
-        <div class="video">
-            <div class="title green_gradient_bg">
-                影音專區
-            </div>
-            <div class="info_box">
-                <div class="video_box">
-                    <div class="video_title">
-                        影片名稱影片名稱影片名稱影片名稱影片名稱
-                    </div>
-                    <div class="video_play">
-                        放視訊
-                    </div>
-                </div>
-                <div class="video_menu">
-                    <button class="flyer_prev"></button>
-                    <div class="video_menu_box">
-                        <ul>
-                            <li>
-                                <img src="./images/video/video1.png" alt="">
-                                <span ></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video2.png" alt="">
-                                <span></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video1.png" alt="">
-                                <span></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video2.png" alt="">
-                                <span class="on"></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video1.png" alt="">
-                                <span></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video2.png" alt="">
-                                <span></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video1.png" alt="">
-                                <span></span>
-                            </li>
-                            <li>
-                                <img src="./images/video/video2.png" alt="">
-                                <span></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="flyer_next"></button>
-                </div>
-            </div>
-        </div>
+		</div>
+		<div class="leaderboard">
+			<div class="title brown_gradient_bg">
+				曙光金榜
+			</div>
+			<div class="info_box">
+				<div class="leaderboard_box">
+					<ul class="pic">
+						<li>
+							<img src="./images/leaderboard/1.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/2.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/3.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/4.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/5.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/6.jpg" alt="">
+						</li>
+						<li>
+							<img src="./images/leaderboard/7.jpg" alt="">
+						</li>
+					</ul>
+					<ul class="dots">
+						<li class="on"></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="school">
+			<div class="title orange_gradient_bg">
+				分校介紹
+			</div>
+			<div class="info_box">
+				<div class="school_name">
+					<ul>
+						<li>曙光・居仁校</li>
+						<li>曙光・潭雅校</li>
+						<li>曙光・潭雅校</li>
+						<li>曙光・福科校</li>
+						<li>曙光・明道校</li>
+					</ul>
+				</div>
+				<div class="school_int">
+					<div class="school_pic">
+						<img src="./images/school/school1.jpg" alt="">
+					</div>
+					<div class="school_txt">
+						<div class="title">
+							<h1>曙光・居仁校</h1>
+							<h2>國小部</h2>
+						</div>
+						<div class="school_info">
+							<ul>
+								<li>電話：04 2229 7799</li>
+								<li>地址：403台中市西區三民路一段168-172</li>
+								<li>前往粉專</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div class="news">
-            <div class="title brown_gradient_bg">
-                最新消息
-            </div>
-            <div class="info_box">
-                <ul class="news_box">
-                    <li>
-                        <span class="news_date">
-                            2020年08月08日
-                        </span>
-                        <span class="news_info">
-                            父親節快樂！
-                        </span>
-                    </li>
-                    <li>
-                        <span class="news_date">
-                            2020年08月08日
-                        </span>
-                        <span class="news_info">
-                            父親節快樂！
-                        </span>
-                    </li>
-                </ul>
-                <ul class="dots">
-                    <li class="on"></li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-        <div class="about">
-            <div class="title orange_gradient_bg">
-                關於曙光
-            </div>
-            <div class="info_box">
-                <ul class="about_txt">
-                    <li class="about_blod">
-                        學習是一輩子的課題，曙光相信－<span class="word_orange about_blod">有好的學習態度，才是面對人生致勝的關鍵。</span>
-                    </li>
-                    <li class="text_indent">
-                        『曙光』意即破曉時的陽光，常用來比喻已經在望的光明前景。
-                        自 1980 年曙光創辦以來，我們始終以教育為天職；秉承因材施教的理念，以用心、愛心及耐心的態度，教育每一位曙光學子，希望如同曙光般，引領他們走向光明璀璨的未來。
-                    </li>
-                    <li class="text_indent">真正的教育是一種突破自我的體現。</li>
-                    <li class="text_indent">我們常思考－－要如何才能激發孩子們對於學習的興趣？</li>
-                    <li class="text_indent">
-                        於是，曙光在多年教學經驗的累積下，成功研發幾套教學模式，例如：動機教學法、診斷式教學法、互動式資優數學等，並結合電子白板與數位教材，讓教學內容更加豐富多元，希望能藉此幫助更多的學生，把學習培養成習慣，自主管理並規劃讀書計畫，把學習真正融入生活中。
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="edt_link">
-            <div class="title green_gradient_bg">
-                教育單位連結
-            </div>
-            <div class="info_box">
-               
-            </div>
-        </div>
-        <div class="footer">
-            <div class="info_box">footer</div>
-        </div>
-    </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
-    <script>
-        let data = {
-            flyer_data: {
-                flyer_menu: [
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:true,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 1,
-                        flyer_name: "居仁國小",
-                        flyer_src: "./images/flyer/01.jpg",
-                        isActive:false,
-                        
-                    },
-                    {
-                        flyer_id: 2,
-                        flyer_name: "居仁國中",
-                        flyer_src: "./images/flyer/02.jpg",
-                        isActive:false,
-                        
-                    },
-                ],
-                flyer_menu_start:0,
-                flyer_menu_end:0,
-                flyer_now_pic: 0,
-                flyer_menu_move: "",
-                flex_moveX: 0 ,
-            }
-        }
-        let vm = new Vue({
-            el: "#app",
-            data: data,
-            mounted() {
-                if(this.flyer_data.flyer_menu.length > 9){
-                    this.flyer_data.flex_moveX = 55 * (this.flyer_data.flyer_menu.length - 9)
-                    this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
-                    this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
-                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
-                }
-            },
-            methods: {
-                flyer_next() {
-                    if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
-                    this.flyer_data.flex_moveX -= 110
-                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
-                    
-                },
-                flyer_prev() {
-                    if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
-                    this.flyer_data.flex_moveX += 110
-                    this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
-                    
-                },
-                imgHandler(index){
-                    if(this.flyer_data.flyer_now_pic == index) return
-                    this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
-                    this.flyer_data.flyer_now_pic = index
-                    this.flyer_data.flyer_menu[index].isActive = true
-                }
-            }
-        })
-    </script>
+		<div class="video">
+			<div class="title green_gradient_bg">
+				影音專區
+			</div>
+			<div class="info_box">
+				<div class="video_box">
+					<div class="video_title">
+						影片名稱影片名稱影片名稱影片名稱影片名稱
+					</div>
+					<div class="video_play">
+						放視訊
+					</div>
+				</div>
+				<div class="video_menu">
+					<button class="flyer_prev"></button>
+					<div class="video_menu_box">
+						<ul>
+							<li>
+								<img src="./images/video/video1.png" alt="">
+								<span ></span>
+							</li>
+							<li>
+								<img src="./images/video/video2.png" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/video/video1.png" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/video/video2.png" alt="">
+								<span class="on"></span>
+							</li>
+							<li>
+								<img src="./images/video/video1.png" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/video/video2.png" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/video/video1.png" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/video/video2.png" alt="">
+								<span></span>
+							</li>
+						</ul>
+					</div>
+					<button class="flyer_next"></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="news">
+			<div class="title brown_gradient_bg">
+				最新消息
+			</div>
+			<div class="info_box">
+				<ul class="news_box">
+					<li>
+						<span class="news_date">
+							2020年08月08日
+						</span>
+						<span class="news_info">
+							父親節快樂！
+						</span>
+					</li>
+					<li>
+						<span class="news_date">
+							2020年08月08日
+						</span>
+						<span class="news_info">
+							父親節快樂！
+						</span>
+					</li>
+				</ul>
+				<ul class="dots">
+					<li class="on"></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<div class="about">
+			<div class="title orange_gradient_bg">
+				關於曙光
+			</div>
+			<div class="info_box">
+				<ul class="about_txt">
+					<li class="about_blod">
+						學習是一輩子的課題，曙光相信－<span class="word_orange about_blod">有好的學習態度，才是面對人生致勝的關鍵。</span>
+					</li>
+					<li class="text_indent">
+						『曙光』意即破曉時的陽光，常用來比喻已經在望的光明前景。
+						自 1980 年曙光創辦以來，我們始終以教育為天職；秉承因材施教的理念，以用心、愛心及耐心的態度，教育每一位曙光學子，希望如同曙光般，引領他們走向光明璀璨的未來。
+					</li>
+					<li class="text_indent">真正的教育是一種突破自我的體現。</li>
+					<li class="text_indent">我們常思考－－要如何才能激發孩子們對於學習的興趣？</li>
+					<li class="text_indent">
+						於是，曙光在多年教學經驗的累積下，成功研發幾套教學模式，例如：動機教學法、診斷式教學法、互動式資優數學等，並結合電子白板與數位教材，讓教學內容更加豐富多元，希望能藉此幫助更多的學生，把學習培養成習慣，自主管理並規劃讀書計畫，把學習真正融入生活中。
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="edu_link">
+			<div class="title green_gradient_bg">
+				教育單位連結
+			</div>
+			<div class="info_box">
+				<ul class="edu_group">
+					<li>
+						<img src="./images/edu/edu_1.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_2.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_3.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_4.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_5.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_6.png" alt="">
+					</li>
+					<li>
+						<img src="./images/edu/edu_7.png" alt="">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="info_box">
+				<div class="schoo_group">
+					<ul>
+						<li>
+							<span class="name">曙光‧居仁校國中部</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市西區繼光街18號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧居仁校國小部</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市西區三民路一段172-2號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧居仁校升大學中心</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市西區民權路60號2樓</span>
+						</li>
+						<li>
+							<span class="name">曙光‧新超群I館</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市潭子區勝利路380號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧新超群II館</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市潭子區復興路二段55號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧大雅校</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市大雅區學府路217號</span>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<span class="name">曙光‧惠文校國中部</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市南屯區公益路二段433號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧惠文校國小部</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市南屯區公益路二段495號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧惠文校升大學中心/英檢中心</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市南屯區河南路四段372號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧惠文校升大學中心II館</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市南屯區公益路二段302號4樓</span>
+						</li>
+						<li>
+							<span class="name">曙光‧千樹成林</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市西屯區福科路696號</span>
+						</li>
+						<li>
+							<span class="name">曙光‧明道校</span>
+							<span class="phone">04-22250999</span>
+							<span class="address">台中市烏日區信義街152號</span>
+						</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					Copyright© 2020 by 曙光教育事業機構
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+	<script>
+		let data = {
+			flyer_data: {
+				flyer_menu: [
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:true,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 1,
+						flyer_name: "居仁國小",
+						flyer_src: "./images/flyer/01.jpg",
+						isActive:false,
+
+					},
+					{
+						flyer_id: 2,
+						flyer_name: "居仁國中",
+						flyer_src: "./images/flyer/02.jpg",
+						isActive:false,
+
+					},
+				],
+				flyer_menu_start:0,
+				flyer_menu_end:0,
+				flyer_now_pic: 0,
+				flyer_menu_move: "",
+				flex_moveX: 0 ,
+			}
+		}
+		let vm = new Vue({
+			el: "#app",
+			data: data,
+			mounted() {
+				if(this.flyer_data.flyer_menu.length > 9){
+					this.flyer_data.flex_moveX = 55 * (this.flyer_data.flyer_menu.length - 9)
+					this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
+					this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
+					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+				}
+			},
+			methods: {
+				flyer_next() {
+					if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
+					this.flyer_data.flex_moveX -= 110
+					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+
+				},
+				flyer_prev() {
+					if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
+					this.flyer_data.flex_moveX += 110
+					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+
+				},
+				imgHandler(index){
+					if(this.flyer_data.flyer_now_pic == index) return
+					this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
+					this.flyer_data.flyer_now_pic = index
+					this.flyer_data.flyer_menu[index].isActive = true
+				}
+			}
+		})
+	</script>
 </body>
 
 </html>

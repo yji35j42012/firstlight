@@ -28,7 +28,7 @@ img{
 .about .info_box{
     padding-bottom: 70px;
 }
-.edt_link .info_box{
+.edu_link .info_box{
     padding-top: 70px;
     padding-bottom: 70px;
 }
@@ -487,9 +487,73 @@ img{
 .text_indent{
     text-indent: 45px;
 }
+.edu_link{
+    background: #E7E7E7;
+}
+.edu_group{
+    width: 100%;
+    max-width: 1110px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.edu_group li{
+    width: calc(100% / 3 - 30px);
+    height: 85px;
+    margin-bottom: 30px;
+    background: #fff;
+    text-align: center;
+    line-height: 85px;
+    border-radius: 10px;
+}
+.edu_group img{
 
+    vertical-align: middle;
+}
 .footer {
     width: 100%;
     background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
     padding: 40px 80px;
+    color: #fff;
+    font-size: 16px;
+}
+.footer .info_box{
+    padding-top: 0;
+}
+.schoo_group{
+    display: flex;
+    justify-content: space-around;
+}
+.schoo_group ul{
+    width: 45%;
+
+}
+.schoo_group li{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.schoo_group li+li{
+    margin-top: 15px;
+}
+
+.schoo_group .name{
+    display: block;
+    width: 40%;
+    text-align: left;
+}
+.schoo_group .phone{
+    display: block;
+    width: 20%;
+}
+.schoo_group .address{
+    display: block;
+    width: 40%;
+}
+.copyright{
+    margin-top: 35px;
+    text-align: center;
 }
