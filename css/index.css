@@ -177,7 +177,11 @@ img{
     text-shadow: 0 0 2px #000;
 }
 
-
+.flyer{
+    width: 100%;
+    background: url('../images/flyer/bg_flyer.png')no-repeat right bottom/contain,
+    linear-gradient(90deg, #FFF3E6 -2.34%, #FFFFFF 50.96%, #FFFFFF 98.93%);
+}
 .flyer_txt {
     width: 100%;
     height: 25px;
@@ -300,6 +304,11 @@ img{
 .flyer_pic{
     position: relative;
 }
+.leaderboard{
+    width: 100%;
+    background: url('../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
+    url('../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
+}
 
 .leaderboard_box{
     width: 100%;
@@ -337,7 +346,15 @@ img{
 .leaderboard_box .dots .on{
     background: #FFB057;
 }
-.school{background: #eee;}
+
+.school{
+    width: 100%;
+    
+}
+.school{
+
+    background: url('../images/school/bg_school.png')no-repeat right bottom/contain;
+}
 .school_name{
     margin-bottom: 40px;
 }
@@ -416,7 +433,10 @@ img{
 .school_info li:last-child{
     text-align: right;
 }
-
+.video{
+    width: 100%;
+    background: url('../images/video/bg_video.png')no-repeat center/cover;
+}
 .video_box{
     width: 100%;
     max-width: 990px;
@@ -450,6 +470,10 @@ img{
 .video_menu_box li+li{
     margin-left: 15px;
 }
+.news{
+    background: url('../images/bg_news_l.png')no-repeat left top/contain,
+    url('../images/bg_news_r.png')no-repeat right bottom/contain;
+}
 
 .news_box{
     width: 100%;
@@ -469,12 +493,24 @@ img{
 .news_info{
     border-bottom:1px solid #000;
 }
-
+.about{
+    background: url('../images/bg_about.png')no-repeat center/cover;
+}
 .about_txt{
+    position: relative;
     width: 100%;
     max-width: 795px;
     margin: auto;
     background: rgba(255, 255, 255, 0.6);
+}
+.about_txt::after{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/about_people.png')no-repeat center/contain;
+    left: 80%;
+    bottom: 0;
 }
 .about_txt li{
     line-height: 40px;
