@@ -557,34 +557,34 @@ img{
 .footer .info_box{
 	padding-top: 0;
 }
-.schoo_group{
+.school_group{
 	display: flex;
 	justify-content: space-around;
 }
-.schoo_group ul{
+.school_group ul{
 	width: 45%;
 
 }
-.schoo_group li{
+.school_group li{
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.schoo_group li+li{
+.school_group li+li{
 	margin-top: 15px;
 }
 
-.schoo_group .name{
+.school_group .name{
 	display: block;
 	width: 40%;
 	text-align: left;
 }
-.schoo_group .phone{
+.school_group .phone{
 	display: block;
 	width: 20%;
 }
-.schoo_group .address{
+.school_group .address{
 	display: block;
 	width: 40%;
 }

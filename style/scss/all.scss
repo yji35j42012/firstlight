@@ -1,4 +1,5 @@
-@import "share";
+@import "varibles";
+@import "mixin";
 .wrap {
 	width: 100%;
 	height: 100%;
@@ -33,12 +34,10 @@
 .title {
 	width: 100%;
 	height: 110px;
-	color: #fff;
+	color: $whtie;
 	font-size: 48px;
 	font-weight: bold;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include flex_c_c;
 	text-shadow: 0 0 2px #000;
 }
 .header {
@@ -73,7 +72,7 @@
 			position: absolute;
 			width: 50%;
 			height: 2px;
-			background: #EF7E00;
+			background: $orange;
 			top: 80%;
 			transition-duration: .3s;
 		}
@@ -84,7 +83,7 @@
 			right: 50%;
 		}
 		li:hover{
-			color: #EF7E00;
+			color: $orange;
 			cursor: pointer;
 		}
 		li:hover::before,
@@ -107,7 +106,6 @@
 		left: 170px;
 		img{
 			width: 40%;
-			vertical-align: middle;
 		}
 	}
 	.banner_txt{
@@ -115,12 +113,12 @@
 		.p1,
 		.s1{
 			font-size: 56px;
-			font-weight: 700;
+			font-weight:700;
 		}
 		.s2{
 			font-size: 112px;
 			font-weight: 700;
-			color: #EF7E00;
+			color: $orange;
 		}
 		.p2{
 			font-size: 36px;
@@ -160,7 +158,7 @@
 		padding: 0 50px;
 	}
 	.date_num{
-		color: #EF7E00;
+		color: $orange;
 		font-size: 64px;
 		padding: 15px;
 	}
@@ -180,9 +178,6 @@
 		display: flex;
 		margin-bottom: 40px;
 		transition-duration: .3s;
-		img {
-			vertical-align: middle;
-		}
 	}
 	.flyer_item{
 		display: none;
@@ -205,9 +200,7 @@
 		height: 138px;
 		background: #FFB057;
 		margin: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex_c_c;
 		padding: 0 65px;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
@@ -269,5 +262,274 @@
 			bottom: 0;
 			margin: auto;
 		}
+	}
+}
+
+.leaderboard{
+	width: 100%;
+	background: url('../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
+				url('../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
+	.leaderboard_box{
+		width: 100%;
+		max-width: 1430px;
+		overflow: hidden;
+		margin: auto;
+		padding-bottom: 40px;
+		.pic{
+			display: flex;
+			width: 100%;
+			padding: 40px 0;
+		}
+		li{
+			flex: 0 0 auto;
+			width: 226px;
+			margin: 0 30px;
+		}
+	}
+	
+	.dots{
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		li{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 2px solid #FFB057;
+			margin: 0 5px;
+		}
+		.on{
+			background: #FFB057;
+		}
+	}
+}
+.school{
+	width: 100%;
+	background: url('../images/school/bg_school.png')no-repeat right bottom/contain;
+	.school_name{
+		margin-bottom: 40px;
+		ul{
+			display: flex;
+		}
+		li{
+			position: relative;
+			padding: 2px 80px 2px 40px ;
+			font-size: 20px;
+			font-weight: 700;
+			&::after{
+				content:'\25BA';
+				position: absolute;
+				left: 80%;
+				width: 18px;
+				height: 18px;
+				font-size: 16px;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				color: #FFB057;
+			}
+		}
+		li+li{
+			border-left: 2px solid #C4C4C4;;
+		}
+	}
+	.school_int{
+		position: relative;
+	}
+	.school_pic{
+		position: relative;
+		padding-bottom: calc(75% * 0.56);
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: auto;
+			height: 100%;
+		}
+	}
+	.school_txt{
+		position: absolute;
+		max-width: 535px;
+		right: 5%;
+		bottom: -5%;
+		.title{
+			color:#fff;
+			height: 148px;
+			background: rgba(239, 126, 0, .7);
+			display: block;
+			padding: 0 40px;
+		}
+		h1{
+			display: block;
+			width: 100%;
+			font-size: 48px;
+			font-weight: 700;
+			line-height: 85px;
+		}
+		h2{
+			display: block;
+			width: 100%;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 65px;
+			text-align: right;
+		}
+	}
+	.school_info{
+		background: rgba(255, 255, 255, 0.9);
+		padding: 16px 38px 38px;
+		li+li{
+			margin-top: 25px;
+		}
+		li:last-child{
+			text-align: right;
+		}
+	}
+}
+.video{
+	width: 100%;
+	background: url('../images/video/bg_video.png')no-repeat center/cover;
+
+	.video_box{
+		width: 100%;
+		max-width: 990px;
+		margin: 0 auto 40px;
+	}
+	.video_play{
+		width: 100%;
+		height: 557px;
+		background: #eee;
+	}
+	.video_title{
+		text-align: center;
+		margin-bottom: 25px;
+	}
+	.video_menu{
+		position: relative;
+		width: 100%;
+		max-width: 1110px;
+		height: 138px;
+		background: #1E8E57;
+		margin: auto;
+		@include flex_c_c;
+		padding: 0 65px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.video_menu_box li+li{
+		margin-left: 15px;
+	}
+}
+.news{
+	background: url('../images/bg_news_l.png')no-repeat left top/contain,
+	url('../images/bg_news_r.png')no-repeat right bottom/contain;
+	.news_box{
+		width: 100%;
+		max-width: 976px;
+		margin: 0 auto 40px;
+		li+li{
+			margin-top: 20px;
+		}
+	}
+	.news_date{
+		color: $orange;
+		font-weight: bold;
+		font-size: 24px;
+		margin-right: 20px;
+	}
+	.news_info{
+		border-bottom:1px solid #000;
+	}
+}
+.about{
+	background: url('../images/bg_about.png')no-repeat center/cover;
+	.about_txt{
+		position: relative;
+		width: 100%;
+		max-width: 795px;
+		margin: auto;
+		background: rgba(255, 255, 255, 0.6);
+		&::after{
+			content:'';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: url('../images/about_people.png')no-repeat center/contain;
+			left: 80%;
+			bottom: 0;
+		}
+		li{
+			line-height: 40px;
+		}
+	}
+	.about_blod{
+		font-size: 28px;
+		font-weight: 700;
+	}
+	.text_indent{
+		text-indent: 45px;
+	}
+}
+.edu_link{
+	background: #E7E7E7;
+	.edu_group{
+		width: 100%;
+		max-width: 1110px;
+		margin: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		li{
+			width: calc(100% / 3 - 30px);
+			height: 85px;
+			margin-bottom: 30px;
+			background: #fff;
+			text-align: center;
+			line-height: 85px;
+			border-radius: 10px;
+		}
+	}
+}
+.footer {
+	width: 100%;
+	background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
+	padding: 40px 80px;
+	color: #fff;
+	font-size: 16px;
+	.info_box{
+		padding-top: 0;
+	}
+	.school_group{
+		display: flex;
+		justify-content: space-around;
+		ul{
+			width: 45%;
+		}
+		li{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		li+li{
+			margin-top: 15px;
+		}
+		.name{
+			display: block;
+			width: 40%;
+			text-align: left;
+		}
+		.phone{
+			display: block;
+			width: 20%;
+		}
+		.address{
+			display: block;
+			width: 40%;
+		}
+	}
+	.copyright{
+		margin-top: 35px;
+		text-align: center;
 	}
 }
