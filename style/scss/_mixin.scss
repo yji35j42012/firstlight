@@ -3,3 +3,24 @@
     justify-content: center;
     align-items: center;
 }
+@mixin w1440px {
+    @media screen and (max-width: 1440px){
+        @content;
+    }
+}
+
+@mixin w1280px {
+    @media screen and (max-width: 1280px){
+        @content;
+    }
+}
+@mixin w1024px {
+    @media screen and (max-width: 1024px){
+        @content;
+    }
+}
+@mixin w768px {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}

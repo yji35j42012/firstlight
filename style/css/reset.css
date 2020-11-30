@@ -115,7 +115,10 @@ tt {
 	font-family: 'Helvetica', sans-serif;
 }
 
-
+img{
+	width: 100%;
+	vertical-align: middle;
+}
 
 
 @media only screen and (min-device-width: 1025px) {

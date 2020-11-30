@@ -3,12 +3,18 @@
 .wrap {
 	width: 100%;
 	height: 100%;
-	font-size: 24px;
+	font-size: 20px;
+	padding-top: 90px;
+	
+	@include w768px{
+		padding-top: 55px;
+	}
 }
 .info_box {
 	width: 100%;
 	padding-top: 40px;
 }
+
 .news .info_box{
 	padding-top: 80px;
 	padding-bottom: 40px;
@@ -16,9 +22,19 @@
 .school .info_box{
 	padding-left: 130px;
 	padding-right: 130px;
+	@include w1440px{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
 }
-.school .info_box,
 .about .info_box{
+	padding-left: 130px;
+	padding-bottom: 70px;
+	@include w1440px{
+		padding-left: 35px;
+	}
+}
+.school .info_box{
 	padding-bottom: 70px;
 }
 .edu_link .info_box{
@@ -39,19 +55,66 @@
 	font-weight: bold;
 	@include flex_c_c;
 	text-shadow: 0 0 2px #000;
+	/*@include w1280px{
+		font-size: 36px;
+		height: 80px;
+	}*/
 }
 .header {
+	position: fixed;
 	display: flex;
+	top: 0;
+	z-index: 1;
+	left: 0;
 	width: 100%;
 	height: 90px;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 50px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #fff;
 	.logo {
 		width: 185px;
 		height: 70px;
 		background: #000;
+	}
+	.menu_btn{
+		display: none;
+		position: relative;
+		width: 50px;
+		height: 50px;
+	}
+	.menu_btn::before{
+		content:'';
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 4px;
+		background: #000;
+		box-shadow: 0 25px 0 #000;
+		border-radius: 50px;
+		transition-duration: .3s;
+	}
+	.active.menu_btn::before{
+		box-shadow: none;
+		transform: rotate(45deg);
+		bottom: 0;
+		margin: auto;
+	}
+	.menu_btn::after{
+		content:'';
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 4px;
+		background: #000;
+		border-radius: 50px;
+		transition-duration: .3s;
+	}
+	.active.menu_btn::after{
+		transform: rotate(-45deg);
+		top: 0;
+		margin: auto;
 	}
 	.menu{
 		height: 100%;
@@ -94,12 +157,78 @@
 			margin-left: 60px;
 		}
 	}
+	@include w1440px{
+		padding: 0 25px;
+		.menu{
+			li{
+				font-size: 16px;
+			}
+			li+li{
+				margin-left: 30px;
+			}
+		}
+	}
+	@include w1024px{
+		.menu{
+			width: 100%;
+			// height: calc(100% - 90px);
+			height: 100vh;
+			max-width: 375px;
+			position: absolute;
+			background: #EF7E00;
+			z-index: 2;
+			right: -100%;
+			top: 90px;
+			transition-duration: .3s;
+		}
+		.active + .menu{
+			right: 0;
+		}
+		.menu ul{
+			flex-wrap: wrap;
+		}
+		.menu li{
+			width: 100%;
+			color: #fff;
+			text-align: center;
+		}
+		.menu li:hover{
+			color: #fff;
+		}
+		.menu li+li{
+			margin-left: 0;
+		}
+		.menu_btn{
+			display: block;
+		}
+	}
+	@include w768px{
+		height: 55px;
+		.logo{
+			width: 85px;
+			height: 30px;
+		}
+		.menu_btn{
+			width: 25px;
+			height: 25px;
+		}
+		.menu_btn:before{
+			height: 2px;
+			box-shadow: 0 12px 0 #000;
+		}
+		.menu_btn:after{
+			height: 2px;
+		}
+		.menu{
+			top: 55px;
+		}
+	}
 }
 .banner {
 	position: relative;
 	width: 100%;
 	padding-bottom: calc(80% * 0.56);
-	background: url('../images/banner_bg.jpg')no-repeat center/cover;
+	background: url('../../images/banner_bg.jpg')no-repeat center/cover;
 	.banner_info{
 		position: absolute;
 		top: 90px;
@@ -143,11 +272,63 @@
 			position: absolute;
 			width: 35px;
 			height: 21px;
-			background: url('../images/icon_down_w.svg')no-repeat center/contain;
+			background: url('../../images/icon_down_w.svg')no-repeat center/contain;
 			top: calc(100% + 15px);
 			left: 0;
 			right: 0;
 			margin: 0 auto ;
+		}
+	}
+	@include w1440px{
+		.banner_info{
+			img{
+				width: 30%;
+			}
+		}
+		.banner_txt{
+			.p1,
+			.s1{
+				font-size: 32px;
+			}
+			.s2{
+				font-size: 78px;
+			}
+			.p2{
+				font-size: 28px;
+			}
+		}
+	}
+	@include w1280px{
+		.banner_info{
+			top: 60px;
+			left: 90px;
+		}
+		.banner_txt{
+			margin-top: 25px;
+		}
+	}
+	@include w1280px{
+		.banner_info{
+			top: 30px;
+			left: 60px;
+		}
+		.banner_txt{
+			.p1,
+			.s1{
+				font-size: 24px;
+			}
+			.s2{
+				font-size: 48px;
+			}
+			.p2{
+				font-size: 24px;
+			}
+		}
+		.banner_scoll{
+			font-size: 28px;
+			&::before{
+				top: 100%;
+			}
 		}
 	}
 }
@@ -157,16 +338,49 @@
 		justify-content: space-between;
 		padding: 0 50px;
 	}
+	li{
+		font-size: 20px;
+	}
 	.date_num{
 		color: $orange;
-		font-size: 64px;
-		padding: 15px;
+		font-size: 50px;
+		padding: 10px;
+		display: inline-flex;
+		align-items: center;
+		&::after{
+			content:attr(data-text);
+			font-size: 20px;
+			color: #000;
+		}
+	}
+
+	@include w1440px{
+		ul{
+			padding: 0 35px;
+		}
+	}
+	@include w1280px{
+		li{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.date_num{
+			width: 100%;
+			justify-content: center;
+			padding: 0;
+		}
+	}
+	@include w1024px{
+		ul{
+			padding: 0 15px;
+		}
 	}
 }
 
 .flyer{
 	width: 100%;
-	background: url('../images/flyer/bg_flyer.png')no-repeat right bottom/contain,
+	background: url('../../images/flyer/bg_flyer.png')no-repeat right bottom/contain,
 	linear-gradient(90deg, #FFF3E6 -2.34%, #FFFFFF 50.96%, #FFFFFF 98.93%);
 	.flyer_box {
 		max-width: 510px;
@@ -213,6 +427,14 @@
 			overflow: hidden;
 			border-radius: 10px;
 		}
+		// @include w1280px{
+		// 	max-width: 768px;
+		// 	height: 98px;
+		// 	li{
+		// 		width: 60px;
+		// 		height: 60px;
+		// 	}
+		// }
 		button {
 			width: 15px;
 			height: 40px;
@@ -224,12 +446,12 @@
 		}
 		.flyer_prev {
 			left: 20px;
-			background: url('../images/icon_prev.svg')no-repeat center/cover;
+			background: url('../../images/icon_prev.svg')no-repeat center/cover;
 		}
 		
 		.flyer_next {
 			right: 20px;
-			background: url('../images/icon_next.svg')no-repeat center/cover;
+			background: url('../../images/icon_next.svg')no-repeat center/cover;
 		}
 		.flyer_pic{
 			position: relative;
@@ -238,6 +460,13 @@
 	.flyer_menu_box {
 		width: 100%;
 		overflow: hidden;
+		ul{
+			position: relative;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			transition-duration: .3s;
+		}
 		li{
 			position: relative;
 			cursor: pointer;
@@ -267,8 +496,8 @@
 
 .leaderboard{
 	width: 100%;
-	background: url('../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
-				url('../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
+	background: url('../../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
+				url('../../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
 	.leaderboard_box{
 		width: 100%;
 		max-width: 1430px;
@@ -282,7 +511,7 @@
 		}
 		li{
 			flex: 0 0 auto;
-			width: 226px;
+			width: calc(100% / 5 - 60px);
 			margin: 0 30px;
 		}
 	}
@@ -305,7 +534,7 @@
 }
 .school{
 	width: 100%;
-	background: url('../images/school/bg_school.png')no-repeat right bottom/contain;
+	background: url('../../images/school/bg_school.png')no-repeat right bottom/contain;
 	.school_name{
 		margin-bottom: 40px;
 		ul{
@@ -313,7 +542,7 @@
 		}
 		li{
 			position: relative;
-			padding: 2px 80px 2px 40px ;
+			padding: 2px 75px 2px 35px ;
 			font-size: 20px;
 			font-weight: 700;
 			&::after{
@@ -327,6 +556,9 @@
 				bottom: 0;
 				margin: auto 0;
 				color: #FFB057;
+			}
+			@include w1024px{
+				padding: 2px 40px 2px 20px;
 			}
 		}
 		li+li{
@@ -354,24 +586,25 @@
 		bottom: -5%;
 		.title{
 			color:#fff;
-			height: 148px;
+			// height: 148px;
+			height: auto;
 			background: rgba(239, 126, 0, .7);
 			display: block;
-			padding: 0 40px;
+			padding: 20px 40px;
 		}
 		h1{
 			display: block;
 			width: 100%;
 			font-size: 48px;
 			font-weight: 700;
-			line-height: 85px;
+			// line-height: 85px;
 		}
 		h2{
 			display: block;
 			width: 100%;
 			font-size: 36px;
 			font-weight: 700;
-			line-height: 65px;
+			// line-height: 65px;
 			text-align: right;
 		}
 	}
@@ -385,11 +618,25 @@
 			text-align: right;
 		}
 	}
+	
+	@include w1440px{
+		.school_txt {
+			h1{
+				font-size: 32px;
+			}
+			h2{
+				font-size: 24px;
+			}
+		}
+	}
 }
 .video{
 	width: 100%;
-	background: url('../images/video/bg_video.png')no-repeat center/cover;
-
+	.info_box{
+		background: url('../../images/video/bg_video.png')no-repeat center/cover;
+		background:  url('../../images/video/bg_video.png')no-repeat center/cover, 
+		linear-gradient(180deg, rgba(0, 0, 0, 0.307159) 0%, rgba(0, 0, 0, 0) 100%);
+	}
 	.video_box{
 		width: 100%;
 		max-width: 990px;
@@ -415,14 +662,22 @@
 		padding: 0 65px;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
+		ul{
+			position: relative;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			transition-duration: .3s;
+		}
 	}
 	.video_menu_box li+li{
 		margin-left: 15px;
 	}
 }
 .news{
-	background: url('../images/bg_news_l.png')no-repeat left top/contain,
-	url('../images/bg_news_r.png')no-repeat right bottom/contain;
+	background: 
+	url('../../images/bg_news_l.png')no-repeat left top/contain,
+	url('../../images/bg_news_r.png')no-repeat right bottom/contain;
 	.news_box{
 		width: 100%;
 		max-width: 976px;
@@ -442,22 +697,29 @@
 	}
 }
 .about{
-	background: url('../images/bg_about.png')no-repeat center/cover;
+	background: url('../../images/bg_about.png')no-repeat center/cover,
+	linear-gradient(180deg, rgba(0, 0, 0, 0.320899) 0%, rgba(0, 0, 0, 0.244022) 100%);
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	.info_box{
+		width: 55%;
+	}
+	.pic{
+		position: relative;
+		width: 45%;
+		max-width: 560px;
+		img{
+			position: absolute;
+			bottom: 0;
+		}
+	}
 	.about_txt{
 		position: relative;
 		width: 100%;
-		max-width: 795px;
-		margin: auto;
+		padding: 32px 38px;
 		background: rgba(255, 255, 255, 0.6);
-		&::after{
-			content:'';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: url('../images/about_people.png')no-repeat center/contain;
-			left: 80%;
-			bottom: 0;
-		}
+
 		li{
 			line-height: 40px;
 		}
@@ -468,6 +730,23 @@
 	}
 	.text_indent{
 		text-indent: 45px;
+	}
+	
+	@include w1024px{
+		justify-content: center;
+		.info_box{
+			width: 100%;
+			padding-bottom: 30px;
+		}
+		.pic{
+			width: 50%;
+			img{
+				position: relative;
+			}
+		}
+		.about_txt{
+			background: transparent;
+		}
 	}
 }
 .edu_link{
@@ -531,5 +810,9 @@
 	.copyright{
 		margin-top: 35px;
 		text-align: center;
+	}
+	@include w1024px{
+		padding: 40px 25px;
+		font-size: 14px;
 	}
 }
