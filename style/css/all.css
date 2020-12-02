@@ -13,7 +13,8 @@
 
 .info_box {
   width: 100%;
-  padding-top: 40px;
+  height: 100%;
+  padding-top: 25px;
 }
 
 .news .info_box {
@@ -297,7 +298,7 @@
 .banner {
   position: relative;
   width: 100%;
-  padding-bottom: calc(80% * 0.56);
+  height: calc( 100vh - 90px);
   background: url("../../images/banner_bg.jpg") no-repeat center/cover;
 }
 
@@ -359,52 +360,19 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1440px) {
-  .banner .banner_info img {
-    width: 30%;
+@media screen and (max-width: 1024px) {
+  .banner .banner_info {
+    left: 50px;
   }
   .banner .banner_txt .p1,
   .banner .banner_txt .s1 {
+    font-size: 40px;
+  }
+  .banner .banner_txt .s2 {
+    font-size: 90px;
+  }
+  .banner .banner_txt .p2 {
     font-size: 32px;
-  }
-  .banner .banner_txt .s2 {
-    font-size: 78px;
-  }
-  .banner .banner_txt .p2 {
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .banner .banner_info {
-    top: 60px;
-    left: 90px;
-  }
-  .banner .banner_txt {
-    margin-top: 25px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .banner .banner_info {
-    top: 30px;
-    left: 60px;
-  }
-  .banner .banner_txt .p1,
-  .banner .banner_txt .s1 {
-    font-size: 24px;
-  }
-  .banner .banner_txt .s2 {
-    font-size: 48px;
-  }
-  .banner .banner_txt .p2 {
-    font-size: 24px;
-  }
-  .banner .banner_scoll {
-    font-size: 28px;
-  }
-  .banner .banner_scoll::before {
-    top: 100%;
   }
 }
 
@@ -474,12 +442,19 @@
 
 .flyer {
   width: 100%;
+  height: calc(100vh - 90px);
   background: url("../../images/flyer/bg_flyer.png") no-repeat right bottom/contain, -webkit-gradient(linear, left top, right top, color-stop(-2.34%, #FFF3E6), color-stop(50.96%, #FFFFFF), color-stop(98.93%, #FFFFFF));
   background: url("../../images/flyer/bg_flyer.png") no-repeat right bottom/contain, linear-gradient(90deg, #FFF3E6 -2.34%, #FFFFFF 50.96%, #FFFFFF 98.93%);
 }
 
+.flyer .flyer_pic {
+  width: 68%;
+  margin: auto;
+}
+
 .flyer .flyer_box {
   max-width: 510px;
+  height: calc(100% - 110px - 138px);
   overflow: hidden;
   margin: auto;
 }
@@ -562,10 +537,6 @@
 .flyer .flyer_menu .flyer_next {
   right: 20px;
   background: url("../../images/icon_next.svg") no-repeat center/cover;
-}
-
-.flyer .flyer_menu .flyer_pic {
-  position: relative;
 }
 
 .flyer .flyer_menu_box {
@@ -667,7 +638,7 @@
 
 .school {
   width: 100%;
-  background: url("../../images/school/bg_school.png") no-repeat right bottom/contain;
+  background: url("../../images/school/bg_school.jpg") no-repeat right bottom/contain;
 }
 
 .school .school_name {
@@ -678,6 +649,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .school .school_name li {
@@ -698,6 +671,13 @@
   bottom: 0;
   margin: auto 0;
   color: #FFB057;
+}
+
+@media screen and (max-width: 1280px) {
+  .school .school_name li {
+    width: calc(100% / 3 - 50px);
+    margin: 10px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -784,9 +764,7 @@
 }
 
 .video .info_box {
-  background: url("../../images/video/bg_video.png") no-repeat center/cover;
-  background: url("../../images/video/bg_video.png") no-repeat center/cover, -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.307159)), to(rgba(0, 0, 0, 0)));
-  background: url("../../images/video/bg_video.png") no-repeat center/cover, linear-gradient(180deg, rgba(0, 0, 0, 0.307159) 0%, rgba(0, 0, 0, 0) 100%);
+  background: url("../../images/video/bg_video.jpg") no-repeat center/cover;
 }
 
 .video .video_box {
@@ -844,8 +822,8 @@
   margin-left: 15px;
 }
 
-.news {
-  background: url("../../images/bg_news_l.png") no-repeat left top/contain, url("../../images/bg_news_r.png") no-repeat right bottom/contain;
+.news .info_box {
+  background: url("../../images/bg_news.png") no-repeat center center/cover;
 }
 
 .news .news_box {
