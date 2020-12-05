@@ -14,9 +14,9 @@
 	<div class="wrap" id="app">
 		<div class="header">
 			<div class="logo"></div>
-			<div class="menu_btn">
+			<div class="menu_btn":class="{active : menuActive}" @click="menuActive != menuActive">
 			</div>
-			<div class="menu">
+			<div class="menu ">
 				<ul>
 					<li>最新課程</li>
 					<li>曙光金榜</li>
@@ -242,7 +242,31 @@
 							2020年08月08日
 						</span>
 						<span class="news_info">
-							父親節快樂！
+							最新消息最新消息最新消息最新消息最新消息最新消息最新消息......
+						</span>
+					</li>
+					<li>
+						<span class="news_date">
+							2020年08月08日
+						</span>
+						<span class="news_info">
+							最新消息最新消息最新消息最新消息最新消息最新消息最新消息......
+						</span>
+					</li>
+					<li>
+						<span class="news_date">
+							2020年08月08日
+						</span>
+						<span class="news_info">
+							最新消息最新消息最新消息最新消息最新消息最新消息最新消息......
+						</span>
+					</li>
+					<li>
+						<span class="news_date">
+							2020年08月08日
+						</span>
+						<span class="news_info">
+							最新消息最新消息最新消息最新消息最新消息最新消息最新消息......
 						</span>
 					</li>
 				</ul>
@@ -479,7 +503,8 @@
 				flyer_now_pic: 0,
 				flyer_menu_move: "",
 				flex_moveX: 0 ,
-			}
+			},
+			menuActive: false,
 		}
 		let vm = new Vue({
 			el: "#app",
