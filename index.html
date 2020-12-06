@@ -14,7 +14,7 @@
 	<div class="wrap" id="app">
 		<div class="header">
 			<div class="logo"></div>
-			<div class="menu_btn":class="{active : menuActive}" @click="menuActive != menuActive">
+			<div class="menu_btn" :class="{active : menuActive}" @click="menuHandler">
 			</div>
 			<div class="menu ">
 				<ul>
@@ -43,28 +43,45 @@
 			<div class="banner_scoll">
 				SCOLL
 			</div>
-		</div>
-		<div class="date_block">
-			<ul>
-				<li>
-					創立<span class="date_num" data-text="年">00</span>
-				</li>
-				<li>
-					分校<span class="date_num" data-text="所">00</span>
-				</li>
-				<li>
-					第一志願<span class="date_num" data-text="人">0000</span>
-				</li>
-				<li>
-					國中教育會考<span class="date_num" data-text="天">0000</span>
-				</li>
-				<li>
-					高中學測<span class="date_num"  data-text="天">000</span>
-				</li>
-				<li>
-					高中指考<span class="date_num"  data-text="天">000</span>
-				</li>
-			</ul>
+
+			<div class="date_block">
+				<ul>
+					<li>
+						創立<span class="date_num" data-text="年">00</span>
+					</li>
+					<li>
+						分校<span class="date_num" data-text="所">00</span>
+					</li>
+					<li>
+						<span class="br">
+							<tt>第一</tt>
+							<tt>志願</tt>
+						</span>
+						<span class="date_num" data-text="人">0000</span>
+					</li>
+					<li class="icon_clock">
+						<span class="br">
+							<tt>國中</tt>
+							<tt>教育會考</tt>
+						</span>
+						<span class="date_num" data-text="天">0000</span>
+					</li>
+					<li class="icon_clock">
+						<span class="br">
+							<tt>高中</tt>
+							<tt>學測</tt>
+						</span>
+						<span class="date_num" data-text="天">000</span>
+					</li>
+					<li class="icon_clock">
+						<span class="br">
+							<tt>高中</tt>
+							<tt>指考</tt>
+						</span>
+						<span class="date_num" data-text="天">000</span>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="flyer">
 			<div class="title orange_gradient_bg">
@@ -82,7 +99,7 @@
 					</div>
 				</div>
 				<div class="flyer_menu">
-					<button class="flyer_prev"  @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
+					<button class="flyer_prev" @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
 					<div class="flyer_menu_box">
 						<ul :style="flyer_data.flyer_menu_move">
 							<li v-for="(item , index) in flyer_data.flyer_menu">
@@ -157,8 +174,8 @@
 						</div>
 						<div class="school_info">
 							<ul>
-								<li>電話：04 2229 7799</li>
-								<li>地址：403台中市西區三民路一段168-172</li>
+								<li class="school_phone" data-text="電話："><span>04 2229 7799</span></li>
+								<li class="school_add" data-text="地址："><span>403台中市西區三民路一段168-172</span></li>
 								<li>前往粉專</li>
 							</ul>
 						</div>
@@ -166,7 +183,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="video">
 			<div class="title green_gradient_bg">
 				影音專區
@@ -186,7 +202,7 @@
 						<ul>
 							<li>
 								<img src="./images/video/video1.png" alt="">
-								<span ></span>
+								<span></span>
 							</li>
 							<li>
 								<img src="./images/video/video2.png" alt="">
@@ -222,7 +238,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="news">
 			<div class="title brown_gradient_bg">
 				最新消息
@@ -296,12 +311,12 @@
 					</li>
 				</ul>
 			</div>
-		
+
 			<div class="pic">
 				<img src="../../images/about_people.png" alt="">
 			</div>
-		
-			
+
+
 		</div>
 		<div class="edu_link">
 			<div class="title green_gradient_bg">
@@ -404,7 +419,7 @@
 				<div class="copyright">
 					Copyright© 2020 by 曙光教育事業機構
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -417,92 +432,92 @@
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:true,
+						isActive: true,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 1,
 						flyer_name: "居仁國小",
 						flyer_src: "./images/flyer/01.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 					{
 						flyer_id: 2,
 						flyer_name: "居仁國中",
 						flyer_src: "./images/flyer/02.jpg",
-						isActive:false,
+						isActive: false,
 
 					},
 				],
-				flyer_menu_start:0,
-				flyer_menu_end:0,
+				flyer_menu_start: 0,
+				flyer_menu_end: 0,
 				flyer_now_pic: 0,
 				flyer_menu_move: "",
-				flex_moveX: 0 ,
+				flex_moveX: 0,
 			},
 			menuActive: false,
 		}
@@ -510,7 +525,7 @@
 			el: "#app",
 			data: data,
 			mounted() {
-				if(this.flyer_data.flyer_menu.length > 9){
+				if (this.flyer_data.flyer_menu.length > 9) {
 					this.flyer_data.flex_moveX = 55 * (this.flyer_data.flyer_menu.length - 9)
 					this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
 					this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
@@ -519,22 +534,25 @@
 			},
 			methods: {
 				flyer_next() {
-					if( this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
+					if (this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
 					this.flyer_data.flex_moveX -= 110
 					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
 
 				},
 				flyer_prev() {
-					if( this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
+					if (this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
 					this.flyer_data.flex_moveX += 110
 					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
 
 				},
-				imgHandler(index){
-					if(this.flyer_data.flyer_now_pic == index) return
+				imgHandler(index) {
+					if (this.flyer_data.flyer_now_pic == index) return
 					this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
 					this.flyer_data.flyer_now_pic = index
 					this.flyer_data.flyer_menu[index].isActive = true
+				},
+				menuHandler(){
+					this.menuActive = !this.menuActive
 				}
 			}
 		})
