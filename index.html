@@ -36,8 +36,9 @@
 				</div>
 
 				<div class="banner_txt">
-					<p class="p1">讓自己的<span class="s1">未來</span> 充滿無限<span class="s2">曙光</span></p>
-					<p class="p2">有好的學習態度 才是面對人生致勝的關鍵</p>
+					<p class="p1">讓自己的<span class="s1">未來</span><span class="br_768">充滿無限<tt class="s2">曙光</tt></span>
+					</p>
+					<p class="p2"><tt>有好的學習態度</tt> <tt class="br_768">才是面對人生致勝的關鍵</tt></p>
 				</div>
 			</div>
 			<div class="banner_scoll">
@@ -155,12 +156,100 @@
 			</div>
 			<div class="info_box">
 				<div class="school_name">
-					<ul>
-						<li>曙光・居仁校</li>
-						<li>曙光・潭雅校</li>
-						<li>曙光・潭雅校</li>
-						<li>曙光・福科校</li>
-						<li>曙光・明道校</li>
+					<ul class="school_first_menu">
+						<li>
+							<span>曙光・居仁校</span>
+							<ul class="school_second_menu">
+								<li>
+									<span>升大學中心</span>
+									<ul class="school_third_menu">
+										<li>
+											<h1>曙光・居仁校</h1>
+											<h2>國小部</h2>
+										</li>
+										<li>
+											<img src="./images/school/school1.jpg" alt="">
+										</li>
+										<li>
+											<div class="school_phone" data-text="電話："><span>04 2229 7799</span></div>
+											<div class="school_add" data-text="地址："><span>403台中市西區三民路一段168-172</span>
+											</div>
+											<div>前往粉專</div>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<span>國中部</span>
+									<ul class="school_third_menu">
+										<li>
+											<h1>曙光・居仁校</h1>
+											<h2>國小部</h2>
+										</li>
+										<li>
+											<img src="./images/school/school1.jpg" alt="">
+										</li>
+										<li>
+											<div class="school_phone" data-text="電話："><span>04 2229 7799</span></div>
+											<div class="school_add" data-text="地址："><span>403台中市西區三民路一段168-172</span>
+											</div>
+											<div>前往粉專</div>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<span>國小部</span>
+									<ul class="school_third_menu">
+										<li>
+											<h1>曙光・居仁校</h1>
+											<h2>國小部</h2>
+										</li>
+										<li>
+											<img src="./images/school/school1.jpg" alt="">
+										</li>
+										<li>
+											<div class="school_phone" data-text="電話："><span>04 2229 7799</span></div>
+											<div class="school_add" data-text="地址："><span>403台中市西區三民路一段168-172</span>
+											</div>
+											<div>前往粉專</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span>曙光・潭雅校</span>
+							<ul class="school_second_menu">
+								<li>
+									<span>新超群一館</span>
+								</li>
+								<li>
+									<span>新超群二館</span>
+								</li>
+								<li>
+									<span>大雅校</span>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span>曙光・惠文校</span>
+							<ul class="school_second_menu">
+								<li>
+									<span>升大學 英檢中心</span>
+								</li>
+								<li>
+									<span>國中部</span>
+								</li>
+								<li>
+									<span>國小部</span>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span>曙光・福科校</span>
+						</li>
+						<li>
+							<span>曙光・明道校</span>
+						</li>
 					</ul>
 				</div>
 				<div class="school_int">
@@ -424,6 +513,7 @@
 		</div>
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+
 	<script>
 		let data = {
 			flyer_data: {
@@ -551,7 +641,7 @@
 					this.flyer_data.flyer_now_pic = index
 					this.flyer_data.flyer_menu[index].isActive = true
 				},
-				menuHandler(){
+				menuHandler() {
 					this.menuActive = !this.menuActive
 				}
 			}
