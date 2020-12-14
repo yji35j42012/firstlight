@@ -6,12 +6,23 @@
 	height: 100%;
 	font-size: 20px;
 	padding-top: 70px;
-
-	@include w768px{
-		padding-top: 55px;
+}
+.mod_dots{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	li{
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		border: 2px solid #FFB057;
+		margin: 0 5px;
+		line-height: 1;
+	}
+	.on{
+		background: #FFB057;
 	}
 }
-
 @include w768px{
 	.br_768{
 		display: block;
@@ -26,6 +37,10 @@
 .news .info_box{
 	padding-top: 80px;
 	padding-bottom: 40px;
+	@include w768px{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 }
 
 .about .info_box{
@@ -314,6 +329,8 @@
 	}
 	@include w768px{
 		.banner_info{
+			top: 30px;
+			bottom: 0;
 			left: 0;
 			right: 0;
 			margin: auto;
@@ -324,8 +341,17 @@
 		}
 		.banner_txt{
 			text-align: center;
+			.p1{
+				margin-top: 22px;
+			}
 			.p2{
-				text-align: center;
+				display: inline-block;
+				margin-top: 30px;
+				text-align: left;
+
+			}
+			.br_768{
+				margin-top: 10px;
 			}
 		}
 		.banner_scoll{
@@ -478,11 +504,12 @@
 	}
 	.flyer_txt {
 		width: 100%;
+		max-width: 480px;
 		height: 25px;
 		font-size: 24px;
 		text-align: center;
-		margin-bottom: 20px;
 		font-weight: 500px;
+		margin: 0 auto 20px;
 	}
 	.flyer_menu {
 		position: relative;
@@ -492,7 +519,7 @@
 		background: #FFB057;
 		margin: auto;
 		@include flex_c_c;
-		padding: 0 65px;
+		padding: 0 60px;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 		li {
@@ -559,6 +586,9 @@
 			margin: auto;
 		}
 	}
+	.mod_dots{
+		display: none;
+	}
 	@include w768px{
 		.info_box{
 			padding: 25px 0 0 0;
@@ -578,6 +608,9 @@
 			flex: none;
 			width: 70%;
 		}
+		.mod_dots{
+			display: flex;
+		}
 	}
 }
 
@@ -592,33 +625,19 @@
 		overflow: hidden;
 		margin: auto;
 		padding-bottom: 40px;
-
-		.pic{
-			display: flex;
-			width: 100%;
-			padding: 40px 0;
-		}
+	
+	}
+	.leaderboard_pic{
+		display: flex;
+		width: 100%;
+		padding: 40px 0;
 		li{
 			flex: 0 0 auto;
 			width: calc(100% / 5 - 60px);
 			margin: 0 30px;
 		}
 	}
-	.dots{
-		display: flex;
-		width: 100%;
-		justify-content: center;
-		li{
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			border: 2px solid #FFB057;
-			margin: 0 5px;
-		}
-		.on{
-			background: #FFB057;
-		}
-	}
+	
 	@include w768px{
 		background-size: cover;
 		.leaderboard_box{
@@ -631,7 +650,7 @@
 				margin:0 0 0 14px;
 			}
 		}
-		.dots{
+		.mod_dots{
 			display: none;
 		}
 	}
@@ -960,19 +979,25 @@
 		border-bottom:1px solid #000;
 	}
 	@include w768px{
-		li{
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+		.news_box{
+			li{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				line-height: 40px;
+			}
+			
+			li+li{
+				margin-top: 26px;
+			}
 		}
-		li+li{
-			margin-top: 26px;
-		}
+		
 		.news_date{
 			display: block;
 			width: 100%;
 			text-align: center;
 			margin-bottom: 4px;
+			margin-right: 0;
 		}
 	}
 }

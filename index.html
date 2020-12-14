@@ -100,17 +100,21 @@
 					</div>
 				</div>
 				<div class="flyer_menu">
-					<button class="flyer_prev" @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 9"></button>
+					<button class="flyer_prev" @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 10"></button>
 					<div class="flyer_menu_box">
-						<ul :style="flyer_data.flyer_menu_move">
+						<ul :style="flyer_data.flyer_menu_move , flyer_data.flyer_menu_iscenter">
 							<li v-for="(item , index) in flyer_data.flyer_menu">
 								<img :src="item.flyer_src" alt="" @click="imgHandler(index)">
 								<span :class="{on : item.isActive}"></span>
 							</li>
 						</ul>
 					</div>
-					<button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 9"></button>
+					<button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 10"></button>
 				</div>
+				<ul class="mod_dots">
+					<li class="on"></li>
+					<li></li>
+				</ul>
 			</div>
 
 		</div>
@@ -120,7 +124,7 @@
 			</div>
 			<div class="info_box">
 				<div class="leaderboard_box">
-					<ul class="pic">
+					<ul class="leaderboard_pic">
 						<li>
 							<img src="./images/leaderboard/1.jpg" alt="">
 						</li>
@@ -143,7 +147,7 @@
 							<img src="./images/leaderboard/7.jpg" alt="">
 						</li>
 					</ul>
-					<ul class="dots">
+					<ul class="mod_dots">
 						<li class="on"></li>
 						<li></li>
 					</ul>
@@ -374,7 +378,7 @@
 						</span>
 					</li>
 				</ul>
-				<ul class="dots">
+				<ul class="mod_dots">
 					<li class="on"></li>
 					<li></li>
 				</ul>
@@ -511,127 +515,36 @@
 
 			</div>
 		</div>
+
+
+		<div class="scroll_top"></div>
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
-
+	<script src='./js/index.js'></script>
 	<script>
-		let data = {
-			flyer_data: {
-				flyer_menu: [
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: true,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 1,
-						flyer_name: "居仁國小",
-						flyer_src: "./images/flyer/01.jpg",
-						isActive: false,
-
-					},
-					{
-						flyer_id: 2,
-						flyer_name: "居仁國中",
-						flyer_src: "./images/flyer/02.jpg",
-						isActive: false,
-
-					},
-				],
-				flyer_menu_start: 0,
-				flyer_menu_end: 0,
-				flyer_now_pic: 0,
-				flyer_menu_move: "",
-				flex_moveX: 0,
-			},
-			menuActive: false,
-		}
+		
 		let vm = new Vue({
 			el: "#app",
 			data: data,
 			mounted() {
-				if (this.flyer_data.flyer_menu.length > 9) {
-					this.flyer_data.flex_moveX = 55 * (this.flyer_data.flyer_menu.length - 9)
-					this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
-					this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
-					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
+				if (this.flyer_data.flyer_menu.length > 10) {
+					this.flyer_data.flyer_menu_iscenter = "justify-content: flex-start;";
+					// this.flyer_data.flex_moveX = 50 * (this.flyer_data.flyer_menu.length - 10)
+					// this.flyer_data.flyer_menu_start = this.flyer_data.flex_moveX
+					// this.flyer_data.flyer_menu_end = this.flyer_data.flex_moveX * - 1
+					// this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
 				}
 			},
 			methods: {
 				flyer_next() {
 					if (this.flyer_data.flyer_menu_end == this.flyer_data.flex_moveX) return
-					this.flyer_data.flex_moveX -= 110
+					this.flyer_data.flex_moveX -= 100
 					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
 
 				},
 				flyer_prev() {
 					if (this.flyer_data.flyer_menu_start == this.flyer_data.flex_moveX) return
-					this.flyer_data.flex_moveX += 110
+					this.flyer_data.flex_moveX += 100
 					this.flyer_data.flyer_menu_move = "transform: translateX(" + this.flyer_data.flex_moveX + "px);";
 
 				},
