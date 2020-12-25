@@ -1,3 +1,14 @@
+.aaa .active_item {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.aaa.active > .active_item,
+.aaa.active ~ .active_item {
+  visibility: visible;
+  opacity: 1;
+}
+
 .word_orange {
   color: #EF7E00;
 }
@@ -754,6 +765,12 @@
   display: none;
 }
 
+@media screen and (max-width: 1280px) {
+  .flyer .flyer_menu {
+    max-width: 700px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .flyer .info_box {
     padding: 25px 0 0 0;
@@ -764,6 +781,9 @@
   }
   .flyer .flyer_group {
     margin-bottom: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .flyer .flyer_menu {
     display: none;
@@ -773,12 +793,18 @@
     -webkit-box-flex: 0;
         -ms-flex: none;
             flex: none;
-    width: 70%;
+    width: 65%;
+    margin-right: 20px;
   }
   .flyer .mod_dots {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-top: 20px;
+  }
+  .flyer img {
+    width: 100%;
+    height: auto;
   }
 }
 

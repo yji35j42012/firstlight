@@ -531,7 +531,6 @@
 			overflow: hidden;
 			border-radius: 10px;
 		}
-
 		button {
 			width: 15px;
 			height: 40px;
@@ -545,7 +544,6 @@
 			left: 20px;
 			background: url('../../images/icon_prev.svg')no-repeat center/cover;
 		}
-
 		.flyer_next {
 			right: 20px;
 			background: url('../../images/icon_next.svg')no-repeat center/cover;
@@ -589,6 +587,11 @@
 	.mod_dots{
 		display: none;
 	}
+	@include w1280px{
+		.flyer_menu {
+			max-width: 700px;
+		}
+	}
 	@include w768px{
 		.info_box{
 			padding: 25px 0 0 0;
@@ -599,6 +602,7 @@
 		}
 		.flyer_group{
 			margin-bottom: 0;
+			align-items: center;
 		}
 		.flyer_menu{
 			display: none;
@@ -606,10 +610,16 @@
 		.flyer_item{
 			display: block;
 			flex: none;
-			width: 70%;
+			width: 65%;
+			margin-right: 20px;
 		}
 		.mod_dots{
 			display: flex;
+			margin-top: 20px;
+		}
+		img{
+			width: 100%;
+			height: auto;
 		}
 	}
 }

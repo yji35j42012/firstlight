@@ -76,12 +76,16 @@ let data = {
                 isActive: false,
             },
         ],
-        flyer_menu_start: 0,
-        flyer_menu_end: 0,
+        flyer_scroll:false,
         flyer_now_pic: 0,
-        flyer_menu_move: "",
-        flex_moveX: 0,
-        flyer_menu_iscenter:"justify-content: center"
+        flyer_max_move:0,
+        flyer_move_count:0,
+        flyer_menu_style:{
+            flyer_menu_iscenter:"center",
+            flyer_menu_move:0,
+        },
+        flyer_group_move: 0 ,
+        flyer_group: "transform: translateX(1px)",
     },
     menuActive: false,
 }

@@ -35,3 +35,31 @@
     bottom : $bottom;
     left : $left;
 }
+
+@mixin hoverHandler{
+    @media (pointer: fine),
+    (-moz-touch-enabled:0),
+    screen and (-ms-hight-contrast: active),
+    (-ms-high-contrast: none){
+        @content;
+    }
+}
+
+@mixin aniHandler{
+    .active_item{
+        visibility: hidden;
+        opacity: 0;
+    }
+    &.active{
+        >.active_item,
+        ~.active_item{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+
+.aaa{
+    @include aniHandler();
+}
