@@ -1,8 +1,4 @@
-@mixin flex_c_c{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 @mixin w1440px {
     @media screen and (max-width: 1440px){
         @content;
@@ -28,13 +24,6 @@
         @content;
     }
 }
-@mixin absolute($top , $right , $bottom , $left){
-    position : absolute;
-    top : $top;
-    right :$right;
-    bottom : $bottom;
-    left : $left;
-}
 
 @mixin hoverHandler{
     @media (pointer: fine),
@@ -45,6 +34,18 @@
     }
 }
 
+@mixin flex_c_c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin absolute($top , $right , $bottom , $left){
+    position : absolute;
+    top : $top;
+    right :$right;
+    bottom : $bottom;
+    left : $left;
+}
 @mixin aniHandler{
     .active_item{
         visibility: hidden;

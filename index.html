@@ -13,7 +13,11 @@
 <body>
 	<div class="wrap" id="app">
 		<div class="header">
-			<div class="logo"></div>
+			<h1 class="logo">
+				<a href="#">
+					曙光
+				</a>
+			</h1>
 			<div class="menu_btn" :class="{active : menuActive}" @click="menuHandler">
 			</div>
 			<div class="menu ">
@@ -162,7 +166,7 @@
 			</div>
 			<div class="info_box">
 				<div class="school_name">
-					<ul class="school_first_menu">
+					<ul id="school_first_menu" @click="school_first_menu" class="school_first_menu">
 						<li>
 							<span>曙光・居仁校</span>
 							<ul class="school_second_menu">
@@ -262,8 +266,8 @@
 					<div class="school_pic">
 						<img src="./images/school/school1.jpg" alt="">
 					</div>
-					<div class="school_txt">
-						<div class="title">
+					<div class="school_txt_box">
+						<div class="school_txt">
 							<h1>曙光・居仁校</h1>
 							<h2>國小部</h2>
 						</div>
@@ -601,6 +605,10 @@
 					let item = this.flyer_data;
 					let move = ($(window).width() / 2) - ($('#flyer_item').width() / 2)
 					item.flyer_group = "transform: translateX(" + move + "px)";
+				},
+				school_first_menu(e){
+					let menus = $('#school_first_menu > li')
+					$(e.target).addClass('aaa')
 				}
 
 			}

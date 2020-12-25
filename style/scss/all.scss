@@ -1,5 +1,6 @@
 @import "varibles";
 @import "mixin";
+@import "animate";
 .word_orange{color: #EF7E00;}
 .wrap {
 	width: 100%;
@@ -64,17 +65,23 @@
 .green_gradient_bg { background: linear-gradient(90deg, #1E8E57 40.1%, #A7D395 100%);}
 
 .title {
+	position: relative;
 	width: 100%;
 	height: 80px;
 	color: $whtie;
+	display: flex;
+	align-items: center;
 	font-size: 45px;
 	font-weight: bold;
 	@include flex_c_c;
 	text-shadow: 0 4px 4px rgba(0,0,0,.25);
-	/*@include w1280px{
-		font-size: 36px;
-		height: 80px;
-	}*/
+	&:before{
+		content:'';
+		width: 44px;
+		height: 44px;
+		margin-right: 8px;
+		background: url('../../images/icon_flyer.png')no-repeat center/cover;
+	}
 }
 .header {
 	position: fixed;
@@ -93,7 +100,18 @@
 	.logo {
 		width: 185px;
 		height: 50px;
-		background: #000;
+		background: url('../../images/logo.png')no-repeat center/contain;
+		text-indent: 101%;
+		white-space: nowrap;
+		overflow: hidden;
+		a{
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
 	}
 	.menu_btn{
 		display: none;
@@ -283,15 +301,24 @@
 		font-weight: 500;
 		letter-spacing: 2px;
 		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-		&::before{
+		// animation-name: scroll ;
+		animation-fill-mode: both;
+		animation-iteration-count: 1;
+		animation-duration: 1.5s;
+		animation-play-state: running;
+		cursor: default;
+		@include hoverHandler{
+			&:hover{
+				animation-name: scroll ;
+			}
+		}
+		&::after{
 			content:'';
 			display: block;
-			position: absolute;
-			@include absolute(calc(100% + 15px) , 0 , auto , 0);
 			width: 35px;
 			height: 21px;
 			background: url('../../images/icon_down_w.svg')no-repeat center/contain;
-			margin: 0 auto ;
+			margin: 20px auto 0;
 		}
 	}
 	@include w1440px{
@@ -369,7 +396,7 @@
 	ul{
 		display: flex;
 		justify-content: space-between;
-		padding: 0 50px;
+		padding: 10px 50px;
 	}
 	li{
 		position: relative;
@@ -464,7 +491,6 @@
 		}
 	}
 }
-
 .flyer{
 	width: 100%;
 	height: calc(100vh - 70px);
@@ -629,6 +655,9 @@
 	// background: url('../../images/leaderboard/bg_leaderboard.jpg')no-repeat center bottom/cover;
 	background: url('../../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
 				url('../../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
+	.title::before{
+		background-image: url('../../images/icon_leaderboard.png');	
+	}		
 	.leaderboard_box{
 		width: 100%;
 		max-width: 1430px;
@@ -669,6 +698,9 @@
 .school{
 	width: 100%;
 	background: url('../../images/school/bg_school.jpg')no-repeat right bottom/contain;
+	.title::before{
+		background-image: url('../../images/icon_school.png');	
+	}	
 	.info_box{
 		padding-top: 40px;
 		padding-left: 130px;
@@ -723,13 +755,18 @@
 		}
 	}
 	.school_second_menu{
-		display: none;
 		position: absolute;
 		width: 100%;
 		top: calc(100% + 5px);
 		left: 0;
 		background: rgba(44, 44, 44, 0.7);
 		z-index: 1;
+		height: 0;
+		overflow: hidden;
+		transition-duration: .3s;
+		&.active{
+			height: auto;
+		}
 		li{
 			width: 100%;
 			border: none;
@@ -755,12 +792,12 @@
 			height: 100%;
 		}
 	}
-	.school_txt{
+	.school_txt_box{
 		position: absolute;
 		max-width: 535px;
 		right: 0;
 		bottom: -5%;
-		.title{
+		.school_txt{
 			color:#fff;
 			// height: 148px;
 			height: auto;
@@ -822,7 +859,7 @@
 		display: none;
 	}
 	@include w1440px{
-		.school_txt {
+		.school_txt_box {
 			h1{
 				font-size: 32px;
 			}
@@ -833,7 +870,7 @@
 	}
 
 	@include w1024px{
-		.school_txt {
+		.school_txt_box {
 			max-width: 370px;
 		}
 	}
@@ -915,6 +952,9 @@
 .video{
 	width: 100%;
 	height: calc(100vh - 70px);
+	.title::before{
+		background-image: url('../../images/icon_video.png');	
+	}
 	.info_box{
 		height: 100%;
 		background: url('../../images/video/bg_video.jpg')no-repeat center/cover;
@@ -965,6 +1005,9 @@
 	}
 }
 .news{
+	.title::before{
+		background-image: url('../../images/icon_news.png');	
+	}
 	.info_box{
 		background:
 		url('../../images/bg_news.png')no-repeat center center/cover;
@@ -1017,6 +1060,9 @@
 	overflow: hidden;
 	display: flex;
 	flex-wrap: wrap;
+	.title::before{
+		background-image: url('../../images/icon_about.png');	
+	}
 	.info_box{
 		width: 60%;
 		padding-top: 40px;
@@ -1076,6 +1122,9 @@
 }
 .edu_link{
 	background: #E7E7E7;
+	.title::before{
+		background-image: url('../../images/icon_edu.png');	
+	}
 	.info_box{
 		padding-left: 15px;
 		padding-right: 15px;
