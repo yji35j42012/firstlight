@@ -75,6 +75,12 @@
   color: #EF7E00;
 }
 
+.jc_start {
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
+}
+
 .wrap {
   width: 100%;
   height: 100%;
@@ -725,10 +731,6 @@
           transition-duration: .3s;
 }
 
-.flyer .flyer_item {
-  display: none;
-}
-
 .flyer .flyer_item.on {
   display: block;
 }
@@ -787,6 +789,7 @@
 }
 
 .flyer .flyer_menu button {
+  display: none;
   width: 15px;
   height: 40px;
   position: absolute;
@@ -829,6 +832,10 @@
   cursor: pointer;
 }
 
+.flyer .flyer_menu_box li.on span {
+  background: rgba(0, 0, 0, 0);
+}
+
 .flyer .flyer_menu_box span {
   position: absolute;
   display: block;
@@ -838,10 +845,6 @@
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   pointer-events: none;
-}
-
-.flyer .flyer_menu_box span.on {
-  background: rgba(0, 0, 0, 0);
 }
 
 .flyer .flyer_menu_box img {
@@ -1275,25 +1278,45 @@
   padding-right: 15px;
 }
 
-.video .video_box {
+.video_box {
   width: 100%;
   max-width: 990px;
   height: calc(100% - 80px - 110px);
   margin: auto;
 }
 
-.video .video_play {
+.video_group {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  overflow: hidden;
+}
+
+.video_item {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   width: 100%;
-  height: 557px;
+  padding-bottom: calc(100% * .48);
+}
+
+.video_play {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: #eee;
 }
 
-.video .video_title {
+.video_title {
   text-align: center;
   margin-bottom: 25px;
 }
 
-.video .video_menu {
+.video_menu {
   position: relative;
   width: 100%;
   max-width: 1110px;
@@ -1314,7 +1337,7 @@
   border-top-right-radius: 10px;
 }
 
-.video .video_menu ul {
+.video_menu ul {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1325,6 +1348,11 @@
           justify-content: center;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
+}
+
+.video .video_menu_box li {
+  width: 110px;
+  height: 62px;
 }
 
 .video .video_menu_box li + li {

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div class="wrap" id="app">
+	<div  class="wrap" >
 		<div class="header">
 			<h1 class="logo">
 				<a href="#">
@@ -89,33 +89,129 @@
 			</div>
 		</div>
 		<div class="flyer">
-			<div class="title orange_gradient_bg">
-				最新課程
-			</div>
+			<div class="title orange_gradient_bg">最新課程</div>
 			<div class="info_box">
 				<div class="flyer_box">
-					<div class="flyer_group" :style="flyer_data.flyer_group">
-						<div id="flyer_item" class="flyer_item" :class="{on : item.isActive}"
-							v-for="item in flyer_data.flyer_menu">
-							<div class="flyer_txt">{{item.flyer_name}}</div>
+					<div id="flyer_group" class="flyer_group">
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國小</div>
 							<div class="flyer_pic">
-								<img :src="item.flyer_src" alt="">
+								<img src="./images/flyer/01.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
+							</div>
+						</div>
+						<div class="flyer_item">
+							<div class="flyer_txt">居仁國中</div>
+							<div class="flyer_pic">
+								<img src="./images/flyer/02.jpg" alt="">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="flyer_menu">
-					<button class="flyer_prev" @click="flyer_prev" v-if="flyer_data.flyer_menu.length > 10"></button>
+				<div id="flyer_menu" class="flyer_menu">
+					<button id="flyer_prev" class="flyer_prev"></button>
 					<div id="flyer_menu_box" class="flyer_menu_box">
-						<ul
-							:style="{'margin-left': flyer_data.flyer_menu_style.flyer_menu_move +'px', 'justify-content': flyer_data.flyer_menu_style.flyer_menu_iscenter}">
-							<li v-for="(item , index) in flyer_data.flyer_menu">
-								<img :src="item.flyer_src" alt="" @click="imgHandler(index)">
-								<span :class="{on : item.isActive}"></span>
+						<ul>
+							<li>
+								<img src="./images/flyer/01.jpg" alt="">
+								<span ></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
+							</li>
+							<li>
+								<img src="./images/flyer/02.jpg" alt="">
+								<span></span>
 							</li>
 						</ul>
 					</div>
-					<button class="flyer_next" @click="flyer_next" v-if="flyer_data.flyer_menu.length > 10"></button>
+					<button id="flyer_next" class="flyer_next"></button>
 				</div>
 				<ul class="mod_dots">
 					<li class="on"></li>
@@ -166,7 +262,7 @@
 			</div>
 			<div class="info_box">
 				<div class="school_name">
-					<ul id="school_first_menu" @click="school_first_menu" class="school_first_menu">
+					<ul id="school_first_menu" class="school_first_menu">
 						<li>
 							<span>曙光・居仁校</span>
 							<ul class="school_second_menu">
@@ -288,11 +384,61 @@
 			</div>
 			<div class="info_box">
 				<div class="video_box">
-					<div class="video_title">
-						影片名稱影片名稱影片名稱影片名稱影片名稱
-					</div>
-					<div class="video_play">
-						放視訊
+					<div id="video_group" class="video_group">
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
+						<div class="video_item">
+							<div class="video_title">影片名稱影片名稱影片名稱影片名稱影片名稱</div>
+							<div class="video_play">
+								放視訊
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="video_menu">
@@ -525,94 +671,93 @@
 
 		<div class="scroll_top"></div>
 	</div>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
 	<script src="./js/jquery-3.5.1.min.js"></script>
 	<script src='./js/index.js'></script>
 	<script>
 
-		let vm = new Vue({
-			el: "#app",
-			data: data,
-			mounted() {
+		// let vm = new Vue({
+		// 	el: "#app",
+		// 	data: data,
+		// 	mounted() {
 				// $(window).width() 取得螢幕寬度
 				// $(window).height() 取得螢幕高度
 				// offsetWidth 
-				let item = this.flyer_data;
-				if (item.flyer_menu.length > 10) {
-					item.flyer_max_move = item.flyer_menu.length % 10
-					item.flyer_scroll = true
-					item.flyer_menu_style.flyer_menu_iscenter = "flex-start";
-					item.flyer_menu_style.flyer_menu_move = "-10";
-				}
-				const vm = this;
-				vm.fullWidth = window.innerWidth;
-				vm.fullHeight = window.innerHeight;
-				if ($(window).width() <= 768) {
-					this.changeWidth()
-				}
-				window.onresize = () => {
-					vm.fullWidth = window.innerWidth;
-					vm.fullHeight = window.innerHeight;
+				// let item = this.flyer_data;
+				// if (item.flyer_menu.length > 10) {
+				// 	item.flyer_max_move = item.flyer_menu.length % 10
+				// 	item.flyer_scroll = true
+				// 	item.flyer_menu_style.flyer_menu_iscenter = "flex-start";
+				// 	item.flyer_menu_style.flyer_menu_move = "-10";
+				// }
+				// const vm = this;
+				// vm.fullWidth = window.innerWidth;
+				// vm.fullHeight = window.innerHeight;
+				// if ($(window).width() <= 768) {
+				// 	this.changeWidth()
+				// }
+				// window.onresize = () => {
+				// 	vm.fullWidth = window.innerWidth;
+				// 	vm.fullHeight = window.innerHeight;
 					// if(){}
-					if ($(window).width() <= 768) {
-						this.changeWidth()
-					} else {
-						item.flyer_group = "";
-					}
-				};
-			},
-			methods: {
-				flyer_next() {
-					this.windowWidth()
-					let item = this.flyer_data;
-					let flyer_move = item.flyer_menu_style.flyer_menu_move
-					if (item.flyer_scroll & item.flyer_move_count < item.flyer_max_move) {
-						console.log(flyer_move);
-						item.flyer_menu_style.flyer_menu_move = flyer_move - 100
-						item.flyer_move_count++
-					}
-				},
-				flyer_prev() {
-					this.windowWidth()
-					let item = this.flyer_data;
-					let flyer_move = item.flyer_menu_style.flyer_menu_move
-					if (item.flyer_scroll & item.flyer_move_count > 0) {
-						console.log(flyer_move);
-						item.flyer_menu_style.flyer_menu_move = flyer_move + 100
-						item.flyer_move_count--
-					}
-				},
-				imgHandler(index) {
-					if (this.flyer_data.flyer_now_pic == index) return
-					this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
-					this.flyer_data.flyer_now_pic = index
-					this.flyer_data.flyer_menu[index].isActive = true
-				},
-				menuHandler() {
+			// 		if ($(window).width() <= 768) {
+			// 			this.changeWidth()
+			// 		} else {
+			// 			item.flyer_group = "";
+			// 		}
+			// 	};
+			// },
+			// methods: {
+			// 	flyer_next() {
+			// 		this.windowWidth()
+			// 		let item = this.flyer_data;
+			// 		let flyer_move = item.flyer_menu_style.flyer_menu_move
+			// 		if (item.flyer_scroll & item.flyer_move_count < item.flyer_max_move) {
+			// 			console.log(flyer_move);
+			// 			item.flyer_menu_style.flyer_menu_move = flyer_move - 100
+			// 			item.flyer_move_count++
+			// 		}
+			// 	},
+			// 	flyer_prev() {
+			// 		this.windowWidth()
+			// 		let item = this.flyer_data;
+			// 		let flyer_move = item.flyer_menu_style.flyer_menu_move
+			// 		if (item.flyer_scroll & item.flyer_move_count > 0) {
+			// 			console.log(flyer_move);
+			// 			item.flyer_menu_style.flyer_menu_move = flyer_move + 100
+			// 			item.flyer_move_count--
+			// 		}
+			// 	},
+			// 	imgHandler(index) {
+			// 		if (this.flyer_data.flyer_now_pic == index) return
+			// 		this.flyer_data.flyer_menu[this.flyer_data.flyer_now_pic].isActive = false
+			// 		this.flyer_data.flyer_now_pic = index
+			// 		this.flyer_data.flyer_menu[index].isActive = true
+			// 	},
+			// 	menuHandler() {
 					// this.menuActive = !this.menuActive
-				},
-				windowWidth() {
-					let item = this.flyer_data;
-					if ($(window).width() < 1280) {
-						console.log('768');
-						item.flyer_max_move = item.flyer_menu.length % 6
-					} else {
-						console.log('1280');
-						item.flyer_max_move = item.flyer_menu.length % 10
-					}
-				},
-				changeWidth() {
-					let item = this.flyer_data;
-					let move = ($(window).width() / 2) - ($('#flyer_item').width() / 2)
-					item.flyer_group = "transform: translateX(" + move + "px)";
-				},
-				school_first_menu(e){
-					let menus = $('#school_first_menu > li')
-					$(e.target).addClass('aaa')
-				}
+		// 		},
+		// 		windowWidth() {
+		// 			let item = this.flyer_data;
+		// 			if ($(window).width() < 1280) {
+		// 				console.log('768');
+		// 				item.flyer_max_move = item.flyer_menu.length % 6
+		// 			} else {
+		// 				console.log('1280');
+		// 				item.flyer_max_move = item.flyer_menu.length % 10
+		// 			}
+		// 		},
+		// 		changeWidth() {
+		// 			let item = this.flyer_data;
+		// 			let move = ($(window).width() / 2) - ($('#flyer_item').width() / 2)
+		// 			item.flyer_group = "transform: translateX(" + move + "px)";
+		// 		},
+		// 		school_first_menu(e){
+		// 			let menus = $('#school_first_menu > li')
+		// 			$(e.target).addClass('aaa')
+		// 		}
 
-			}
-		})
+		// 	}
+		// })
 	</script>
 </body>
 
