@@ -13,7 +13,9 @@ var video_menu_count = 0;  //影音專區 選單目前移動次數
 var video_menuX = 0;  //影音專區 選單目前位置
 $(document).ready(function(){
 	total_flyer = $("#flyer_group > div").length;
-	$("#flyer_menu_box ul li:first-child").addClass('on');
+	total_video = $("#video_scroll li").length;
+	
+	$("#flyer_scroll ul li:first-child").addClass('on');
 
 	// 偵測螢幕寬度
 	$(window).resize(function() {
@@ -27,20 +29,33 @@ $(document).ready(function(){
 
 	if($(window).width() > 1280 && total_flyer > 10){
 		$("#flyer_menu > button").css("display","block");
-		$("#flyer_menu_box > ul").addClass("jc_start");
+		$("#flyer_scroll > ul").addClass("jc_start");
 		flyer_menuX = -10
 		menu_moveHandler("flyer" , flyer_menuX);
 		flyer_max_move = $("#flyer_group > div").length % 10;
 	}else if($(window).width() < 1280 && total_flyer > 6){
 		$("#flyer_menu > button").css("display","block");
-		$("#flyer_menu_box > ul").addClass("jc_start");
+		$("#flyer_scroll > ul").addClass("jc_start");
 		flyer_menuX = -10
 		menu_moveHandler("flyer" , flyer_menuX);
 		flyer_max_move = $("#flyer_group > div").length % 6;
 	}
 
-	$("#flyer_menu_box ul li").click(function() {
-		$("#flyer_menu_box ul li.on").removeClass('on');
+	if($(window).width() > 1280 && total_video > 8){
+		$("#video_menu > button").css("display","block");
+		$("#video_scroll > ul").addClass("jc_start");
+		video_menuX = -7;
+		menu_moveHandler("video" , video_menuX);
+	}else if($(window).width() < 1280 && total_flyer > 6){
+		$("#video_menu > button").css("display","block");
+		$("#video_scroll > ul").addClass("jc_start");
+		video_menuX = -7;
+		menu_moveHandler("video" , video_menuX);
+
+	}
+
+	$("#flyer_scroll ul li").click(function() {
+		$("#flyer_scroll ul li.on").removeClass('on');
 		$(this).addClass("on");
 		flyer_item_move = $(this).index();
 		let moveX = flyer_item_move * 100 ;
@@ -60,7 +75,7 @@ $(document).ready(function(){
 		if(flyer_menu_count < flyer_max_move){
 			flyer_menu_count++
 			flyer_menuX = flyer_menuX -100 ;
-			$("#flyer_menu_box > ul").css("transform","translateX("+flyer_menuX+"px)");
+			$("#flyer_scroll > ul").css("transform","translateX("+flyer_menuX+"px)");
 		}
 		
 	})
@@ -73,7 +88,9 @@ $(document).ready(function(){
 
 function menu_moveHandler (who , moveX){
 	if(who == "flyer"){
-		$("#flyer_menu_box > ul").css("transform","translateX("+ moveX + "px)");
+		$("#flyer_scroll > ul").css("transform","translateX("+ moveX + "px)");
+	}else if(who == "video"){
+		$("#video_scroll > ul").css("transform","translateX("+ moveX + "px)");
 	}
 }
 

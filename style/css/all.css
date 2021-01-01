@@ -111,6 +111,129 @@
   background: #FFB057;
 }
 
+.scroll_menu {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 110px;
+  background: #FFB057;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 60px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  .scroll_menu {
+    max-width: 700px;
+  }
+}
+
+.scroll_menu_box {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll_menu_box ul {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+.scroll_menu_box li {
+  cursor: pointer;
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.scroll_menu_box li > img {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.scroll_menu_box li.on span {
+  background: rgba(0, 0, 0, 0);
+}
+
+.scroll_menu_box span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.scroll_menu._video {
+  background: #1E8E57;
+}
+
+.scroll_menu._video li {
+  width: 110px;
+  height: 62px;
+  margin: 7px;
+}
+
+@media screen and (max-width: 1280px) {
+  .scroll_menu._video li {
+    width: 105px;
+  }
+}
+
+.prev_btn {
+  display: none;
+  width: 15px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  cursor: pointer;
+  left: 20px;
+  background: url("../../images/icon_prev.svg") no-repeat center/cover;
+}
+
+.next_btn {
+  display: none;
+  width: 15px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  cursor: pointer;
+  right: 20px;
+  background: url("../../images/icon_next.svg") no-repeat center/cover;
+}
+
 @media screen and (max-width: 768px) {
   .br_768 {
     display: block;
@@ -755,114 +878,8 @@
   margin: 0 auto 20px;
 }
 
-.flyer .flyer_menu {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  height: 110px;
-  background: #FFB057;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 60px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.flyer .flyer_menu li {
-  position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
-  width: 80px;
-  height: 80px;
-  margin: 10px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.flyer .flyer_menu button {
-  display: none;
-  width: 15px;
-  height: 40px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  cursor: pointer;
-}
-
-.flyer .flyer_menu .flyer_prev {
-  left: 20px;
-  background: url("../../images/icon_prev.svg") no-repeat center/cover;
-}
-
-.flyer .flyer_menu .flyer_next {
-  right: 20px;
-  background: url("../../images/icon_next.svg") no-repeat center/cover;
-}
-
-.flyer .flyer_menu_box {
-  width: 100%;
-  overflow: hidden;
-}
-
-.flyer .flyer_menu_box ul {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
-}
-
-.flyer .flyer_menu_box li {
-  position: relative;
-  cursor: pointer;
-}
-
-.flyer .flyer_menu_box li.on span {
-  background: rgba(0, 0, 0, 0);
-}
-
-.flyer .flyer_menu_box span {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-}
-
-.flyer .flyer_menu_box img {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-
 .flyer .mod_dots {
   display: none;
-}
-
-@media screen and (max-width: 1280px) {
-  .flyer .flyer_menu {
-    max-width: 700px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1314,49 +1331,6 @@
 .video_title {
   text-align: center;
   margin-bottom: 25px;
-}
-
-.video_menu {
-  position: relative;
-  width: 100%;
-  max-width: 1110px;
-  height: 110px;
-  background: #1E8E57;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 65px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.video_menu ul {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
-}
-
-.video .video_menu_box li {
-  width: 110px;
-  height: 62px;
-}
-
-.video .video_menu_box li + li {
-  margin-left: 15px;
 }
 
 @media screen and (max-width: 768px) {
