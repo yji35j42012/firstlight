@@ -138,6 +138,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .scroll_menu {
+    display: none;
+  }
+}
+
 .scroll_menu_box {
   width: 100%;
   overflow: hidden;
@@ -199,12 +205,12 @@
 .scroll_menu._video li {
   width: 110px;
   height: 62px;
-  margin: 7px;
+  margin: 0 6.25px;
 }
 
 @media screen and (max-width: 1280px) {
   .scroll_menu._video li {
-    width: 105px;
+    margin: 0 3px;
   }
 }
 
@@ -896,9 +902,6 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .flyer .flyer_menu {
-    display: none;
-  }
   .flyer .flyer_item {
     display: block;
     -webkit-box-flex: 0;
@@ -970,6 +973,7 @@
 }
 
 .school {
+  overflow: hidden;
   width: 100%;
   background: url("../../images/school/bg_school.jpg") no-repeat right bottom/contain;
 }
@@ -991,19 +995,17 @@
   }
 }
 
-.school .school_name {
+.school_menu {
   margin-bottom: 40px;
 }
 
-.school .school_name .school_first_menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+@media screen and (max-width: 768px) {
+  .school_menu {
+    margin-bottom: 0;
+  }
 }
 
-.school .school_name li {
+.school_menu > li {
   position: relative;
   padding: 2px 75px 2px 35px;
   font-size: 20px;
@@ -1012,31 +1014,81 @@
   white-space: nowrap;
 }
 
-.school .school_name li:last-child {
+.school_menu > li:last-child {
   border-right: none;
 }
 
 @media screen and (max-width: 1280px) {
-  .school .school_name li {
+  .school_menu > li {
     width: calc(100% / 3 - 50px);
     margin: 10px;
   }
-  .school .school_name li:nth-child(3) {
+  .school_menu > li:nth-child(3) {
     border-right: none;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .school .school_name li {
+  .school_menu > li {
     padding: 2px 40px 2px 20px;
   }
 }
 
-.school .school_name span {
+.school_menu_first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.school_menu_first > li {
+  position: relative;
+  padding: 2px 75px 2px 35px;
+  border-right: 2px solid #C4C4C4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .school_menu_first > li {
+    width: calc(100% / 3 - 50px);
+    margin: 10px;
+    padding: 2px 40px 2px 20px;
+    text-align: center;
+  }
+  .school_menu_first > li:nth-child(3) {
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .school_menu_first > li {
+    width: 100%;
+    border-right: none;
+    text-align: center;
+    border-bottom: 1px solid #C4C4C4;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.school_menu_first > li:last-child {
+  border-right: none;
+}
+
+.school_menu_first > li > span {
   position: relative;
 }
 
-.school .school_name span::after {
+@media screen and (max-width: 768px) {
+  .school_menu_first > li > span {
+    display: inline-block;
+    padding: 11px 0;
+  }
+}
+
+.school_menu_first > li > span:after {
   content: '\25BA';
   position: absolute;
   left: calc(100% + 10px);
@@ -1049,33 +1101,121 @@
   color: #FFB057;
 }
 
-.school .school_second_menu {
+.school_menu_second {
   position: absolute;
   width: 100%;
   top: calc(100% + 5px);
   left: 0;
   background: rgba(44, 44, 44, 0.7);
   z-index: 1;
-  height: 0;
-  overflow: hidden;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
+  opacity: 0;
+  visibility: collapse;
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: all 300ms cubic-bezier(0.55, 0, 0.42, 1);
+  transition: all 300ms cubic-bezier(0.55, 0, 0.42, 1);
+  z-index: 2;
 }
 
-.school .school_second_menu.active {
-  height: auto;
+@media screen and (max-width: 768px) {
+  .school_menu_second {
+    position: relative;
+    top: 0;
+  }
 }
 
-.school .school_second_menu li {
+.school_menu_second > li {
   width: 100%;
   border: none;
   color: #fff;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .school_menu_second > li {
+    height: 0;
+    opacity: 0;
+    visibility: collapse;
+    padding: 0;
+  }
+}
+
+.school_menu_second > li > span {
+  display: inline-block;
   padding: 10px 0;
 }
 
-.school .school_second_menu span:after {
-  content: '';
+.active ~ .school_menu_second {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.active ~ .school_menu_second > li {
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.school_menu_third > li {
+  height: 0;
+  opacity: 0;
+  visibility: collapse;
+  padding: 0;
+  -webkit-transition: all 300ms cubic-bezier(0.55, 0, 0.42, 1);
+  transition: all 300ms cubic-bezier(0.55, 0, 0.42, 1);
+}
+
+.school_menu_third > li:last-child {
+  text-align: left;
+  width: 100%;
+  color: #2C2C2C;
+  background: url("../../images/school/bg_school.jpg") no-repeat right bottom/cover;
+}
+
+.school_menu_third > li:last-child div:last-child {
+  text-align: right;
+}
+
+.school_menu_third .department {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background: #ef7e00;
+  padding: 25px 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.school_menu_third .department:after {
+  content: attr(data-dep);
+  font-size: 20px;
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .active ~ .school_menu_third > li {
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  .active ~ .school_menu_third > li:last-child {
+    padding: 14px 30px 30px;
+  }
+  .active ~ .school_menu_third > li:last-child div {
+    margin-top: 20px;
+  }
 }
 
 .school .school_int {
@@ -1177,6 +1317,14 @@
 
 .school .school_third_menu {
   display: none;
+}
+
+.school_phone, .school_add {
+  position: relative;
+}
+
+.school_phone::before, .school_add::before {
+  content: attr(data-text);
 }
 
 @media screen and (max-width: 1440px) {

@@ -41,6 +41,9 @@
 	@include w1280px{
 		max-width: 700px;
 	}
+	@include w768px{
+		display: none;
+	}
 	&_box{
 		width: 100%;
 		overflow: hidden;
@@ -90,9 +93,9 @@
 		li{
 			width: 110px;
 			height: 62px;
-			margin: 7px;
+			margin: 0 6.25px;
 			@include w1280px{
-				width: 105px;
+				margin: 0 3px;
 			}
 		}
 		
@@ -651,9 +654,6 @@
 			margin-bottom: 0;
 			align-items: center;
 		}
-		.flyer_menu{
-			display: none;
-		}
 		.flyer_item{
 			display: block;
 			flex: none;
@@ -717,6 +717,7 @@
 }
 
 .school{
+	overflow: hidden;
 	width: 100%;
 	background: url('../../images/school/bg_school.jpg')no-repeat right bottom/contain;
 	.title::before{
@@ -731,13 +732,12 @@
 			padding-right: 50px;
 		}
 	}
-	.school_name{
+	&_menu{
 		margin-bottom: 40px;
-		.school_first_menu{
-			display: flex;
-			flex-wrap: wrap;
+		@include w768px{
+			margin-bottom: 0;
 		}
-		li{
+		>li{
 			position: relative;
 			padding: 2px 75px 2px 35px ;
 			font-size: 20px;
@@ -759,46 +759,157 @@
 				padding: 2px 40px 2px 20px;
 			}
 		}
-		span{
-			position: relative;
+		&_first{
+			display: flex;
+			flex-wrap: wrap;
+			> li{
+				position: relative;
+				padding: 2px 75px 2px 35px ;
+				border-right: 2px solid #C4C4C4;
+				white-space: nowrap;
+				cursor: pointer;
+				@include w1280px{
+					width: calc(100% / 3 - 50px);
+					margin: 10px;
+					padding: 2px 40px 2px 20px;
+					text-align: center;
+					&:nth-child(3){
+						border-right: none;
+					}
+				}
+				@include w768px{
+					width: 100%;
+					border-right: none;
+					text-align: center;
+					border-bottom: 1px solid #C4C4C4;
+					margin: 0;
+					padding: 0;
+				}
+				&:last-child{
+					border-right: none;
+				}
+				> span{
+					position: relative;
+					@include w768px{
+						display: inline-block;
+						padding: 11px 0;
+					}
+					&:after{
+						content:'\25BA';
+						position: absolute;
+						left: calc(100% + 10px);
+						width: 18px;
+						height: 18px;
+						font-size: 16px;
+						top: 0;
+						bottom: 0;
+						margin: auto 0;
+						color: #FFB057;
+					}
+				}
+			}
 		}
-		span::after{
-			content:'\25BA';
+	
+		&_second{
 			position: absolute;
-			left: calc(100% + 10px);
-			width: 18px;
-			height: 18px;
-			font-size: 16px;
-			top: 0;
-			bottom: 0;
-			margin: auto 0;
-			color: #FFB057;
-		}
-	}
-	.school_second_menu{
-		position: absolute;
-		width: 100%;
-		top: calc(100% + 5px);
-		left: 0;
-		background: rgba(44, 44, 44, 0.7);
-		z-index: 1;
-		height: 0;
-		overflow: hidden;
-		transition-duration: .3s;
-		&.active{
-			height: auto;
-		}
-		li{
 			width: 100%;
-			border: none;
-			color: #fff;
-			text-align: center;
-			padding: 10px 0;
+			top: calc(100% + 5px);
+			left: 0;
+			background: rgba(44, 44, 44, 0.7);
+			z-index: 1;
+			transition-duration: .3s;
+			opacity: 0;
+			visibility: collapse;
+			transform: scale(1, 0);
+			transform-origin:0 0;
+			transition:all 300ms cubic-bezier(.55,0,.42,1);
+			z-index: 2;
+			@include w768px{
+				position: relative;
+				top: 0;
+			}
+			>li{
+				width: 100%;
+				border: none;
+				color: #fff;
+				text-align: center;
+				@include w768px{
+					height: 0;
+					opacity: 0;
+					visibility: collapse;
+					padding: 0;
+				}
+				>span{
+					display: inline-block;
+					padding: 10px 0;
+				}
+			}
+
+			.active ~ &{
+				transform: scale(1, 1);
+				opacity: 1;
+				visibility: visible;
+
+				>li{
+					height: 100%;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
 		}
-		span:after{
-			content:'';
+
+		&_third{	
+			
+			>li{
+				height: 0;
+				opacity: 0;
+				visibility: collapse;
+				padding: 0;
+				transition:all 300ms cubic-bezier(.55,0,.42,1);
+			}
+			>li:last-child{
+				text-align: left;
+				width: 100%;
+				color:#2C2C2C;
+				background: url("../../images/school/bg_school.jpg") no-repeat right bottom/cover;
+				
+				div:last-child{
+					text-align: right;
+				}
+			}
+			.department{
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				background: #ef7e00;
+				padding: 25px 30px;
+				font-size: 30px;
+				font-weight: bold;
+				&:after{
+					content:attr(data-dep);
+					font-size: 20px;
+					margin-left: 70px;
+				}
+			}
+			.active ~ &{
+				@include w768px{
+					>li{
+						height: 100%;
+						opacity: 1;
+						visibility: visible;
+					}
+					>li:last-child{
+						padding: 14px 30px 30px;
+						div{
+							margin-top: 20px;
+						}
+					}
+				}
+			}
 		}
 	}
+
+	
 	.school_int{
 		position: relative;
 	}
@@ -878,6 +989,14 @@
 	}
 	.school_third_menu{
 		display: none;
+	}
+
+	&_phone,
+	&_add{
+		position: relative;
+		&::before{
+			content: attr(data-text);
+		}
 	}
 	@include w1440px{
 		.school_txt_box {
