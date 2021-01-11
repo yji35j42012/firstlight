@@ -1,9 +1,8 @@
 @import "varibles";
 @import "mixin";
 @import "animate";
-.word_orange{color: #EF7E00;}
+.word_orange{color: $primary_color;}
 .jc_start{justify-content: flex-start !important;}
-// .d_block{display: block !important;}
 
 .wrap {
 	width: 100%;
@@ -160,7 +159,7 @@
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
-.orange_gradient_bg {background: linear-gradient(90deg, #EF7E00 14.58%, #FFC07A 100%);}
+.orange_gradient_bg {background: linear-gradient(90deg, $primary_color 14.58%, #FFC07A 100%);}
 
 .brown_gradient_bg { background: linear-gradient(90deg, #7D4A17 14.58%, #C68236 100%);}
 
@@ -275,7 +274,7 @@
 			position: absolute;
 			width: 50%;
 			height: 1px;
-			background: $orange;
+			background: $primary_color;
 			top: 73%;
 			transition-duration: .3s;
 		}
@@ -286,7 +285,7 @@
 			right: 50%;
 		}
 		li:hover{
-			color: $orange;
+			color: $primary_color;
 			cursor: pointer;
 		}
 		li:hover::before,
@@ -315,7 +314,7 @@
 			height: 100vh;
 			max-width: 375px;
 			position: absolute;
-			background: #EF7E00;
+			background: $primary_color;
 			z-index: 2;
 			right: -100%;
 			top: 70px;
@@ -384,7 +383,7 @@
 		.s2{
 			font-size: 112px;
 			font-weight: 700;
-			color: $orange;
+			color: $primary_color;
 			margin-left: 5px;
 		}
 		.p2{
@@ -520,7 +519,7 @@
 		margin-right: 15px;
 	}
 	.date_num{
-		color: $orange;
+		color: $primary_color;
 		font-size: 50px;
 		padding: 10px;
 		display: inline-flex;
@@ -881,7 +880,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: flex-end;
-				background: #ef7e00;
+				background: $primary_color;
 				padding: 25px 30px;
 				font-size: 30px;
 				font-weight: bold;
@@ -1053,7 +1052,7 @@
 		}
 		.school_third_menu{
 			li:first-child{
-				background: #EF7E00;
+				background: $primary_color;
 				display: flex;
 				padding: 10px 32px;
 				align-items: flex-end;
@@ -1174,7 +1173,7 @@
 		}
 	}
 	.news_date{
-		color: $orange;
+		color: $primary_color;
 		font-weight: bold;
 		font-size: 24px;
 		margin-right: 20px;
