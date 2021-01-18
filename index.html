@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div  class="wrap" >
+	<div class="wrap">
 		<div class="header">
 			<h1 class="logo"><a href="#">曙光</a></h1>
 			<div id="menu_btn" class="menu_btn"></div>
@@ -85,8 +85,9 @@
 			<div class="title orange_gradient_bg">最新課程</div>
 			<div class="info_box">
 				<div class="flyer_box">
+					<!-- 多少flyer_item 下面就要多少個dots的li -->
 					<div id="flyer_group" class="flyer_group">
-						<div class="flyer_item">
+						<div class="flyer_item active">
 							<div class="flyer_txt">居仁國小</div>
 							<div class="flyer_pic">
 								<img src="./images/flyer/01.jpg" alt="">
@@ -206,8 +207,17 @@
 					</div>
 					<button id="flyer_next" class="next_btn"></button>
 				</div>
-				<ul class="mod_dots">
+				<ul id="flyer_dots" class="mod_dots">
 					<li class="on"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
 					<li></li>
 				</ul>
 			</div>
@@ -219,7 +229,7 @@
 			</div>
 			<div class="info_box">
 				<div class="leaderboard_box">
-					<ul class="leaderboard_pic">
+					<ul id="leaderboard_pic" class="leaderboard_pic">
 						<li>
 							<img src="./images/leaderboard/1.jpg" alt="">
 						</li>
@@ -242,7 +252,7 @@
 							<img src="./images/leaderboard/7.jpg" alt="">
 						</li>
 					</ul>
-					<ul class="mod_dots">
+					<ul id="leaderboard_dots" class="mod_dots">
 						<li class="on"></li>
 						<li></li>
 					</ul>
@@ -257,7 +267,7 @@
 				<div class="school_menu">
 					<ul id="school_menu_first" class="school_menu_first">
 						<li>
-							<span  class="active">曙光・居仁校</span>
+							<span>曙光・居仁校</span>
 							<ul id="school_menu_second" class="school_menu_second">
 								<li>
 									<span class="active">升大學中心</span>
