@@ -81,6 +81,10 @@
           justify-content: flex-start !important;
 }
 
+.unscroll {
+  overflow: hidden;
+}
+
 .wrap {
   width: 100%;
   height: 100%;
@@ -953,6 +957,8 @@
   display: flex;
   width: 100%;
   padding: 40px 0;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
 }
 
 .leaderboard .leaderboard_pic li {
@@ -1756,5 +1762,115 @@
     padding: 40px 25px;
     font-size: 14px;
   }
+}
+
+.alert_mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.alert_mask .alert {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 824px;
+  background: #fff url("../../images/bg_news.png") no-repeat right bottom/200%;
+  overflow: hidden;
+  padding: 35px;
+}
+
+.alert_mask .alert_title {
+  text-align: left;
+  font-size: 48px;
+  color: #FFB057;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .alert_mask .alert_title {
+    font-size: 30px;
+  }
+}
+
+.alert_mask .alert_content {
+  height: calc(100% - 108px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.alert_mask .alert_content .msg {
+  font-size: 24px;
+  color: #2C2C2C;
+  line-height: 38px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .alert_mask .alert_content .msg {
+    font-size: 20px;
+  }
+}
+
+.alert_mask .alert_content .pic {
+  width: 60%;
+}
+
+@media screen and (max-width: 768px) {
+  .alert_mask .alert_content .pic {
+    width: 100%;
+  }
+}
+
+.alert_mask .close {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #FFB057;
+  top: 20px;
+  right: 35px;
+}
+
+@media screen and (max-width: 768px) {
+  .alert_mask .close {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.alert_mask .close::before, .alert_mask .close::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.alert_mask .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 /*# sourceMappingURL=all.css.map */

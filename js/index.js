@@ -5,6 +5,8 @@ var flyer_max_move = 0; //最新課程 選單最大移動次數
 var flyer_menu_count = 0;  //最新課程 選單目前移動次數
 var flyer_menuX = 0;  //最新課程 選單目前位置
 
+var leaderboard_max_move = 0; //曙光金榜 選單最大移動次數
+
 var total_video = 0; //最新課程 總數
 var video_item = 0 //影音專區 目前顯示的圖片
 var video_item_move = 0; //影音專區 目前顯示的圖片
@@ -18,6 +20,8 @@ $(document).ready(function(){
 	$("#flyer_scroll ul li:first-child").addClass('on');
 	$("#video_scroll ul li:first-child").addClass('on');
 
+	leaderboard_max_move = $("#leaderboard_pic > li").length % 5;
+	// console.log("leaderboard_max_move" , leaderboard_max_move);
 	// 偵測螢幕寬度
 	$(window).resize(function() {
         var wdth=$(window).width();
@@ -38,6 +42,9 @@ $(document).ready(function(){
 		if ($(window).width() <= 768) {				
 			var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
 			menu_moveHandler("flyer_group" , moveX);
+			menu_moveHandler("leaderboard",0);
+			$("#leaderboard_dots > li").removeClass("on");
+			$("#leaderboard_dots li:first-child").addClass('on');
 			flyer_ani();
 		}else{
 			moveX = flyer_item_move * -100;
@@ -79,22 +86,16 @@ $(document).ready(function(){
 		menu_moveHandler("video" , moveX);
 		video_max_move = $("#video_group > div").length % 5;
 	}
-
-
-
 	$("#flyer_scroll ul li").click(function() {
 		flyer_item_move = $(this).index();
 		flyer_ani();
 		let moveX = flyer_item_move * 100 ;
 		$("#flyer_group").css("transform","translateX(-"+ moveX + "%)");
 	});
-
-	
 	$("#video_scroll ul li").click(function() {
 		$("#video_scroll ul li.on").removeClass('on');
 		$(this).addClass("on");
 	});
-
 	$("#flyer_prev").click(() => {
 		if(flyer_menu_count > 0){
 			flyer_menu_count--;
@@ -124,6 +125,9 @@ $(document).ready(function(){
 	$("#leaderboard_dots > li").click(function(){
 		$("#leaderboard_dots > li").removeClass("on");
 		$(this).addClass("on");
+		let move = -100 * $(this).index();
+		menu_moveHandler("leaderboard",move);
+		console.log($(this).index());
 	})
 
 
@@ -150,6 +154,14 @@ $(document).ready(function(){
 		$("#menu_btn").toggleClass("active");
 	})
 
+	$("#news_box > li").click(function(){
+		$("#wrap").addClass("unscroll");
+		$("#alert_mask").css("display","flex");
+	})
+	$("#alert_mask .close").click(function(){
+		$("#wrap").removeClass("unscroll");
+		$("#alert_mask").css("display","none");
+	})
 	// console.log("total_flyer" , total_flyer);
 	// console.log("flyer_max_move" , flyer_max_move);
 	// console.log("flyer_menu_count" , flyer_menu_count);
@@ -166,7 +178,8 @@ function menu_moveHandler(who , moveX){
 		}else{
 			$("#flyer_group").css("transform", "translateX(" + moveX + "px)");
 		}
-		
+	}else if(who == "leaderboard"){
+		$("#leaderboard_pic").css("transform", "translateX(" + moveX + "%)");
 	}
 }
 function flyer_ani(){
