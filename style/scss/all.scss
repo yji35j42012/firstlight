@@ -4,11 +4,13 @@
 .word_orange{color: $primary_color;}
 .jc_start{justify-content: flex-start !important;}
 .unscroll{overflow: hidden;}
+
 .wrap {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	font-size: 20px;
-	padding-top: 70px;
+	overflow: hidden;
 }
 .mod_dots{
 	display: flex;
@@ -83,7 +85,6 @@
 			top: 0;
 			left: 0;
 			background: rgba(0,0,0,.7);
-			pointer-events: none;
 		}
 	}
 
@@ -97,8 +98,8 @@
 				margin: 0 3px;
 			}
 		}
-		
-		
+
+
 	}
 }
 .prev_btn {
@@ -185,11 +186,8 @@
 	}
 }
 .header {
-	position: fixed;
+	position: relative;
 	display: flex;
-	top: 0;
-	z-index: 1;
-	left: 0;
 	width: 100%;
 	height: 70px;
 	justify-content: space-between;
@@ -199,6 +197,7 @@
 	background: #fff;
 	z-index: 10;
 	.logo {
+		position: relative;
 		width: 185px;
 		height: 50px;
 		background: url('../../images/logo.png')no-repeat center/contain;
@@ -262,14 +261,18 @@
 		}
 		li{
 			position: relative;
-			color: #2C2C2C;
-			transition-duration: .3s;
-			font-weight: 700;
+			
 			display: flex;
 			align-items: center;
+			a{
+				position: relative;
+				font-weight: 700;
+				color: #2C2C2C;
+				transition-duration: .3s;
+			}
 		}
-		li::before,
-		li::after{
+		a::before,
+		a::after{
 			content:'';
 			position: absolute;
 			width: 50%;
@@ -278,18 +281,18 @@
 			top: 73%;
 			transition-duration: .3s;
 		}
-		li::before{
+		a::before{
 			left: 50%;
 		}
-		li::after{
+		a::after{
 			right: 50%;
 		}
-		li:hover{
+		a:hover{
 			color: $primary_color;
 			cursor: pointer;
 		}
-		li:hover::before,
-		li:hover::after{
+		a:hover::before,
+		a:hover::after{
 			width: 0;
 		}
 		li+li{
@@ -358,6 +361,14 @@
 			height: 2px;
 		}
 	}
+}
+.scroll_box{
+	width: 100%;
+	height: calc(100% - 70px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+
 }
 .banner {
 	position: relative;
@@ -682,15 +693,15 @@
 	background: url('../../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
 				url('../../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
 	.title::before{
-		background-image: url('../../images/icon_leaderboard.png');	
-	}		
+		background-image: url('../../images/icon_leaderboard.png');
+	}
 	.leaderboard_box{
 		width: 100%;
 		max-width: 1430px;
 		overflow: hidden;
 		margin: auto;
 		padding-bottom: 40px;
-	
+
 	}
 	.leaderboard_pic{
 		display: flex;
@@ -703,7 +714,7 @@
 			margin: 0 30px;
 		}
 	}
-	
+
 	@include w768px{
 		background-size: cover;
 		.leaderboard_box{
@@ -727,8 +738,8 @@
 	width: 100%;
 	background: url('../../images/school/bg_school.jpg')no-repeat right bottom/contain;
 	.title::before{
-		background-image: url('../../images/icon_school.png');	
-	}	
+		background-image: url('../../images/icon_school.png');
+	}
 	.info_box{
 		padding-top: 40px;
 		padding-left: 130px;
@@ -811,11 +822,15 @@
 						bottom: 0;
 						margin: auto 0;
 						color: #FFB057;
+						transition-duration: .3s;
+					}
+					&.active:after{
+						transform: rotate(90deg);
 					}
 				}
 			}
 		}
-	
+
 		&_second{
 			position: absolute;
 			width: 100%;
@@ -846,8 +861,9 @@
 					padding: 0;
 				}
 				>span{
-					display: inline-block;
 					padding: 10px 0;
+					display: block;
+					width: 100%;
 				}
 			}
 
@@ -864,8 +880,8 @@
 			}
 		}
 
-		&_third{	
-			
+		&_third{
+
 			>li{
 				height: 0;
 				opacity: 0;
@@ -878,7 +894,7 @@
 				width: 100%;
 				color:#2C2C2C;
 				background: url("../../images/school/bg_school.jpg") no-repeat right bottom/cover;
-				
+
 				div:last-child{
 					text-align: right;
 				}
@@ -915,13 +931,24 @@
 		}
 	}
 
-	
-	.school_int{
+
+	&_int{
 		position: relative;
 	}
-	.school_pic{
+	&_pic{
 		position: relative;
 		padding-bottom: calc(75% * 0.56);
+		transition-duration: .3s;
+		transform: translateX(-10%);
+		opacity: 0;
+		.active &{
+			transform: translateX(0);
+			opacity: 1;
+		}
+		@include w768px{
+			transform: translateX(0);
+			opacity: 1;
+		}
 		img{
 			position: absolute;
 			top: 0;
@@ -930,11 +957,22 @@
 			height: 100%;
 		}
 	}
-	.school_txt_box{
+	&_txt_box{
 		position: absolute;
 		max-width: 535px;
 		right: 0;
 		bottom: -5%;
+		transition-duration: .3s;
+		transform: translateX(10%);
+		opacity: 0;
+		.active &{
+			transform: translateX(0);
+			opacity: 1;
+		}
+		@include w768px{
+			transform: translateX(0);
+			opacity: 1;
+		}
 		.school_txt{
 			color:#fff;
 			// height: 148px;
@@ -1024,7 +1062,7 @@
 		.info_box{
 			padding: 0;
 		}
-		.school_name{
+		&_name{
 			margin-bottom: 0;
 			li{
 				width: 100%;
@@ -1041,6 +1079,9 @@
 			span:after{
 				transform: rotate(90deg);
 			}
+			// span.active:after{
+			// 	transform: rotate(180deg);
+			// }
 		}
 		.school_int{
 			display: none;
@@ -1091,69 +1132,70 @@
 					align-self: flex-start;
 				}
 			}
-			
+
 		}
 	}
 }
 .video{
 	width: 100%;
 	height: calc(100vh - 70px);
+	@include w768px{
+		height: auto;
+	}
 	.title::before{
-		background-image: url('../../images/icon_video.png');	
+		background-image: url('../../images/icon_video.png');
 	}
 	.info_box{
 		height: 100%;
 		background: url('../../images/video/bg_video.jpg')no-repeat center/cover;
 		padding-left: 15px;
 		padding-right: 15px;
+		@include w768px{
+			padding-bottom: 25px;
+		}
 	}
 	&_box{
 		width: 100%;
 		max-width: 990px;
 		height: calc(100% - 80px - 110px);
 		margin: auto;
+		overflow: hidden;
 	}
 	&_group{
 		position: relative;
 		display: flex;
 		transition-duration: .3s;
-		overflow: hidden;
+		@include w768px{
+			overflow-x: auto;
+		}
 	}
 	&_item{
 		position: relative;
 		flex: none;
 		width: 100%;
-		padding-bottom: calc(100% * .48);
+		@include w768px{
+			width: 85%;
+		}
 	}
 	&_play{
-		position: absolute;
+		position: relative;
 		width: 100%;
-		height: 100%;
-		background: #eee;
+		padding-bottom: calc(85% * .56);
+		>iframe{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 90%;
+			height: 100%;
+		}
 	}
 	&_title{
 		text-align: center;
+		min-height: 45px;
 		margin-bottom: 25px;
 	}
-	// &_menu{
-	// 	position: relative;
-	// 	width: 100%;
-	// 	max-width: 1110px;
-	// 	height: 110px;
-	// 	
-	// 	margin: auto;
-	// 	@include flex_c_c;
-	// 	padding: 0 65px;
-	// 	border-top-left-radius: 10px;
-	// 	border-top-right-radius: 10px;
-	// 	ul{
-	// 		position: relative;
-	// 		display: flex;
-	// 		width: 100%;
-	// 		justify-content: center;
-	// 		transition-duration: .3s;
-	// 	}
-	// }
 
 	@include w768px{
 		.video_menu{
@@ -1163,7 +1205,7 @@
 }
 .news{
 	.title::before{
-		background-image: url('../../images/icon_news.png');	
+		background-image: url('../../images/icon_news.png');
 	}
 	.info_box{
 		background:
@@ -1196,12 +1238,12 @@
 				justify-content: center;
 				line-height: 40px;
 			}
-			
+
 			li+li{
 				margin-top: 26px;
 			}
 		}
-		
+
 		.news_date{
 			display: block;
 			width: 100%;
@@ -1218,7 +1260,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	.title::before{
-		background-image: url('../../images/icon_about.png');	
+		background-image: url('../../images/icon_about.png');
 	}
 	.info_box{
 		width: 60%;
@@ -1280,7 +1322,7 @@
 .edu_link{
 	background: #E7E7E7;
 	.title::before{
-		background-image: url('../../images/icon_edu.png');	
+		background-image: url('../../images/icon_edu.png');
 	}
 	.info_box{
 		padding-left: 15px;
@@ -1323,12 +1365,29 @@
 	font-size: 16px;
 	.info_box{
 		padding-top: 0;
+		@include w768px{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 	.school_group{
 		display: flex;
 		justify-content: space-around;
+		@include w768px{
+			display: inline-flex;
+			flex-direction: column;
+		}
+		&>div{
+			width: 100%;
+			@include w768px{
+				display: inline-block;
+				width: auto;
+				white-space: nowrap;
+			}
+		}
 		ul{
-			width: 45%;
+			width: 99%;
 		}
 		li{
 			width: 100%;
@@ -1337,6 +1396,10 @@
 			justify-content: space-between;
 			align-items: center;
 			line-height: 1;
+			@include w768px{
+				display: block;
+				line-height: 38px;
+			}
 		}
 		li+li{
 			margin-top: 15px;
@@ -1385,7 +1448,7 @@
 		background:#fff  url('../../images/bg_news.png')no-repeat right bottom /200%;
 		overflow: hidden;
 		padding: 35px;
-	
+
 		&_title{
 			text-align: left;
 			font-size: 48px;
