@@ -32,7 +32,7 @@ $(document).ready(function () {
 			moveX = default_menuX * video_menu_count;
 			menu_moveHandler("video", moveX);
 			flyer_ani();
-			
+
 		} else if ($(window).width() < 1280) {
 			flyer_max_move = $("#flyer_group > div").length % 6;
 			video_max_move = $("#video_group > div").length % 5;
@@ -126,7 +126,6 @@ $(document).ready(function () {
 		flyer_ani();
 	})
 
-
 	$("#leaderboard_dots > li").click(function () {
 		$("#leaderboard_dots > li").removeClass("on");
 		$(this).addClass("on");
@@ -165,10 +164,29 @@ $(document).ready(function () {
 	$("#alert_mask .close").click(function () {
 		$("#alert_mask").css("display", "none");
 	})
-	// console.log("total_flyer" , total_flyer);
-	// console.log("flyer_max_move" , flyer_max_move);
-	// console.log("flyer_menu_count" , flyer_menu_count);
 });
+
+
+var menu_list = document.querySelectorAll("#menu li")
+var scroll_box = document.querySelector("#scroll_box");
+
+$("h1.logo").click(function () {
+	scroll_box.scrollTo(0, -70);
+})
+for (let index = 0; index < menu_list.length; index++) {
+	const element = menu_list[index];
+	element.onclick = function () {
+		let top = document.querySelector("#" + element.getAttribute('name') + "").offsetTop - 70;
+		scroll_box.scrollTo(0, top);
+	}
+}
+
+
+
+
+
+
+
 function menu_moveHandler(who, moveX) {
 	// console.log(who);
 	if (who == "flyer") {
@@ -213,23 +231,15 @@ for (let i = 0; i < s_menu_f.length; i++) {
 			s_menu_f[menu_f_active].setAttribute('id', '');
 			element.classList.add("active");
 			element.setAttribute('id', 'menu_f');
-			menu_f_active = i; 
-			console.log('aaass');
-			console.log(document.querySelectorAll("#menu_f ~ .school_menu_second > li").length);
+			menu_f_active = i;
+			console.log('aaaaaa');
 			if (document.querySelectorAll("#menu_f ~ .school_menu_second > li").length == 1) {
-				let img = document.querySelector("#menu_f ~ .school_menu_second img");
-				let department = document.querySelector("#menu_f ~ .school_menu_second .department");
-				let school_phone = document.querySelector("#menu_f ~ .school_menu_second .school_phone");
-				let school_add = document.querySelector("#menu_f ~ .school_menu_second .school_add");
+				
 				let sec_span = document.querySelector("#menu_f ~ .school_menu_second span");
 				sec_span.classList.add("active");
-				sec_span.style.display= "none";
-
-				school_int.classList.remove("active");
-				change(img, department, school_phone, school_add);
-				
+				change("menu_f");
 				element.setAttribute('id', '');
-				if($(window).width() > 768){
+				if ($(window).width() > 768) {
 					removeclass("menu_f");
 				}
 			}
@@ -237,19 +247,14 @@ for (let i = 0; i < s_menu_f.length; i++) {
 		} else if (menu_f_active == -1) {
 			element.classList.add("active");
 			element.setAttribute('id', 'menu_f');
-			menu_f_active = i; 
+			console.log('bbbbbbb');
+			menu_f_active = i;
 			if (document.querySelectorAll("#menu_f ~ .school_menu_second > li").length == 1) {
-				let img = document.querySelector("#menu_f ~ .school_menu_second img");
-				let department = document.querySelector("#menu_f ~ .school_menu_second .department");
-				let school_phone = document.querySelector("#menu_f ~ .school_menu_second .school_phone");
-				let school_add = document.querySelector("#menu_f ~ .school_menu_second .school_add");
 				let sec_span = document.querySelector("#menu_f ~ .school_menu_second span");
 				sec_span.classList.add("active");
-				sec_span.style.display= "none";
-				school_int.classList.remove("active");
-				change(img, department, school_phone, school_add);
+				change("menu_f");
 				element.setAttribute('id', '');
-				if($(window).width() > 768){
+				if ($(window).width() > 768) {
 					removeclass("menu_f");
 				}
 			}
@@ -265,37 +270,35 @@ for (let i = 0; i < s_menu_s.length; i++) {
 	const element = s_menu_s[i];
 	element.onclick = function () {
 		removeclass("menu_s");
-		if($(window).width() > 768){
+		if ($(window).width() > 768) {
 			removeclass("menu_f");
 		}
 		element.classList.add("active");
 		element.setAttribute('id', 'now_page');
-		let img = document.querySelector("#now_page ~ .school_menu_third img");
-		let department = document.querySelector("#now_page ~ .school_menu_third .department");
-		let school_phone = document.querySelector("#now_page ~ .school_menu_third .school_phone");
-		let school_add = document.querySelector("#now_page ~ .school_menu_third .school_add");
-		let school_int = document.querySelector("#school_int", img);
-		school_int.classList.remove("active");
-		change(img, department, school_phone, school_add);
+
+		change("now_page");
 	}
 }
 
 
 
-function removeclass(who) {
-	if (who == "menu_s") {
-		for (let i = 0; i < s_menu_s.length; i++) {
-			s_menu_s[i].classList.remove("active");
-			s_menu_s[i].setAttribute('id', '');
-		}
-	}else if(who == "menu_f"){
-		menu_f_active = -1;
-		for (let i = 0; i < s_menu_f.length; i++) {
-			s_menu_f[i].classList.remove("active");
-		}
+
+function change(who) {
+
+	if (who == "menu_f") {
+		var img = document.querySelector("#menu_f ~ .school_menu_second img");
+		var department = document.querySelector("#menu_f ~ .school_menu_second .department");
+		var school_phone = document.querySelector("#menu_f ~ .school_menu_second .school_phone");
+		var school_add = document.querySelector("#menu_f ~ .school_menu_second .school_add");
+	} else if (who == "now_page") {
+		var img = document.querySelector("#now_page ~ .school_menu_third img");
+		var department = document.querySelector("#now_page ~ .school_menu_third .department");
+		var school_phone = document.querySelector("#now_page ~ .school_menu_third .school_phone");
+		var school_add = document.querySelector("#now_page ~ .school_menu_third .school_add");
 	}
-}
-function change(img, department, school_phone, school_add) {
+
+	school_int.classList.remove("active");
+
 	setTimeout(function () {
 		document.querySelector("#school_int img").setAttribute('src', img.getAttribute('src'));
 		document.querySelector("#school_int h1").innerHTML = department.innerHTML;
@@ -305,46 +308,16 @@ function change(img, department, school_phone, school_add) {
 		school_int.classList.add("active");
 	}, 300);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// let data = {
-//     flyer_data: {
-//         flyer_menu: [
-//             {
-//                 flyer_id: 1,
-//                 flyer_name: "居仁國小",
-//                 flyer_src: "./images/flyer/01.jpg",
-//                 isActive: true,
-
-//             },
-//             {
-//                 flyer_id: 2,
-//                 flyer_name: "居仁國中",
-//                 flyer_src: "./images/flyer/02.jpg",
-//                 isActive: false,
-
-//             },
-//         ],
-//         flyer_scroll:false,
-//         flyer_now_pic: 0,
-//         flyer_max_move:0,
-//         flyer_move_count:0,
-//         flyer_menu_style:{
-//             flyer_menu_iscenter:"center",
-//             flyer_menu_move:0,
-//         },
-//         flyer_group_move: 0 ,
-//         flyer_group: "transform: translateX(1px)",
-//     },
-//     menuActive: false,
-// }
+function removeclass(who) {
+	if (who == "menu_s") {
+		for (let i = 0; i < s_menu_s.length; i++) {
+			s_menu_s[i].classList.remove("active");
+			s_menu_s[i].setAttribute('id', '');
+		}
+	} else if (who == "menu_f") {
+		
+		for (let i = 0; i < s_menu_f.length; i++) {
+			s_menu_f[i].classList.remove("active");
+		}
+	}
+}

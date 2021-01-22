@@ -264,15 +264,12 @@
 			
 			display: flex;
 			align-items: center;
-			a{
-				position: relative;
-				font-weight: 700;
-				color: #2C2C2C;
-				transition-duration: .3s;
-			}
+			font-weight: 700;
+			color: #2C2C2C;
+			transition-duration: .3s;
 		}
-		a::before,
-		a::after{
+		li::before,
+		li::after{
 			content:'';
 			position: absolute;
 			width: 50%;
@@ -281,18 +278,18 @@
 			top: 73%;
 			transition-duration: .3s;
 		}
-		a::before{
+		li::before{
 			left: 50%;
 		}
-		a::after{
+		li::after{
 			right: 50%;
 		}
-		a:hover{
+		li:hover{
 			color: $primary_color;
 			cursor: pointer;
 		}
-		a:hover::before,
-		a:hover::after{
+		li:hover::before,
+		li:hover::after{
 			width: 0;
 		}
 		li+li{
@@ -1179,8 +1176,9 @@
 	}
 	&_play{
 		position: relative;
-		width: 100%;
-		padding-bottom: calc(85% * .56);
+		width: 835.55px;
+		height: 470px;
+		margin: auto;
 		>iframe{
 			position: absolute;
 			top: 0;
