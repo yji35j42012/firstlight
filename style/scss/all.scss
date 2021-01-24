@@ -1171,22 +1171,26 @@
 		flex: none;
 		width: 100%;
 		@include w768px{
-			width: 85%;
+			width: auto;
+			margin-right: 10px;
 		}
 	}
 	&_play{
 		position: relative;
-		width: 835.55px;
+		width: 900px; 
 		height: 470px;
 		margin: auto;
+		@include w768px{
+			width: 590px;
+			height: 350px;
+		}
 		>iframe{
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
+			bottom: 0;
 			margin: auto;
-			width: 90%;
-			height: 100%;
 		}
 	}
 	&_title{

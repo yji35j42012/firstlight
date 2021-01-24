@@ -13,10 +13,17 @@ var video_item_move = 0; //影音專區 目前顯示的圖片
 var video_max_move = 0; //影音專區 選單最大移動次數
 var video_menu_count = 0;  //影音專區 選單目前移動次數
 var video_menuX = 0;  //影音專區 選單目前位置
+
+var video_w = 0;
+var video_h = 0;
+var video_switch = 0;
 var default_menuX = 0;  //影音專區 基本位置
 $(document).ready(function () {
 	total_flyer = $("#flyer_group > div").length;
 	total_video = $("#video_scroll li").length;
+	video_w = $("#video_group .video_play").width();
+	video_h = $("#video_group .video_play").height();
+
 	$("#flyer_scroll ul li:first-child").addClass('on');
 	$("#video_scroll ul li:first-child").addClass('on');
 
@@ -25,6 +32,7 @@ $(document).ready(function () {
 	// 偵測螢幕寬度
 	$(window).resize(function () {
 		var wdth = $(window).width();
+		var height = $(window).height();
 		if (wdth > 1280) {
 			flyer_max_move = $("#flyer_group > div").length % 10;
 			video_max_move = $("#video_group > div").length % 8;
@@ -47,10 +55,38 @@ $(document).ready(function () {
 			$("#leaderboard_dots > li").removeClass("on");
 			$("#leaderboard_dots li:first-child").addClass('on');
 			flyer_ani();
+
+			if(video_switch == 0){
+				video_w = $("#video_group .video_play").width();
+				video_h = $("#video_group .video_play").height();
+				video_switch = 1
+			}
 		} else {
 			moveX = flyer_item_move * -100;
 			menu_moveHandler("flyer_group", moveX);
 			removeclass("menu_f");
+
+			if(video_switch == 1){
+				video_w = $("#video_group .video_play").width();
+				video_h = $("#video_group .video_play").height();
+				video_switch = 0
+			}
+		}
+
+		// 850 880
+		if (wdth < 960){
+			w = video_w + wdth - 960;
+			h = video_h + (( wdth - 960) * 0.5222);
+			console.log(w);
+			$("#video_group .video_play").css("width" , w);
+			$("#video_group .video_play").css("height" , h);
+		}
+		if(height < 850 ){
+			w = video_w + ((height - 850) * 1.9149);
+			h = video_h + (( height - 850) * 0.5222);
+			console.log(w);
+			$("#video_group .video_play").css("width" , w);
+			$("#video_group .video_play").css("height" , h);
 		}
 	});
 
@@ -70,7 +106,9 @@ $(document).ready(function () {
 	if ($(window).width() <= 768) {
 		var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
 		menu_moveHandler("flyer_group", moveX);
-
+		video_switch = 1;
+	}else {
+		video_switch = 0;
 	}
 	if ($(window).width() > 1280 && total_video > 8) {
 		$("#video_menu > button").css("display", "block");
@@ -321,3 +359,5 @@ function removeclass(who) {
 		}
 	}
 }
+
+
