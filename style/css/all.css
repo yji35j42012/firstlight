@@ -333,6 +333,17 @@
   background: url("../../images/icon_flyer.png") no-repeat center/cover;
 }
 
+@media screen and (max-width: 768px) {
+  .title {
+    height: 70px;
+    font-size: 30px;
+  }
+  .title::before {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .header {
   position: relative;
   display: -webkit-box;
@@ -682,6 +693,7 @@
     left: 0;
     right: 0;
     margin: auto;
+    padding: 0 20px;
   }
   .banner .banner_info .pic {
     margin: auto;
@@ -692,17 +704,27 @@
   }
   .banner .banner_txt .p1 {
     margin-top: 22px;
+    font-size: 32px;
   }
   .banner .banner_txt .p2 {
     display: inline-block;
     margin-top: 30px;
     text-align: left;
+    font-size: 24px;
+  }
+  .banner .banner_txt .s2 {
+    font-size: 70px;
   }
   .banner .banner_txt .br_768 {
     margin-top: 10px;
   }
   .banner .banner_scoll {
-    bottom: 30%;
+    bottom: 26%;
+    font-size: 28px;
+  }
+  .banner .banner_scoll::after {
+    width: 30px;
+    margin: 10px auto 0;
   }
 }
 
@@ -2039,5 +2061,12 @@
   right: 80px;
   bottom: 80px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .scroll_top {
+    right: 20px;
+    bottom: 20px;
+  }
 }
 /*# sourceMappingURL=all.css.map */

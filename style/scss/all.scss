@@ -185,6 +185,14 @@
 		margin-right: 8px;
 		background: url('../../images/icon_flyer.png')no-repeat center/cover;
 	}
+	@include w768px{
+		height: 70px;
+		font-size: 30px;
+		&::before{
+			width: 25px;
+			height: 25px;
+		}
+	}
 }
 .header {
 	position: relative;
@@ -386,10 +394,12 @@
 		.p1{
 			color:#3E3A39;
 		}
+	
 		.p1,
 		.s1{
 			font-size: 56px;
 			font-weight:700;
+		
 		}
 		.s2{
 			font-size: 112px;
@@ -473,6 +483,7 @@
 			left: 0;
 			right: 0;
 			margin: auto;
+			padding: 0 20px;
 			.pic{
 				margin: auto;
 				width: 230px;
@@ -482,19 +493,29 @@
 			text-align: center;
 			.p1{
 				margin-top: 22px;
+				font-size: 32px;
 			}
 			.p2{
 				display: inline-block;
 				margin-top: 30px;
 				text-align: left;
+				font-size: 24px;
 
+			}
+			.s2{
+				font-size: 70px;
 			}
 			.br_768{
 				margin-top: 10px;
 			}
 		}
 		.banner_scoll{
-			bottom: 30%;
+			bottom: 26%;
+			font-size: 28px;
+			&::after{
+				width: 30px;
+				margin: 10px auto 0;
+			}
 		}
 	}
 }
@@ -1533,4 +1554,9 @@
 	right: 80px;
 	bottom: 80px;
 	cursor: pointer;
+
+	@include w768px{
+		right: 20px;
+		bottom: 20px;
+	}
 }
