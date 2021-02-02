@@ -271,7 +271,7 @@
 		}
 		li{
 			position: relative;
-			
+
 			display: flex;
 			align-items: center;
 			font-weight: 700;
@@ -394,12 +394,12 @@
 		.p1{
 			color:#3E3A39;
 		}
-	
+
 		.p1,
 		.s1{
 			font-size: 56px;
 			font-weight:700;
-		
+
 		}
 		.s2{
 			font-size: 112px;
@@ -1201,7 +1201,7 @@
 	}
 	&_play{
 		position: relative;
-		width: 900px; 
+		width: 900px;
 		height: 470px;
 		margin: auto;
 		@include w768px{
@@ -1262,6 +1262,14 @@
 	}
 	.news_info{
 		border-bottom:1px solid #000;
+		/* 第一步：先禁止斷行 */
+		white-space: nowrap;
+
+		/* 第二步：超過部份隱藏 */
+		overflow: hidden;
+
+		/* 第三部：表示文字溢出時，顯示省略符號(...) */
+		text-overflow: ellipsis;
 	}
 	@include w768px{
 		.news_box{

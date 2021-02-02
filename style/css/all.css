@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .aaa .active_item {
   visibility: hidden;
   opacity: 0;
@@ -1661,6 +1662,12 @@
 
 .news .news_info {
   border-bottom: 1px solid #000;
+  /* 第一步：先禁止斷行 */
+  white-space: nowrap;
+  /* 第二步：超過部份隱藏 */
+  overflow: hidden;
+  /* 第三部：表示文字溢出時，顯示省略符號(...) */
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 768px) {
