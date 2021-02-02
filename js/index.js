@@ -16,8 +16,13 @@ var video_menuX = 0;  //影音專區 選單目前位置
 
 var video_w = 0;
 var video_h = 0;
-var video_switch = 0;
+var scale_w = 0;
+var scale_h = 0;
+var video_switch = true;
 var default_menuX = 0;  //影音專區 基本位置
+
+var now_w = $(window).width();
+var now_h = $(window).height();
 $(document).ready(function () {
 	total_flyer = $("#flyer_group > div").length;
 	total_video = $("#video_scroll li").length;
@@ -33,6 +38,8 @@ $(document).ready(function () {
 	$(window).resize(function () {
 		var wdth = $(window).width();
 		var height = $(window).height();
+
+
 		if (wdth > 1280) {
 			flyer_max_move = $("#flyer_group > div").length % 10;
 			video_max_move = $("#video_group > div").length % 8;
@@ -55,40 +62,61 @@ $(document).ready(function () {
 			$("#leaderboard_dots > li").removeClass("on");
 			$("#leaderboard_dots li:first-child").addClass('on');
 			flyer_ani();
-
-			if(video_switch == 0){
-				video_w = $("#video_group .video_play").width();
-				video_h = $("#video_group .video_play").height();
-				video_switch = 1
-			}
 		} else {
 			moveX = flyer_item_move * -100;
 			menu_moveHandler("flyer_group", moveX);
 			removeclass("menu_f");
+		}
+		if (now_w != wdth) {
+			if (wdth < 960 && wdth > 768) {
+				scale_w = video_w + wdth - 960;
+				scale_h = video_h + ((wdth - 960) * 0.6);
+				$("#video_group .video_play").css("width", scale_w);
+				$("#video_group .video_play").css("height", scale_h);
 
-			if(video_switch == 1){
-				video_w = $("#video_group .video_play").width();
-				video_h = $("#video_group .video_play").height();
-				video_switch = 0
+			} else {
+				$("#video_group .video_play").css("width", "");
+				$("#video_group .video_play").css("height", "");
 			}
+			now_w = wdth;
+		} else if (now_h != height) {
+			console.log("sss");
+			if (height < 850) {
+				scale_w = video_w + ((height - 850) * (900 / 470));
+				scale_h = video_h + ((height - 850));
+				$("#video_group .video_play").css("width", scale_w);
+				$("#video_group .video_play").css("height", scale_h);
+			} else {
+				$("#video_group .video_play").css("width", "");
+				$("#video_group .video_play").css("height", "");
+			}
+			now_h = height;
 		}
 
 		// 850 880
-		if (wdth < 960){
-			w = video_w + wdth - 960;
-			h = video_h + (( wdth - 960) * 0.5222);
-			console.log(w);
-			$("#video_group .video_play").css("width" , w);
-			$("#video_group .video_play").css("height" , h);
-		}
-		if(height < 850 ){
-			w = video_w + ((height - 850) * 1.9149);
-			h = video_h + (( height - 850) * 0.5222);
-			console.log(w);
-			$("#video_group .video_play").css("width" , w);
-			$("#video_group .video_play").css("height" , h);
-		}
+
+
 	});
+
+	if ($(window).width() < 960 && $(window).width() > 768) {
+		scale_w = video_w + $(window).width() - 960;
+		scale_h = video_h + (($(window).width() - 960) * 0.6);
+		$("#video_group .video_play").css("width", scale_w);
+		$("#video_group .video_play").css("height", scale_h);
+
+	} else {
+		$("#video_group .video_play").css("width", "");
+		$("#video_group .video_play").css("height", "");
+	}
+	if ($(window).height() < 850) {
+		scale_w = video_w + (($(window).height() - 850) * (900 / 470));
+		scale_h = video_h + (($(window).height() - 850));
+		$("#video_group .video_play").css("width", scale_w);
+		$("#video_group .video_play").css("height", scale_h);
+	} else {
+		$("#video_group .video_play").css("width", "");
+		$("#video_group .video_play").css("height", "");
+	}
 
 	if ($(window).width() > 1280 && total_flyer > 10) {
 		$("#flyer_menu > button").css("display", "block");
@@ -106,9 +134,6 @@ $(document).ready(function () {
 	if ($(window).width() <= 768) {
 		var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
 		menu_moveHandler("flyer_group", moveX);
-		video_switch = 1;
-	}else {
-		video_switch = 0;
 	}
 	if ($(window).width() > 1280 && total_video > 8) {
 		$("#video_menu > button").css("display", "block");
@@ -211,11 +236,15 @@ var scroll_box = document.querySelector("#scroll_box");
 $("h1.logo").click(function () {
 	scroll_box.scrollTo(0, -70);
 })
+$("#scroll_top").click(function () {
+	scroll_box.scrollTo(0, -70);
+})
 for (let index = 0; index < menu_list.length; index++) {
 	const element = menu_list[index];
 	element.onclick = function () {
 		let top = document.querySelector("#" + element.getAttribute('name') + "").offsetTop - 70;
 		scroll_box.scrollTo(0, top);
+		$("#menu_btn").toggleClass("active");
 	}
 }
 
@@ -272,7 +301,7 @@ for (let i = 0; i < s_menu_f.length; i++) {
 			menu_f_active = i;
 			console.log('aaaaaa');
 			if (document.querySelectorAll("#menu_f ~ .school_menu_second > li").length == 1) {
-				
+
 				let sec_span = document.querySelector("#menu_f ~ .school_menu_second span");
 				sec_span.classList.add("active");
 				change("menu_f");
@@ -353,7 +382,7 @@ function removeclass(who) {
 			s_menu_s[i].setAttribute('id', '');
 		}
 	} else if (who == "menu_f") {
-		
+
 		for (let i = 0; i < s_menu_f.length; i++) {
 			s_menu_f[i].classList.remove("active");
 		}

@@ -110,6 +110,7 @@
   border: 2px solid #FFB057;
   margin: 0 5px;
   line-height: 1;
+  cursor: pointer;
 }
 
 .mod_dots .on {
@@ -376,6 +377,7 @@
   position: relative;
   width: 50px;
   height: 40px;
+  cursor: pointer;
 }
 
 .header .menu_btn::before {
@@ -512,6 +514,8 @@
   .header .menu ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
   }
   .header .menu li {
     width: 100%;
@@ -1554,8 +1558,8 @@
 
 @media screen and (max-width: 768px) {
   .video_item {
-    width: auto;
-    margin-right: 10px;
+    width: 85%;
+    margin-right: 20px;
   }
 }
 
@@ -1568,8 +1572,9 @@
 
 @media screen and (max-width: 768px) {
   .video_play {
-    width: 590px;
-    height: 350px;
+    width: auto;
+    height: auto;
+    padding-bottom: calc(100% * (9 / 16));
   }
 }
 
@@ -1610,11 +1615,22 @@
   margin: 0 auto 40px;
 }
 
+.news .news_box li {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .news .news_box li + li {
   margin-top: 20px;
 }
 
 .news .news_date {
+  width: 185px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   color: #EF7E00;
   font-weight: bold;
   font-size: 24px;
@@ -1765,6 +1781,7 @@
   text-align: center;
   line-height: 85px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -1983,6 +2000,7 @@
   background: #FFB057;
   top: 20px;
   right: 35px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -2011,5 +2029,15 @@
 .alert_mask .close::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+.scroll_top {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: url("../../images/icon_gototop.svg") no-repeat center/contain;
+  right: 80px;
+  bottom: 80px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=all.css.map */
