@@ -98,24 +98,27 @@ $(document).ready(function () {
 
 	});
 
-	if ($(window).width() < 960 && $(window).width() > 768) {
-		scale_w = video_w + $(window).width() - 960;
-		scale_h = video_h + (($(window).width() - 960) * 0.6);
-		$("#video_group .video_play").css("width", scale_w);
-		$("#video_group .video_play").css("height", scale_h);
-
-	} else {
-		$("#video_group .video_play").css("width", "");
-		$("#video_group .video_play").css("height", "");
-	}
-	if ($(window).height() < 850) {
-		scale_w = video_w + (($(window).height() - 850) * (900 / 470));
-		scale_h = video_h + (($(window).height() - 850));
-		$("#video_group .video_play").css("width", scale_w);
-		$("#video_group .video_play").css("height", scale_h);
-	} else {
-		$("#video_group .video_play").css("width", "");
-		$("#video_group .video_play").css("height", "");
+	if($(window).width() > 768){
+		if ($(window).width() < 960) {
+			scale_w = video_w + $(window).width() - 960;
+			scale_h = video_h + (($(window).width() - 960) * 0.6);
+			$("#video_group .video_play").css("width", scale_w);
+			$("#video_group .video_play").css("height", scale_h);
+	
+		} else {
+			$("#video_group .video_play").css("width", "");
+			$("#video_group .video_play").css("height", "");
+		}
+		if ($(window).height() < 850) {
+			scale_w = video_w + (($(window).height() - 850) * (900 / 470));
+			scale_h = video_h + (($(window).height() - 850));
+			$("#video_group .video_play").css("width", scale_w);
+			$("#video_group .video_play").css("height", scale_h);
+		} else {
+			$("#video_group .video_play").css("width", "");
+			$("#video_group .video_play").css("height", "");
+		}
+	
 	}
 
 	if ($(window).width() > 1280 && total_flyer > 10) {
