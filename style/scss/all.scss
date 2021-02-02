@@ -382,7 +382,7 @@
 	position: relative;
 	width: 100%;
 	height: calc( 100vh - 70px);
-	background: url('../../images/banner_bg.jpg')no-repeat center/cover;
+	background: url('../../images/banner_bg.jpg')no-repeat 80% bottom/cover;
 	.banner_info{
 		@include absolute(80px ,0,0,170px);
 		.pic{
