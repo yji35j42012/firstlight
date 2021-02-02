@@ -70,6 +70,7 @@ $(document).ready(function () {
 		if (now_w != wdth) {
 			if (wdth < 960 && wdth > 768) {
 				scale_w = video_w + wdth - 960;
+				console.log(video_h);
 				scale_h = video_h + ((wdth - 960) * 0.6);
 				$("#video_group .video_play").css("width", scale_w);
 				$("#video_group .video_play").css("height", scale_h);

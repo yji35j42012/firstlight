@@ -1222,6 +1222,7 @@
 		text-align: center;
 		min-height: 45px;
 		margin-bottom: 25px;
+		line-height: 25px;
 	}
 
 	@include w768px{
@@ -1261,7 +1262,8 @@
 		margin-right: 20px;
 	}
 	.news_info{
-		border-bottom:1px solid #000;
+		position: relative;
+		// border-bottom:1px solid #000;
 		/* 第一步：先禁止斷行 */
 		white-space: nowrap;
 
@@ -1270,6 +1272,15 @@
 
 		/* 第三部：表示文字溢出時，顯示省略符號(...) */
 		text-overflow: ellipsis;
+		&::after{
+			content:'';
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: #000;
+			bottom: 5px;
+		}
 	}
 	@include w768px{
 		.news_box{

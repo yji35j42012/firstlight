@@ -1614,6 +1614,7 @@
   text-align: center;
   min-height: 45px;
   margin-bottom: 25px;
+  line-height: 25px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1661,13 +1662,23 @@
 }
 
 .news .news_info {
-  border-bottom: 1px solid #000;
+  position: relative;
   /* 第一步：先禁止斷行 */
   white-space: nowrap;
   /* 第二步：超過部份隱藏 */
   overflow: hidden;
   /* 第三部：表示文字溢出時，顯示省略符號(...) */
   text-overflow: ellipsis;
+}
+
+.news .news_info::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  bottom: 5px;
 }
 
 @media screen and (max-width: 768px) {
