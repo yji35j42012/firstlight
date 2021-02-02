@@ -1391,10 +1391,10 @@
 .footer {
 	width: 100%;
 	background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
-	padding: 40px 80px;
-	@include w1440px{
-		padding: 40px 10px;
-	}
+	padding: 20px 80px;
+	// @include w1440px{
+	// 	padding: 20px 10px;
+	// }
 	color: #fff;
 	font-size: 16px;
 	.info_box{
@@ -1405,59 +1405,59 @@
 			align-items: center;
 		}
 	}
-	.school_group{
-		display: flex;
-		justify-content: space-around;
-		@include w768px{
-			display: inline-flex;
-			flex-direction: column;
-		}
-		&>div{
-			width: 100%;
-			@include w768px{
-				display: inline-block;
-				width: auto;
-				white-space: nowrap;
-			}
-		}
-		ul{
-			width: 99%;
-		}
-		li{
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			align-items: center;
-			line-height: 1;
-			@include w768px{
-				display: block;
-				line-height: 38px;
-			}
-		}
-		li+li{
-			margin-top: 15px;
-		}
-		.name{
-			display: block;
-			width: 40%;
-			text-align: left;
-		}
-		.phone{
-			display: block;
-			width: 20%;
-		}
-		.address{
-			display: block;
-			width: 40%;
-		}
-	}
+	// .school_group{
+	// 	display: flex;
+	// 	justify-content: space-around;
+	// 	@include w768px{
+	// 		display: inline-flex;
+	// 		flex-direction: column;
+	// 	}
+	// 	&>div{
+	// 		width: 100%;
+	// 		@include w768px{
+	// 			display: inline-block;
+	// 			width: auto;
+	// 			white-space: nowrap;
+	// 		}
+	// 	}
+	// 	ul{
+	// 		width: 99%;
+	// 	}
+	// 	li{
+	// 		width: 100%;
+	// 		display: flex;
+	// 		flex-wrap: wrap;
+	// 		justify-content: space-between;
+	// 		align-items: center;
+	// 		line-height: 1;
+	// 		@include w768px{
+	// 			display: block;
+	// 			line-height: 38px;
+	// 		}
+	// 	}
+	// 	li+li{
+	// 		margin-top: 15px;
+	// 	}
+	// 	.name{
+	// 		display: block;
+	// 		width: 40%;
+	// 		text-align: left;
+	// 	}
+	// 	.phone{
+	// 		display: block;
+	// 		width: 20%;
+	// 	}
+	// 	.address{
+	// 		display: block;
+	// 		width: 40%;
+	// 	}
+	// }
 	.copyright{
-		margin-top: 60px;
+		// margin-top: 60px;
 		text-align: center;
 	}
 	@include w1024px{
-		padding: 40px 25px;
+		// padding: 40px 25px;
 		font-size: 14px;
 	}
 }
