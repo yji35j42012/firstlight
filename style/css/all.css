@@ -534,6 +534,7 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    font-size: 30px;
   }
   .header .menu li:hover {
     color: #fff;
@@ -552,7 +553,7 @@
     height: 50px;
   }
   .header .menu_btn {
-    width: 25px;
+    width: 30px;
     height: 25px;
   }
   .header .menu_btn:before {
@@ -577,7 +578,7 @@
   position: relative;
   width: 100%;
   height: calc( 100vh - 70px);
-  background: url("../../images/banner_bg.jpg") no-repeat 80% bottom/cover;
+  background: url("../../images/banner_bg.jpg") no-repeat center/cover;
 }
 
 .banner .banner_info {
@@ -687,8 +688,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .banner {
+    background-image: url("../../images/banner_ph_bg.png");
+  }
   .banner .banner_info {
-    top: 30px;
+    top: 60px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -697,30 +701,34 @@
   }
   .banner .banner_info .pic {
     margin: auto;
-    width: 230px;
+    width: 130px;
   }
   .banner .banner_txt {
     text-align: center;
   }
   .banner .banner_txt .p1 {
     margin-top: 22px;
-    font-size: 32px;
+    font-size: 28px;
+  }
+  .banner .banner_txt .s1 {
+    font-size: 28px;
   }
   .banner .banner_txt .p2 {
     display: inline-block;
     margin-top: 30px;
+    margin-right: 50px;
     text-align: left;
-    font-size: 24px;
+    font-size: 16px;
   }
   .banner .banner_txt .s2 {
-    font-size: 70px;
+    font-size: 40px;
   }
   .banner .banner_txt .br_768 {
     margin-top: 10px;
   }
   .banner .banner_scoll {
     bottom: 26%;
-    font-size: 28px;
+    font-size: 18px;
   }
   .banner .banner_scoll::after {
     width: 30px;
@@ -924,6 +932,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .flyer {
+    background: url("../../images/flyer/bg_ph_flyer.png") right bottom/cover;
+  }
   .flyer .info_box {
     padding: 25px 0 0 0;
   }
@@ -1004,6 +1015,7 @@
 @media screen and (max-width: 768px) {
   .leaderboard {
     background-size: cover;
+    background-image: url("../../images/leaderboard/bg_ph_leaderboard_l.png");
   }
   .leaderboard .leaderboard_box ul {
     overflow-x: auto;
@@ -1135,23 +1147,24 @@
 }
 
 .school_menu_first > li > span:after {
-  content: '\25BA';
+  content: '';
   position: absolute;
   left: calc(100% + 10px);
   width: 18px;
   height: 18px;
-  font-size: 16px;
+  background: url("../../images/icon_triangle.svg") no-repeat center/contain;
   top: 0;
   bottom: 0;
   margin: auto 0;
-  color: #FFB057;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .school_menu_first > li > span.active:after {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
 .school_menu_second {
@@ -1198,7 +1211,7 @@
 }
 
 .school_menu_second > li > span {
-  padding: 10px 0;
+  padding: 15px 0;
   display: block;
   width: 100%;
 }
@@ -1247,7 +1260,7 @@
       -ms-flex-align: end;
           align-items: flex-end;
   background: #EF7E00;
-  padding: 25px 30px;
+  padding: 20px 30px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -1544,6 +1557,7 @@
 @media screen and (max-width: 768px) {
   .video .info_box {
     padding-bottom: 25px;
+    background-image: url("../../images/video/bg_ph_video.jpg");
   }
 }
 

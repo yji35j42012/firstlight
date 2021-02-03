@@ -26,8 +26,14 @@ var now_h = $(window).height();
 $(document).ready(function () {
 	total_flyer = $("#flyer_group > div").length;
 	total_video = $("#video_scroll li").length;
-	video_w = $("#video_group .video_play").width();
-	video_h = $("#video_group .video_play").height();
+	if(now_w >768){
+		video_w = $("#video_group .video_play").width();
+		video_h = $("#video_group .video_play").height();
+	}else{
+		video_w = 990;
+		video_h =540;
+	}
+
 
 	$("#flyer_scroll ul li:first-child").addClass('on');
 	$("#video_scroll ul li:first-child").addClass('on');
