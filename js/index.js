@@ -26,12 +26,12 @@ var now_h = $(window).height();
 $(document).ready(function () {
 	total_flyer = $("#flyer_group > div").length;
 	total_video = $("#video_scroll li").length;
-	if(now_w >768){
+	if (now_w > 768) {
 		video_w = $("#video_group .video_play").width();
 		video_h = $("#video_group .video_play").height();
-	}else{
+	} else {
 		video_w = 990;
-		video_h =540;
+		video_h = 540;
 	}
 
 
@@ -105,13 +105,13 @@ $(document).ready(function () {
 
 	});
 
-	if($(window).width() > 768){
+	if ($(window).width() > 768) {
 		if ($(window).width() < 960) {
 			scale_w = video_w + $(window).width() - 960;
 			scale_h = video_h + (($(window).width() - 960) * 0.6);
 			$("#video_group .video_play").css("width", scale_w);
 			$("#video_group .video_play").css("height", scale_h);
-	
+
 		} else {
 			$("#video_group .video_play").css("width", "");
 			$("#video_group .video_play").css("height", "");
@@ -125,7 +125,7 @@ $(document).ready(function () {
 			$("#video_group .video_play").css("width", "");
 			$("#video_group .video_play").css("height", "");
 		}
-	
+
 	}
 
 	if ($(window).width() > 1280 && total_flyer > 10) {
@@ -190,12 +190,9 @@ $(document).ready(function () {
 
 	})
 	$("#flyer_dots > li").click(function () {
-		// $("#flyer_dots > li").removeClass("on");
-		// $(this).addClass("on");
 		flyer_item_move = $(this).index();
 		var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
 		menu_moveHandler("flyer_group", moveX);
-		// $("#flyer_group > .flyer_item").removeClass("active");
 		flyer_ani();
 	})
 
@@ -399,4 +396,52 @@ function removeclass(who) {
 	}
 }
 
+const flyer_group = document.querySelector("#flyer_group");
+let startX = 0;
+let startTime = 0;
+let move = 0;
+const startDrag = function (e) {
+	flyer_group.classList.add("active");
+	startX =e.touches[0].pageX;
+	startTime = new Date().getTime();
+}
+const dragHandler = function (e) {
+	if (flyer_group.classList.contains("active")) {
+		move = e.touches[0].pageX - startX;
+	}
+}
+const stopDrog = function (e) {
+	flyer_group.classList.remove("active");
+	if ( move > 0 && $(window).width() <= 768) {
+		console.log(flyer_item_move);
+		flyer_item_move --
+		if(flyer_item_move >= 0){
+			var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
+			menu_moveHandler("flyer_group", moveX);
+			flyer_ani();
+		}else{
+			flyer_item_move = 0
+		}
+	
+	} else if (move < 0  && $(window).width() <= 768) {
+		console.log(flyer_item_move);
+		console.log(flyer_item_move);
+		flyer_item_move ++;
+		if( flyer_item_move < $("#flyer_dots > li").length){			
+			var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
+			menu_moveHandler("flyer_group", moveX);
+			flyer_ani();
+		}else{
+			flyer_item_move = $("#flyer_dots > li").length - 1 ;
+		}
+	
+	}
+	move = 0
+}
+
+
+
+flyer_group.addEventListener('touchstart', startDrag);
+flyer_group.addEventListener('touchmove', dragHandler);
+flyer_group.addEventListener('touchend', stopDrog);
 
