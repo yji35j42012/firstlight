@@ -1325,6 +1325,9 @@
 	.info_box{
 		width: 60%;
 		padding-top: 40px;
+		@include w768px{
+			padding-top: 0;
+		}
 	}
 	.pic{
 		position: relative;

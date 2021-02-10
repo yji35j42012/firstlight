@@ -1746,6 +1746,12 @@
   padding-top: 40px;
 }
 
+@media screen and (max-width: 768px) {
+  .about .info_box {
+    padding-top: 0;
+  }
+}
+
 .about .pic {
   position: relative;
   width: 35%;
