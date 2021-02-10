@@ -319,8 +319,7 @@
 	@include w1024px{
 		.menu{
 			width: 100%;
-			// height: calc(100% - 90px);
-			height: 100vh;
+			height: calc(100vh - 70px);
 			max-width: 375px;
 			position: absolute;
 			background: $primary_color;
@@ -328,6 +327,7 @@
 			right: -100%;
 			top: 70px;
 			transition-duration: .3s;
+			@include overflow(hidden , auto);
 		}
 		.active + .menu{
 			right: 0;
@@ -376,7 +376,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 	scroll-behavior: smooth;
-
+	transition-duration: .3s;
 }
 .banner {
 	position: relative;
@@ -748,8 +748,7 @@
 		
 		.leaderboard_box{
 			ul{
-				overflow-x: auto;
-				overflow-y: hidden;
+				@include overflow(auto , hidden);
 			}
 			li{
 				width: 40%;

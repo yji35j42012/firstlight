@@ -509,7 +509,7 @@
 @media screen and (max-width: 1024px) {
   .header .menu {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 70px);
     max-width: 375px;
     position: absolute;
     background: #EF7E00;
@@ -518,6 +518,9 @@
     top: 70px;
     -webkit-transition-duration: .3s;
             transition-duration: .3s;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .header .active + .menu {
     right: 0;
@@ -572,6 +575,8 @@
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
 }
 
 .banner {
@@ -1022,6 +1027,7 @@
   .leaderboard .leaderboard_box ul {
     overflow-x: auto;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
   .leaderboard .leaderboard_box li {
     width: 40%;

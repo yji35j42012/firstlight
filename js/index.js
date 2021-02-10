@@ -23,6 +23,7 @@ var default_menuX = 0;  //影音專區 基本位置
 
 var now_w = $(window).width();
 var now_h = $(window).height();
+
 $(document).ready(function () {
 	total_flyer = $("#flyer_group > div").length;
 	total_video = $("#video_scroll li").length;
@@ -39,12 +40,10 @@ $(document).ready(function () {
 	$("#video_scroll ul li:first-child").addClass('on');
 
 	leaderboard_max_move = $("#leaderboard_pic > li").length % 5;
-	// console.log("leaderboard_max_move" , leaderboard_max_move);
 	// 偵測螢幕寬度
 	$(window).resize(function () {
 		var wdth = $(window).width();
 		var height = $(window).height();
-
 
 		if (wdth > 1280) {
 			flyer_max_move = $("#flyer_group > div").length % 10;
@@ -76,7 +75,6 @@ $(document).ready(function () {
 		if (now_w != wdth) {
 			if (wdth < 960 && wdth > 768) {
 				scale_w = video_w + wdth - 960;
-				console.log(video_h);
 				scale_h = video_h + ((wdth - 960) * 0.6);
 				$("#video_group .video_play").css("width", scale_w);
 				$("#video_group .video_play").css("height", scale_h);
@@ -87,7 +85,6 @@ $(document).ready(function () {
 			}
 			now_w = wdth;
 		} else if (now_h != height) {
-			console.log("sss");
 			if (height < 850) {
 				scale_w = video_w + ((height - 850) * (900 / 470));
 				scale_h = video_h + ((height - 850));
@@ -101,7 +98,6 @@ $(document).ready(function () {
 		}
 
 		// 850 880
-
 
 	});
 
@@ -201,7 +197,6 @@ $(document).ready(function () {
 		$(this).addClass("on");
 		let move = -100 * $(this).index();
 		menu_moveHandler("leaderboard", move);
-		console.log($(this).index());
 	})
 
 
@@ -257,12 +252,7 @@ for (let index = 0; index < menu_list.length; index++) {
 
 
 
-
-
-
-
 function menu_moveHandler(who, moveX) {
-	// console.log(who);
 	if (who == "flyer") {
 		$("#flyer_scroll > ul").css("transform", "translateX(" + moveX + "px)");
 	} else if (who == "video") {
@@ -306,7 +296,6 @@ for (let i = 0; i < s_menu_f.length; i++) {
 			element.classList.add("active");
 			element.setAttribute('id', 'menu_f');
 			menu_f_active = i;
-			console.log('aaaaaa');
 			if (document.querySelectorAll("#menu_f ~ .school_menu_second > li").length == 1) {
 
 				let sec_span = document.querySelector("#menu_f ~ .school_menu_second span");
@@ -321,7 +310,6 @@ for (let i = 0; i < s_menu_f.length; i++) {
 		} else if (menu_f_active == -1) {
 			element.classList.add("active");
 			element.setAttribute('id', 'menu_f');
-			console.log('bbbbbbb');
 			menu_f_active = i;
 			if (document.querySelectorAll("#menu_f ~ .school_menu_second > li").length == 1) {
 				let sec_span = document.querySelector("#menu_f ~ .school_menu_second span");
@@ -355,10 +343,7 @@ for (let i = 0; i < s_menu_s.length; i++) {
 }
 
 
-
-
 function change(who) {
-
 	if (who == "menu_f") {
 		var img = document.querySelector("#menu_f ~ .school_menu_second img");
 		var department = document.querySelector("#menu_f ~ .school_menu_second .department");
@@ -412,8 +397,7 @@ const dragHandler = function (e) {
 }
 const stopDrog = function (e) {
 	flyer_group.classList.remove("active");
-	if ( move > 0 && $(window).width() <= 768) {
-		console.log(flyer_item_move);
+	if ( move > 10 && $(window).width() <= 768) {
 		flyer_item_move --
 		if(flyer_item_move >= 0){
 			var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);
@@ -423,9 +407,7 @@ const stopDrog = function (e) {
 			flyer_item_move = 0
 		}
 	
-	} else if (move < 0  && $(window).width() <= 768) {
-		console.log(flyer_item_move);
-		console.log(flyer_item_move);
+	} else if (move < -10  && $(window).width() <= 768) {
 		flyer_item_move ++;
 		if( flyer_item_move < $("#flyer_dots > li").length){			
 			var moveX = ($("#flyer_group").width() / 2) - (($("#flyer_group > .flyer_item").width() + 30) / 2 + ($("#flyer_group > .flyer_item").width() + 30) * flyer_item_move);

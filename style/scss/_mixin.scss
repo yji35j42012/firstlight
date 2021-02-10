@@ -60,6 +60,11 @@
     }
 }
 
+@mixin overflow( $x , $y) {
+    overflow-x: $x;
+    overflow-y: $y;
+    -webkit-overflow-scrolling: touch;
+}
 
 .aaa{
     @include aniHandler();
