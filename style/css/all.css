@@ -1804,6 +1804,7 @@
 
 @media screen and (max-width: 768px) {
   .about .about_blod {
+    margin-top: 14px;
     display: block;
   }
 }
