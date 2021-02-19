@@ -7,15 +7,14 @@
 
 .wrap {
 	position: relative;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
 	font-size: 20px;
-	overflow: hidden;
 }
 .mod_dots{
-	display: flex;
 	width: 100%;
-	justify-content: center;
+	@include df(center , flex-start);
 	li{
 		width: 10px;
 		height: 10px;
@@ -31,12 +30,12 @@
 }
 .scroll_menu{
 	position: relative;
+	@include flex_c_c;
 	width: 100%;
 	max-width: 1100px;
 	height: 110px;
 	background: #FFB057;
 	margin: auto;
-	@include flex_c_c;
 	padding: 0 60px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -51,19 +50,18 @@
 		overflow: hidden;
 		ul{
 			position: relative;
-			display: flex;
+			@include df(center , flex-start);
 			width: 100%;
-			justify-content: center;
 			transition-duration: .3s;
 		}
 		li{
 			cursor: pointer;
 			position: relative;
+			overflow: hidden;
 			flex: none;
 			width: 80px;
 			height: 80px;
 			margin: 10px;
-			overflow: hidden;
 			border-radius: 10px;
 			>img {
 				@include absolute(0 , auto , 0 , auto);
@@ -99,18 +97,18 @@
 }
 .prev_btn {
 	display: none;
+	@include absolute(0 , auto , 0 , 20px);
 	width: 15px;
 	height: 40px;
-	@include absolute(0 , auto , 0 , 20px);
 	margin: auto 0;
 	background: url('../../images/icon_prev.svg')no-repeat center/cover;
 	cursor: pointer;
 }
 .next_btn {
 	display: none;
+	@include absolute(0 , 20px , 0 , auto);
 	width: 15px;
 	height: 40px;
-	@include absolute(0 , 20px , 0 , auto);
 	margin: auto 0;
 	background: url('../../images/icon_next.svg')no-repeat center/cover;
 	cursor: pointer;
@@ -157,12 +155,12 @@
 
 .title {
 	position: relative;
+	@include flex_c_c;
 	width: 100%;
 	height: 80px;
 	color: $whtie;
 	font-size: 45px;
 	font-weight: bold;
-	@include flex_c_c;
 	text-shadow: 0 4px 4px rgba(0,0,0,.25);
 	line-height: 1px;
 	&:before{
@@ -183,30 +181,26 @@
 }
 .header {
 	position: relative;
-	display: flex;
+	@include df(space-between , center);
+	z-index: 10;
 	width: 100%;
 	height: 70px;
-	justify-content: space-between;
-	align-items: center;
 	padding: 0 50px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	background: #fff;
-	z-index: 10;
 	.logo {
 		position: relative;
+		overflow: hidden;
 		width: 185px;
 		height: 50px;
 		background: url('../../images/logo.png')no-repeat center/contain;
 		text-indent: 101%;
 		white-space: nowrap;
-		overflow: hidden;
 		a{
-			position: absolute;
+			@include absolute(0 , auto , auto ,0);
 			display: block;
 			width: 100%;
 			height: 100%;
-			top: 0;
-			left: 0;
 		}
 	}
 	.menu_btn{
@@ -256,8 +250,7 @@
 		}
 		li{
 			position: relative;
-			display: flex;
-			align-items: center;
+			@include df(flex-start , center);
 			font-weight: 700;
 			color: #2C2C2C;
 			transition-duration: .3s;
@@ -302,14 +295,14 @@
 	}
 	@include w1024px{
 		.menu{
-			width: 100%;
-			height: calc(100vh - 70px);
-			max-width: 375px;
 			@include absolute(70px , -100% , auto , auto);
-			background: $primary_color;
-			z-index: 2;
-			transition-duration: .3s;
 			@include overflow(hidden , auto);
+			z-index: 2;
+			width: 100%;
+			max-width: 375px;
+			height: calc(100vh - 70px);
+			background: $primary_color;
+			transition-duration: .3s;
 		}
 		.active + .menu{
 			right: 0;
@@ -355,8 +348,7 @@
 .scroll_box{
 	width: 100%;
 	height: calc(100% - 70px);
-	overflow-x: hidden;
-	overflow-y: auto;
+	@include overflow(hidden , auto);
 	scroll-behavior: smooth;
 	transition-duration: .3s;
 }
@@ -488,7 +480,6 @@
 				margin-right: 50px;
 				text-align: left;
 				font-size: 16px;
-				
 			}
 			.s2{
 				font-size: 40px;
@@ -508,20 +499,17 @@
 	}
 }
 .date_block {
-	position: absolute;
-	width: 100%;
 	@include absolute(auto , auto , 0 , 0);
+	width: 100%;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 12.5%, rgba(255, 255, 255, 0.9) 34.69%);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	ul{
-		display: flex;
-		justify-content: space-between;
+		@include df(space-between , flex-start);
 		padding: 10px 50px;
 	}
 	li{
 		position: relative;
-		align-items: center;
-		display: flex;
+		@include df(flex-start, center);
 		font-size: 20px;
 	}
 	.br{font-size: 0;}
@@ -538,11 +526,11 @@
 		margin-right: 15px;
 	}
 	.date_num{
+		display: inline-flex;
+		align-items: flex-end;
 		color: $primary_color;
 		font-size: 50px;
 		padding: 10px;
-		display: inline-flex;
-		align-items: flex-end;
 		&::after{
 			content:attr(data-text);
 			font-size: 20px;
@@ -558,13 +546,12 @@
 	}
 	@include w1280px{
 		li{
-			display: flex;
+			@include df(center , flex-start);
 			flex-wrap: wrap;
-			justify-content: center;
 		}
 		.date_num{
-			width: 100%;
 			justify-content: center;
+			width: 100%;
 			padding: 0;
 		}
 		.br tt{
@@ -621,14 +608,14 @@
 		padding-right: 15px;
 	}
 	.flyer_box {
+		overflow: hidden;
 		max-width: 510px;
 		height: calc(100% - 80px - 110px);
-		overflow: hidden;
 		margin: auto;
 	}
 	.flyer_group {
-		height: 100%;
 		display: flex;
+		height: 100%;
 		margin-bottom: 40px;
 		transition-duration: .3s;
 	}
@@ -649,10 +636,10 @@
 		width: 100%;
 		max-width: 480px;
 		height: 25px;
+		margin: 0 auto 20px;
 		font-size: 24px;
 		text-align: center;
 		font-weight: 500px;
-		margin: 0 auto 20px;
 		transform: translate3d(0 , 0 ,0);
 	}
 	.mod_dots{
@@ -669,8 +656,8 @@
 			height: calc(100% - 80px - 70px);
 		}
 		.flyer_group{
-			margin-bottom: 0;
 			align-items: center;
+			margin-bottom: 0;
 		}
 		.flyer_item{
 			display: block;
@@ -704,9 +691,9 @@
 		background-image: url('../../images/icon_leaderboard.png');
 	}
 	.leaderboard_box{
+		overflow: hidden;
 		width: 100%;
 		max-width: 1430px;
-		overflow: hidden;
 		margin: auto;
 		padding-bottom: 40px;
 	}
@@ -725,7 +712,7 @@
 	@include w768px{
 		background-size: cover;
 		background-image: url('../../images/leaderboard/bg_ph_leaderboard_l.png');
-		
+
 		.leaderboard_box{
 			ul{
 				@include overflow(auto , hidden);
@@ -772,7 +759,6 @@
 			&:last-child{
 				border-right: none;
 			}
-
 			@include w1280px{
 				width: calc(100% / 3 - 50px);
 				margin: 10px;
@@ -805,10 +791,10 @@
 				@include w768px{
 					width: 100%;
 					border-right: none;
-					text-align: center;
 					border-bottom: 1px solid #C4C4C4;
 					margin: 0;
 					padding: 0;
+					text-align: center;
 				}
 				&:last-child{
 					border-right: none;
@@ -821,13 +807,10 @@
 					}
 					&:after{
 						content:'';
-						position: absolute;
-						left: calc(100% + 10px);
+						@include absolute(0 , auto , 0 , calc(100% + 10px));
 						width: 18px;
 						height: 18px;
 						background: url('../../images/icon_triangle.svg')no-repeat center/contain;
-						top: 0;
-						bottom: 0;
 						margin: auto 0;
 						transition-duration: .3s;
 						transform: rotate(-90deg);
@@ -840,19 +823,17 @@
 		}
 
 		&_second{
-			position: absolute;
+			@include absolute(calc(100% + 5px) , auto , auto , 0);
 			width: 100%;
-			top: calc(100% + 5px);
-			left: 0;
+			z-index: 2;
 			background: rgba(44, 44, 44, 0.7);
-			z-index: 1;
 			transition-duration: .3s;
 			opacity: 0;
 			visibility: collapse;
 			transform: scale(1, 0);
 			transform-origin:0 0;
 			transition:all 300ms cubic-bezier(.55,0,.42,1);
-			z-index: 2;
+
 			@include w768px{
 				position: relative;
 				top: 0;
@@ -864,14 +845,14 @@
 				text-align: center;
 				@include w768px{
 					height: 0;
+					padding: 0;
 					opacity: 0;
 					visibility: collapse;
-					padding: 0;
 				}
 				>span{
-					padding: 15px 0;
 					display: block;
 					width: 100%;
+					padding: 15px 0;
 				}
 			}
 
@@ -898,19 +879,16 @@
 				transition:all 300ms cubic-bezier(.55,0,.42,1);
 			}
 			>li:last-child{
-				text-align: left;
 				width: 100%;
 				color:#2C2C2C;
 				background: url("../../images/school/bg_school.jpg") no-repeat right bottom/cover;
-
+				text-align: left;
 				div:last-child{
 					text-align: right;
 				}
 			}
 			.department{
-				display: flex;
-				justify-content: center;
-				align-items: flex-end;
+				@include df(center , flex-end);
 				background: $primary_color;
 				padding: 20px 30px;
 				font-size: 30px;
@@ -958,18 +936,14 @@
 			opacity: 1;
 		}
 		img{
-			position: absolute;
-			top: 0;
-			left: 0;
+			@include absolute(0 , auto , auto , 0);
 			width: auto;
 			height: 100%;
 		}
 	}
 	&_txt_box{
-		position: absolute;
+		@include absolute(auto , 0 ,  -5% , auto);
 		max-width: 535px;
-		right: 0;
-		bottom: -5%;
 		transition-duration: .3s;
 		transform: translateX(10%);
 		opacity: 0;
@@ -982,12 +956,11 @@
 			opacity: 1;
 		}
 		.school_txt{
-			color:#fff;
-			// height: 148px;
-			height: auto;
-			background: rgba(239, 126, 0, .7);
 			display: block;
+			height: auto;
 			padding: 20px 40px;
+			background: rgba(239, 126, 0, .7);
+			color:#fff;
 
 			@include w1024px{
 				padding: 15px 20px;
@@ -998,14 +971,12 @@
 			width: 100%;
 			font-size: 48px;
 			font-weight: 700;
-			// line-height: 85px;
 		}
 		h2{
 			display: block;
 			width: 100%;
 			font-size: 36px;
 			font-weight: 700;
-			// line-height: 65px;
 			text-align: right;
 		}
 	}
@@ -1013,8 +984,7 @@
 		background: rgba(255, 255, 255, 0.9);
 		padding: 16px 38px 38px;
 		li{
-			display: flex;
-			align-items: center;
+			@include df(flex-start , center);
 			line-height: 26px;
 		}
 		li::before{
@@ -1074,11 +1044,11 @@
 			margin-bottom: 0;
 			li{
 				width: 100%;
+				margin: 0;
+				padding: 0;
 				border-right: none;
 				text-align: center;
 				border-bottom: 1px solid #C4C4C4;
-				margin: 0;
-				padding: 0;
 			}
 			span{
 				display: inline-block;
@@ -1087,9 +1057,6 @@
 			span:after{
 				transform: rotate(90deg);
 			}
-			// span.active:after{
-			// 	transform: rotate(180deg);
-			// }
 		}
 		.school_int{
 			display: none;
@@ -1108,28 +1075,26 @@
 		}
 		.school_third_menu{
 			li:first-child{
+				@include df(center , flex-end);
 				background: $primary_color;
-				display: flex;
 				padding: 10px 32px;
-				align-items: flex-end;
-				justify-content: center;
 				h1{
 					font-size: 30px;
 				}
 				h2{
-					font-size: 20px;
 					margin-left: 50px;
+					font-size: 20px;
 				}
 			}
 			li:nth-child(2){
 				padding: 0;
 			}
 			li:nth-child(3){
+				display: flex;
+				flex-wrap: wrap;
 				padding: 14px 32px 30px;
 				background: url("../../images/school/bg_school.jpg") no-repeat right bottom/cover;
 				color: #2C2C2C;
-				display: flex;
-				flex-wrap: wrap;
 				div{
 					width: 100%;
 					text-align: left;
@@ -1164,11 +1129,11 @@
 		}
 	}
 	&_box{
+		overflow: hidden;
 		width: 100%;
 		max-width: 990px;
 		height: calc(100% - 80px - 110px);
 		margin: auto;
-		overflow: hidden;
 	}
 	&_group{
 		position: relative;
@@ -1198,19 +1163,15 @@
 			padding-bottom: calc(100% * (9 / 16));
 		}
 		>iframe{
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
+			@include absolute(0 , 0 , 0 , 0);
 			margin: auto;
 		}
 	}
 	&_title{
-		text-align: center;
 		min-height: 45px;
 		margin-bottom: 25px;
 		line-height: 25px;
+		text-align: center;
 	}
 
 	@include w768px{
@@ -1244,10 +1205,10 @@
 	.news_date{
 		width: 185px;
 		flex: none;
+		margin-right: 20px;
 		color: $primary_color;
 		font-weight: bold;
 		font-size: 24px;
-		margin-right: 20px;
 	}
 	.news_info{
 		position: relative;
@@ -1262,20 +1223,18 @@
 		text-overflow: ellipsis;
 		&::after{
 			content:'';
-			position: absolute;
 			display: block;
+			@include absolute(auto, auto , 5px , auto);
 			width: 100%;
 			height: 1px;
 			background: #000;
-			bottom: 5px;
 		}
 	}
 	@include w768px{
 		.news_box{
 			li{
-				display: flex;
+				@include df(center , flex-start);
 				flex-wrap: wrap;
-				justify-content: center;
 				line-height: 40px;
 			}
 
@@ -1287,18 +1246,19 @@
 		.news_date{
 			display: block;
 			width: 100%;
-			text-align: center;
 			margin-bottom: 4px;
 			margin-right: 0;
+			text-align: center;
 		}
 	}
 }
 .about{
-	background: url('../../images/bg_about.jpg')no-repeat center/cover,
-	linear-gradient(180deg, rgba(0, 0, 0, 0.320899) 0%, rgba(0, 0, 0, 0.244022) 100%);
-	overflow: hidden;
 	display: flex;
 	flex-wrap: wrap;
+	overflow: hidden;
+	background: url('../../images/bg_about.jpg')no-repeat center/cover,
+	linear-gradient(180deg, rgba(0, 0, 0, 0.320899) 0%, rgba(0, 0, 0, 0.244022) 100%);
+
 	.title::before{
 		background-image: url('../../images/icon_about.png');
 	}
@@ -1315,8 +1275,7 @@
 		max-width: 560px;
 		margin-left: 25px;
 		img{
-			position: absolute;
-			bottom: 0;
+			@include absolute(auto , auto , 0 , auto);
 		}
 	}
 	.about_txt{
@@ -1330,9 +1289,9 @@
 		}
 	}
 	.about_blod{
+		margin-bottom: 15px;
 		font-size: 28px;
 		font-weight: 700;
-		margin-bottom: 15px;
 	}
 	.text_indent{
 		text-indent: 45px;
@@ -1373,12 +1332,11 @@
 		padding-right: 15px;
 	}
 	.edu_group{
+		@include df(space-between , flex-start);
+		flex-wrap: wrap;
 		width: 100%;
 		max-width: 1110px;
 		margin: auto;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
 		li{
 			width: calc(100% / 3 - 30px);
 			height: 85px;
@@ -1403,111 +1361,55 @@
 	width: 100%;
 	background: linear-gradient(106.56deg, #7D4A17 0%, #C68236 100%);
 	padding: 20px 80px;
-	// @include w1440px{
-	// 	padding: 20px 10px;
-	// }
 	color: #fff;
 	font-size: 16px;
 	.info_box{
 		padding-top: 0;
 		@include w768px{
-			display: flex;
+			@include df(flex-start , center);
 			flex-direction: column;
-			align-items: center;
 		}
 	}
-	// .school_group{
-	// 	display: flex;
-	// 	justify-content: space-around;
-	// 	@include w768px{
-	// 		display: inline-flex;
-	// 		flex-direction: column;
-	// 	}
-	// 	&>div{
-	// 		width: 100%;
-	// 		@include w768px{
-	// 			display: inline-block;
-	// 			width: auto;
-	// 			white-space: nowrap;
-	// 		}
-	// 	}
-	// 	ul{
-	// 		width: 99%;
-	// 	}
-	// 	li{
-	// 		width: 100%;
-	// 		display: flex;
-	// 		flex-wrap: wrap;
-	// 		justify-content: space-between;
-	// 		align-items: center;
-	// 		line-height: 1;
-	// 		@include w768px{
-	// 			display: block;
-	// 			line-height: 38px;
-	// 		}
-	// 	}
-	// 	li+li{
-	// 		margin-top: 15px;
-	// 	}
-	// 	.name{
-	// 		display: block;
-	// 		width: 40%;
-	// 		text-align: left;
-	// 	}
-	// 	.phone{
-	// 		display: block;
-	// 		width: 20%;
-	// 	}
-	// 	.address{
-	// 		display: block;
-	// 		width: 40%;
-	// 	}
-	// }
 	.copyright{
-		// margin-top: 60px;
 		text-align: center;
 	}
 	@include w1024px{
-		// padding: 40px 25px;
 		font-size: 14px;
 	}
 }
 
 .alert_mask{
 	position: fixed;
-	width: 100%;
-	height: 100%;
 	top: 0;
 	left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(0,0,0,.7);
+	@include df(center , center);
 	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.7);
 	.alert{
 		position: relative;
-		width: 100%;
-		height: 100%;
-		max-width: 1100px;
-		max-height: 824px;
-		background:#fff  url('../../images/bg_news.png')no-repeat right bottom /200%;
 		overflow: hidden;
+		width: 100%;
+		max-width: 1100px;
+		height: 100%;
+		max-height: 824px;
 		padding: 35px;
+		background:#fff  url('../../images/bg_news.png')no-repeat right bottom /200%;
 
 		&_title{
+			margin-bottom: 30px;
 			text-align: left;
 			font-size: 48px;
 			color:#FFB057;
 			font-weight: bold;
-			margin-bottom: 30px;
 			@include w768px{
 				font-size: 30px;
 			}
 		}
 		&_content{
+			@include overflow(hidden , auto);
 			height: calc(100% - 108px);
-			overflow-x: hidden;
-			overflow-y: auto;
 			.msg{
 				font-size: 24px;
 				color: #2C2C2C;
@@ -1526,12 +1428,10 @@
 		}
 	}
 	.close{
-		position: absolute;
+		@include absolute(20px , 35px , auto , auto);
 		width: 60px;
 		height: 60px;
 		background: #FFB057;
-		top: 20px;
-		right: 35px;
 		cursor: pointer;
 		@include w768px{
 			width: 45px;
@@ -1540,13 +1440,9 @@
 		&::before,
 		&::after{
 			content:'';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			margin: auto;
+			@include absolute(0 , 0 , 0 , 0);
 			display: block;
+			margin: auto;
 			width: 80%;
 			height: 2px;
 			background: #fff;
@@ -1559,11 +1455,11 @@
 }
 .scroll_top{
 	position: fixed;
+	right: 80px;
+	bottom: 80px;
 	width: 80px;
 	height: 80px;
 	background: url("../../images/icon_gototop.svg")no-repeat center/contain;
-	right: 80px;
-	bottom: 80px;
 	cursor: pointer;
 
 	@include w768px{
