@@ -66,10 +66,8 @@
 			overflow: hidden;
 			border-radius: 10px;
 			>img {
-				position: absolute;
+				@include absolute(0 , auto , 0 , auto);
 				width: 100%;
-				top: 0;
-				bottom: 0;
 				margin: auto;
 			}
 		}
@@ -79,12 +77,10 @@
 			}
 		}
 		span{
-			position: absolute;
+			@include absolute(0 , auto , auto , 0);
 			display: block;
 			width: 100%;
 			height: 100%;
-			top: 0;
-			left: 0;
 			background: rgba(0,0,0,.7);
 		}
 	}
@@ -99,33 +95,25 @@
 				margin: 0 3px;
 			}
 		}
-
-
 	}
 }
 .prev_btn {
 	display: none;
 	width: 15px;
 	height: 40px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
+	@include absolute(0 , auto , 0 , 20px);
 	margin: auto 0;
-	cursor: pointer;
-	left: 20px;
 	background: url('../../images/icon_prev.svg')no-repeat center/cover;
+	cursor: pointer;
 }
 .next_btn {
 	display: none;
 	width: 15px;
 	height: 40px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
+	@include absolute(0 , 20px , 0 , auto);
 	margin: auto 0;
-	cursor: pointer;
-	right: 20px;
 	background: url('../../images/icon_next.svg')no-repeat center/cover;
+	cursor: pointer;
 }
 @include w768px{
 	.br_768{
@@ -230,8 +218,7 @@
 	}
 	.menu_btn::before{
 		content:'';
-		position: absolute;
-		top: 0;
+		@include absolute(0 , auto , auto , auto);
 		width: 100%;
 		height: 4px;
 		background: #000;
@@ -247,8 +234,7 @@
 	}
 	.menu_btn::after{
 		content:'';
-		position: absolute;
-		bottom: 0;
+		@include absolute(auto , auto , 0 , auto);
 		width: 100%;
 		height: 4px;
 		background: #000;
@@ -270,7 +256,6 @@
 		}
 		li{
 			position: relative;
-
 			display: flex;
 			align-items: center;
 			font-weight: 700;
@@ -280,11 +265,10 @@
 		li::before,
 		li::after{
 			content:'';
-			position: absolute;
+			@include absolute(73% , auto , auto , auto);
 			width: 50%;
 			height: 1px;
 			background: $primary_color;
-			top: 73%;
 			transition-duration: .3s;
 		}
 		li::before{
@@ -321,11 +305,9 @@
 			width: 100%;
 			height: calc(100vh - 70px);
 			max-width: 375px;
-			position: absolute;
+			@include absolute(70px , -100% , auto , auto);
 			background: $primary_color;
 			z-index: 2;
-			right: -100%;
-			top: 70px;
 			transition-duration: .3s;
 			@include overflow(hidden , auto);
 		}
@@ -399,7 +381,6 @@
 		.s1{
 			font-size: 56px;
 			font-weight:700;
-
 		}
 		.s2{
 			font-size: 112px;
@@ -423,17 +404,19 @@
 		font-weight: 500;
 		letter-spacing: 2px;
 		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-		// animation-name: scroll ;
+
 		animation-fill-mode: both;
 		animation-iteration-count: 1;
 		animation-duration: 1.5s;
 		animation-play-state: running;
 		cursor: default;
+
 		@include hoverHandler{
 			&:hover{
 				animation-name: scroll ;
 			}
 		}
+
 		&::after{
 			content:'';
 			display: block;
@@ -527,8 +510,7 @@
 .date_block {
 	position: absolute;
 	width: 100%;
-	left: 0;
-	bottom: 0;
+	@include absolute(auto , auto , 0 , 0);
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 12.5%, rgba(255, 255, 255, 0.9) 34.69%);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	ul{
@@ -716,7 +698,6 @@
 
 .leaderboard{
 	width: 100%;
-	// background: url('../../images/leaderboard/bg_leaderboard.jpg')no-repeat center bottom/cover;
 	background: url('../../images/leaderboard/bg_leaderboard_l.png')no-repeat center left/contain,
 				url('../../images/leaderboard/bg_leaderboard_r.png')no-repeat center right/contain;
 	.title::before{
@@ -728,7 +709,6 @@
 		overflow: hidden;
 		margin: auto;
 		padding-bottom: 40px;
-
 	}
 	.leaderboard_pic{
 		display: flex;
